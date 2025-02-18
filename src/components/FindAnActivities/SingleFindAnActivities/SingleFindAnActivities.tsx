@@ -1,11 +1,13 @@
 "use client";
 
+import HostInfo from "@/app/(slyd-social)/host/page";
 import { fakeParty } from "@/app/data/FakeData";
+import { fakeImage } from "@/constant/constant";
 import { ColorPalette } from "@/theme/themes";
+import { EventDataFormat, EventTimeFormat } from "@/utils/DateFormat";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Tooltip } from "antd";
 import Image from "next/image";
-import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
 import { MdAccessTime, MdOutlineDateRange } from "react-icons/md";
 
 const SingleFindAnActivities = ({ id }: any) => {
@@ -22,7 +24,7 @@ const SingleFindAnActivities = ({ id }: any) => {
         {/* image part */}
         <div>
           <Image
-            src="/assets/images/login.png"
+            src={party?.partyImage || fakeImage}
             alt="Logo"
             layout="responsive"
             width={100}
@@ -37,26 +39,32 @@ const SingleFindAnActivities = ({ id }: any) => {
             className="text-3xl font-semibold"
             style={{ color: `${ColorPalette?.colorTextPrimary}` }}
           >
-            New Year Party 2025
+            {party?.partyName || "N/A"}
           </h1>
           <h3
             style={{ color: `${ColorPalette?.colorTextSecondary}` }}
             className="text-xl mt-2"
           >
-            2 Miles Away
+            {party?.distance || "N/A"} Away
           </h3>
           <p
             className="mt-2 text-base flex items-center justify-start"
             style={{ color: `${ColorPalette?.colorTextSecondary}` }}
           >
             <MdOutlineDateRange />{" "}
-            <span className="ml-2">Sun, January 19, 2025</span>
+            <span className="ml-2">
+              {EventDataFormat(party?.createdAt || "")}
+            </span>
           </p>
           <p
             className="mt-2 text-base flex items-center justify-start"
             style={{ color: `${ColorPalette?.colorTextSecondary}` }}
           >
-            <MdAccessTime /> <span className="ml-2">6:00 PM - 10:00 PM</span>
+            <MdAccessTime />{" "}
+            <span className="ml-2">
+              {EventTimeFormat(party?.eventStartTime!)} -{" "}
+              {EventTimeFormat(party?.eventEndTime!)}
+            </span>
           </p>
 
           {/* button */}
@@ -86,11 +94,16 @@ const SingleFindAnActivities = ({ id }: any) => {
           >
             <h2 className="font-semibold text-xl">Activity Details</h2>
 
-            <p className="text-base mt-3">Theme - Black Dress Code</p>
-            <p className="text-base mt-1">Activity - Party</p>
-            <p className="text-base mt-1">Age Range - 18-20 Years</p>
+            <p className="text-base mt-3">Theme - {party?.theme || "N/A"}</p>
             <p className="text-base mt-1">
-              Number of guests per participant - 2
+              Activity - {party?.Activity || "N/A"}
+            </p>
+            <p className="text-base mt-1">
+              Age Range - {party?.ageRange || "N/A"}
+            </p>
+            <p className="text-base mt-1">
+              Number of guests per participant -{" "}
+              {party?.perParticipant || "N/A"}
             </p>
           </div>
 
@@ -104,7 +117,9 @@ const SingleFindAnActivities = ({ id }: any) => {
           >
             <div>
               <h2 className="text-xl font-semibold">Attendees</h2>
-              <p className="text-base">13/120</p>
+              <p className="text-base">
+                {party?.attendance || 0}/{party?.totalParticipants || 0}
+              </p>
             </div>
 
             <Avatar.Group
@@ -154,9 +169,7 @@ const SingleFindAnActivities = ({ id }: any) => {
             >
               <div className="mb-7 lg:mb-0">
                 <h2 className="text-xl font-semibold">Location</h2>
-                <p className="text-base">
-                  6035 NW 39th St, Virginia Gardens, FL 33166, USA
-                </p>
+                <p className="text-base">{party?.address || "N/A"}</p>
               </div>
 
               <Button
@@ -182,6 +195,8 @@ const SingleFindAnActivities = ({ id }: any) => {
             }}
           >
             <h2 className="font-semibold text-xl">Note</h2>
+
+            <p className="mt-3">{party?.note || "N/A"}</p>
             <p className="mt-3">💌 Note for Participants:</p>
             <ul className="pl-5">
               <li>
@@ -194,27 +209,7 @@ const SingleFindAnActivities = ({ id }: any) => {
           </div>
 
           {/*Activity Host*/}
-          <div
-            className="mt-5 p-5 rounded-md"
-            style={{
-              background: `${ColorPalette.colorSecondaryBg}`,
-              color: `${ColorPalette?.colorTextPrimary}`,
-            }}
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-xl font-semibold">Activity Host</h2>
-                <div className="flex items-center justify-start mt-3">
-                  <Avatar size="default" />
-                  <h3 className="ml-3 text-base">Robert Smith, 21</h3>
-                </div>
-              </div>
-
-              <button>
-                <HiOutlineArrowTopRightOnSquare className="text-2xl" />{" "}
-              </button>
-            </div>
-          </div>
+          <HostInfo partyHost={party} />
         </div>
       </article>
     </div>

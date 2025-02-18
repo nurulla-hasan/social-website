@@ -3,6 +3,7 @@
 import { ColorPalette } from "@/theme/themes";
 import { MenuOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Layout } from "antd";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const { Header } = Layout;
@@ -46,11 +47,13 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
       }}
     >
       <div>
-        <Avatar
-          style={{ margin: "0 10px" }}
-          size="default"
-          icon={<UserOutlined />}
-        />
+        <Link href={`/profile`}>
+          <Avatar
+            style={{ margin: "0 10px" }}
+            size="default"
+            icon={<UserOutlined />}
+          />
+        </Link>
 
         {isMobile && (
           <Button
