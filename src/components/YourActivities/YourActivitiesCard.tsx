@@ -75,7 +75,7 @@ const YourActivitiesCard = ({ data }: any) => {
             />
           </Avatar.Group>
 
-          <Link href={`/find-an-activities/details/${data?.id}`}>
+          <Link href={`/your-activities/details/${data?.id}`}>
             <Button
               type="primary"
               className="mt-3 bg-purple-600 hover:bg-purple-700"

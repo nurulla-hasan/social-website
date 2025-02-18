@@ -1,18 +1,19 @@
 "use client";
 
-import { fakeParty } from "@/app/data/FakeData";
+import { fakeUser } from "@/app/data/FakeData";
 import { ColorPalette } from "@/theme/themes";
 import { Typography } from "antd";
 import { FaArrowLeft } from "react-icons/fa6";
-import YourActivitiesCard from "./YourActivitiesCard";
+import FriendsFilter from "../friends/filters/Filters";
+import FindFriendsCard from "./FindFriendsCard";
 
-const YourActivitiesCom = () => {
-  const Party = fakeParty;
+const { Title } = Typography;
 
-  const { Title, Text } = Typography;
+const user = fakeUser;
+
+const FindFriendsCom = () => {
   return (
     <div>
-      {/* Header Section */}
       <div className="flex items-center justify-start">
         <span>
           <FaArrowLeft className="text-2xl text-white" />
@@ -22,18 +23,19 @@ const YourActivitiesCom = () => {
           className="text-left ml-3 pt-2"
           style={{ color: `${ColorPalette?.colorTextPrimary}` }}
         >
-          Your Activity
+          Find Friends
         </Title>
       </div>
-
-      {/* Party */}
+      <div className="py-7">
+        <FriendsFilter />
+      </div>
       <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-7 ">
-        {Party?.map((party, index: number) => (
-          <YourActivitiesCard data={party} key={index + 1} />
+        {user?.map((user, index: number) => (
+          <FindFriendsCard user={user} key={index + 1} />
         ))}
       </div>
     </div>
   );
 };
 
-export default YourActivitiesCom;
+export default FindFriendsCom;

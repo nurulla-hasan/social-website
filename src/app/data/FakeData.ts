@@ -594,11 +594,12 @@ export const fakeParty = [
   },
 ];
 
-const fakeUser = [
+export const fakeUser = [
   {
     name: "Emily Carter",
     age: 24,
     pronouns: "She/Her",
+    id: 1,
     likeReceived: ["user101", "user102", "user103"],
     likeProfile: ["user201", "user202", "user203"],
     userName: "@emilycarter",
@@ -621,6 +622,7 @@ const fakeUser = [
     name: "James Anderson",
     age: 29,
     pronouns: "He/Him",
+    id: 2,
     likeReceived: ["user104", "user105", "user106"],
     likeProfile: ["user204", "user205", "user206"],
     userName: "@jamesanderson",
@@ -643,6 +645,7 @@ const fakeUser = [
     name: "Sophia Lee",
     age: 22,
     pronouns: "She/Her",
+    id: 3,
     likeReceived: ["user107", "user108", "user109"],
     likeProfile: ["user207", "user208", "user209"],
     userName: "@sophialee",
@@ -665,6 +668,7 @@ const fakeUser = [
     name: "Michael Brown",
     age: 31,
     pronouns: "He/Him",
+    id: 4,
     likeReceived: ["user110", "user111", "user112"],
     likeProfile: ["user210", "user211", "user212"],
     userName: "@michaelbrown",
@@ -687,6 +691,7 @@ const fakeUser = [
     name: "Olivia Martinez",
     age: 26,
     pronouns: "She/Her",
+    id: 5,
     likeReceived: ["user113", "user114", "user115"],
     likeProfile: ["user213", "user214", "user215"],
     userName: "@oliviamartinez",
@@ -709,6 +714,7 @@ const fakeUser = [
     name: "Daniel Wilson",
     age: 27,
     pronouns: "He/Him",
+    id: 6,
     likeReceived: ["user116", "user117", "user118"],
     likeProfile: ["user216", "user217", "user218"],
     userName: "@danielwilson",
@@ -731,6 +737,7 @@ const fakeUser = [
     name: "Ava Robinson",
     age: 23,
     pronouns: "She/Her",
+    id: 7,
     likeReceived: ["user119", "user120", "user121"],
     likeProfile: ["user219", "user220", "user221"],
     userName: "@avarobinson",
@@ -753,6 +760,7 @@ const fakeUser = [
     name: "Liam Johnson",
     age: 30,
     pronouns: "He/Him",
+    id: 8,
     likeReceived: ["user122", "user123", "user124"],
     likeProfile: ["user222", "user223", "user224"],
     userName: "@liamjohnson",
@@ -775,6 +783,7 @@ const fakeUser = [
     name: "Charlotte Moore",
     age: 25,
     pronouns: "She/Her",
+    id: 9,
     likeReceived: ["user125", "user126", "user127"],
     likeProfile: ["user225", "user226", "user227"],
     userName: "@charlottemoore",
@@ -797,6 +806,7 @@ const fakeUser = [
     name: "William Clark",
     age: 28,
     pronouns: "He/Him",
+    id: 10,
     likeReceived: ["user128", "user129", "user130"],
     likeProfile: ["user228", "user229", "user230"],
     userName: "@williamclark",
@@ -814,5 +824,174 @@ const fakeUser = [
     location: "Denver, CO, USA",
     gender: "Male",
     height: "5'11\" (180 cm)",
+  },
+];
+
+export const notifications = [
+  {
+    id: "noti_001",
+    user: {
+      name: "Jane Cooper",
+      profileImage:
+        "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg",
+      message: "Your friend Jane Cooper has invited you to join pool party.",
+    },
+    event: {
+      title: "Pool Party 2025",
+      image:
+        "https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg",
+      date: "Saturday, Jan 18, 2025",
+      time: "5:00 p.m",
+    },
+    timestamp: "1 day ago",
+  },
+  {
+    id: "noti_002",
+    user: {
+      name: "Robert Fox",
+      profileImage:
+        "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg",
+      message: "Robert Fox sent you an invite to a Tech Meetup.",
+    },
+    event: {
+      title: "Tech Meetup 2025",
+      image:
+        "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+      date: "Monday, Feb 10, 2025",
+      time: "6:00 p.m",
+    },
+    timestamp: "3 days ago",
+  },
+  {
+    id: "noti_003",
+    user: {
+      name: "Alice Smith",
+      profileImage:
+        "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg",
+      message: "Alice Smith invited you to a Music Concert.",
+    },
+    event: {
+      title: "Live Music Concert",
+      image:
+        "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg",
+      date: "Friday, Mar 15, 2025",
+      time: "8:00 p.m",
+    },
+    timestamp: "5 hours ago",
+  },
+  {
+    id: "noti_004",
+    user: {
+      name: "John Doe",
+      profileImage:
+        "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg",
+      message: "John Doe invited you to his wedding.",
+    },
+    event: {
+      title: "Wedding Celebration",
+      image: "https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg",
+      date: "Sunday, Apr 20, 2025",
+      time: "4:00 p.m",
+    },
+    timestamp: "2 days ago",
+  },
+  {
+    id: "noti_005",
+    user: {
+      name: "Sarah Johnson",
+      profileImage:
+        "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg",
+      message: "Sarah Johnson invited you to a Yoga Retreat.",
+    },
+    event: {
+      title: "Wellness & Yoga Retreat",
+      image:
+        "https://images.pexels.com/photos/1812964/pexels-photo-1812964.jpeg",
+      date: "Saturday, May 5, 2025",
+      time: "10:00 a.m",
+    },
+    timestamp: "1 week ago",
+  },
+  {
+    id: "noti_006",
+    user: {
+      name: "Michael Brown",
+      profileImage:
+        "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg",
+      message: "Michael Brown is hosting a Business Seminar.",
+    },
+    event: {
+      title: "Business Growth Seminar",
+      image:
+        "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg",
+      date: "Wednesday, Jun 12, 2025",
+      time: "2:00 p.m",
+    },
+    timestamp: "6 days ago",
+  },
+  {
+    id: "noti_007",
+    user: {
+      name: "Emily Davis",
+      profileImage:
+        "https://images.pexels.com/photos/1382731/pexels-photo-1382731.jpeg",
+      message: "Emily Davis is inviting you to a Painting Workshop.",
+    },
+    event: {
+      title: "Creative Painting Workshop",
+      image: "https://images.pexels.com/photos/102127/pexels-photo-102127.jpeg",
+      date: "Monday, Jul 22, 2025",
+      time: "1:00 p.m",
+    },
+    timestamp: "2 weeks ago",
+  },
+  {
+    id: "noti_008",
+    user: {
+      name: "David Wilson",
+      profileImage:
+        "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg",
+      message: "David Wilson invited you to a Marathon Run.",
+    },
+    event: {
+      title: "City Marathon 2025",
+      image: "https://images.pexels.com/photos/235922/pexels-photo-235922.jpeg",
+      date: "Sunday, Aug 30, 2025",
+      time: "7:00 a.m",
+    },
+    timestamp: "4 days ago",
+  },
+  {
+    id: "noti_009",
+    user: {
+      name: "Olivia Martinez",
+      profileImage:
+        "https://images.pexels.com/photos/3760259/pexels-photo-3760259.jpeg",
+      message: "Olivia Martinez is inviting you to a Food Festival.",
+    },
+    event: {
+      title: "International Food Festival",
+      image: "https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg",
+      date: "Friday, Sep 14, 2025",
+      time: "5:00 p.m",
+    },
+    timestamp: "3 weeks ago",
+  },
+  {
+    id: "noti_010",
+    user: {
+      name: "Chris Taylor",
+      profileImage:
+        "https://images.pexels.com/photos/3253501/pexels-photo-3253501.jpeg",
+      message: "Chris Taylor sent you an invite to a Gaming Tournament.",
+    },
+    event: {
+      title: "Esports Gaming Tournament",
+      image:
+        "https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg",
+      date: "Saturday, Oct 19, 2025",
+      time: "6:00 p.m",
+    },
+    timestamp: "1 month ago",
   },
 ];
