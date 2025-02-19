@@ -133,6 +133,14 @@ input[type="text"] {
   color: #fff !important;
   border: none !important;
 }
+
+.custom-textarea::placeholder {
+  color: #bfbfbf !important; /* White placeholder text */
+  opacity: 1; /* Ensure full visibility */
+}
+
+.create-activity-input,
+#startTime,
 .new-chat-input ::placeholder,
 .chat-box-search-input ::placeholder {
   color: #bfbfbf !important;
@@ -140,4 +148,21 @@ input[type="text"] {
 .new-chat-input :focus,
 .chat-box-search-input :focus {
   outline: "none" !important;
+}
+
+/* Target the placeholder inside the TimePicker */
+.create-activity-input input::placeholder {
+  color: #a0a0a0 !important; /* Change this to your desired placeholder color */
+  opacity: 1; /* Ensure the placeholder is fully visible */
+}
+
+.create-an-activity input {
+  background-color: #0a0a0a !important;
+  border: 1px solid #fff !important;
+}
+.create-an-activity input::placeholder {
+  color: #fff;
+}
+.create-an-activity input:focus {
+  outline: 1px solid inherit !important;
 }
