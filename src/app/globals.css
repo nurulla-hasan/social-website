@@ -117,3 +117,27 @@ input[type="text"] {
 .ant-input-password-icon {
   color: #fff !important;
 }
+
+.hidden-element {
+  visibility: hidden;
+  opacity: 0;
+}
+.block-element {
+  visibility: visible;
+  opacity: 1;
+}
+
+.new-chat-input input[type="text"],
+.chat-box-search-input input[type="text"] {
+  background-color: #2e2e2f !important;
+  color: #fff !important;
+  border: none !important;
+}
+.new-chat-input ::placeholder,
+.chat-box-search-input ::placeholder {
+  color: #bfbfbf !important;
+}
+.new-chat-input :focus,
+.chat-box-search-input :focus {
+  outline: "none" !important;
+}

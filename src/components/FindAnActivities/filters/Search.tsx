@@ -3,7 +3,7 @@
 import { Form, Input } from "antd";
 import { FiSearch } from "react-icons/fi";
 
-const ActivitySearch = () => {
+const ActivitySearch = ({ placeholder }: { placeholder?: string }) => {
   return (
     <div>
       <Form.Item
@@ -12,6 +12,7 @@ const ActivitySearch = () => {
         rules={[{ required: true, message: "Please enter your full name" }]}
       >
         <Input
+          placeholder={placeholder ? placeholder : ""}
           style={{ border: "none" }} // Remove only the border
           size="large"
           className="bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" // Example focus styling with Tailwind CSS
