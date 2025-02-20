@@ -1,3 +1,4 @@
+"use client";
 import { ColorPalette } from "@/theme/themes";
 import {
   CompassOutlined,
@@ -11,7 +12,9 @@ import {
 } from "@ant-design/icons";
 import { List } from "antd";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useState } from "react";
+import SettingDistanceModal from "./modal/SettingDistanceModal";
+import LocationAccess from "./modal/SettingLoacationModal";
 
 interface SettingsItemProps {
   icon: React.ReactNode;
@@ -54,16 +57,26 @@ const SettingsItem: React.FC<SettingsItemProps> = ({
 };
 
 const SettingsMenu: React.FC = () => {
+  const [DistanceCreate, setSetDistanceCreate] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showLocationForm, setShowLocationForm] = useState(false);
+
+  // Open modal on button click
+  const openModal = () => {
+    setIsModalOpen(true);
+    setShowLocationForm(false);
+  };
+
   const settingsItems = [
     {
       icon: <EnvironmentOutlined />,
       title: "Current Location",
-      onClick: () => console.log("Current Location clicked"),
+      onClick: openModal,
     },
     {
       icon: <CompassOutlined />,
       title: "Maximum Distance",
-      onClick: () => console.log("Maximum Distance clicked"),
+      onClick: () => setSetDistanceCreate(true),
     },
     {
       icon: <QuestionCircleOutlined />,
@@ -93,22 +106,41 @@ const SettingsMenu: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-black text-white">
-      <List
-        className="w-full"
-        itemLayout="horizontal"
-        dataSource={settingsItems}
-        renderItem={(item) => (
-          // Remove List.Item wrapper and directly render SettingsItem
-          <SettingsItem
-            icon={item.icon}
-            title={item.title}
-            onClick={item.onClick}
-            route={item.route}
-          />
-        )}
+    <>
+      {/* user block modal */}
+      <SettingDistanceModal
+        isOpen={DistanceCreate}
+        onConfirm={() => {
+          // console.log("User Blocked");
+          setSetDistanceCreate(false);
+        }}
+        onCancel={() => setSetDistanceCreate(false)}
       />
-    </div>
+      {/* user block modal */}
+      <LocationAccess
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        showLocationForm={showLocationForm}
+        setShowLocationForm={setShowLocationForm}
+      />
+
+      <div className="w-full bg-black text-white">
+        <List
+          className="w-full"
+          itemLayout="horizontal"
+          dataSource={settingsItems}
+          renderItem={(item) => (
+            // Remove List.Item wrapper and directly render SettingsItem
+            <SettingsItem
+              icon={item.icon}
+              title={item.title}
+              onClick={item.onClick}
+              route={item.route}
+            />
+          )}
+        />
+      </div>
+    </>
   );
 };
 
