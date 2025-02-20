@@ -1,3 +1,4 @@
+import SettingsCom from "@/components/settings/SettingsCom";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 const Settings = () => {
-  return <div>Settings</div>;
+  return (
+    <div>
+      <SettingsCom />
+    </div>
+  );
 };
 
 export default Settings;
