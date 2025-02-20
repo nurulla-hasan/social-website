@@ -76,12 +76,14 @@ const CreateAnActivityCard = ({ data }: any) => {
               />
             </Avatar.Group>
 
-            <Button
-              type="primary"
-              className="mt-3 bg-purple-600 hover:bg-purple-700"
-            >
-              Boost
-            </Button>
+            <Link href={`/pricing-plan`}>
+              <Button
+                type="primary"
+                className="mt-3 bg-purple-600 hover:bg-purple-700"
+              >
+                Boost
+              </Button>
+            </Link>
           </div>
         </Card>
       </Link>

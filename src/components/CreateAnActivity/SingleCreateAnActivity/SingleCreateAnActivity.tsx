@@ -7,6 +7,7 @@ import { EventDataFormat, EventTimeFormat } from "@/utils/DateFormat";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Dropdown, MenuProps, Tooltip } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import { MdAccessTime, MdOutlineDateRange } from "react-icons/md";
 
@@ -84,7 +85,9 @@ const SingleCreateAnActivity = ({ id }: any) => {
 
           {/* button */}
           <div className="flex items-center justify-start mt-5">
-            <Button type="primary">Boost</Button>
+            <Link href={`/pricing-plan`}>
+              <Button type="primary">Boost</Button>
+            </Link>
             <Button
               style={{ marginLeft: "10px", background: "none", color: "#fff" }}
             >
