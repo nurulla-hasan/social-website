@@ -166,3 +166,69 @@ input[type="text"] {
 .create-an-activity input:focus {
   outline: 1px solid inherit !important;
 }
+
+.ant-form-item-control-input-content,
+.ant-picker-input,
+.ant-select-selector {
+  border: 1px solid #d3d3d3;
+  background: #0a0a0a !important;
+}
+.ant-select-selector input::placeholder {
+  color: red !important;
+}
+
+.ant-picker-outlined {
+  background: #0a0a0a !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  border-color: auto !important;
+}
+
+.ant-form-item-control-input-content {
+  border: none !important;
+  background: #0a0a0a !important;
+}
+.ant-picker-input {
+  border: none !important;
+  background: #0a0a0a !important;
+}
+.ant-select-selector {
+  border: auto !important;
+  background: #0a0a0a !important;
+}
+
+::-webkit-input-placeholder {
+  color: #bfbfbf !important;
+}
+
+:where(
+    .css-dev-only-do-not-override-a6nz8w
+  ).ant-select-single.ant-select-lg.ant-select-show-arrow
+  .ant-select-selection-item,
+:where(
+    .css-dev-only-do-not-override-a6nz8w
+  ).ant-select-single.ant-select-lg.ant-select-show-arrow
+  .ant-select-selection-search,
+:where(
+    .css-dev-only-do-not-override-a6nz8w
+  ).ant-select-single.ant-select-lg.ant-select-show-arrow
+  .ant-select-selection-placeholder {
+  padding-inline-end: 18px;
+  color: #bfbfbf;
+}
+
+:where(
+    .css-dev-only-do-not-override-a6nz8w
+  ).ant-select-single.ant-select-show-arrow
+  .ant-select-selection-item,
+:where(
+    .css-dev-only-do-not-override-a6nz8w
+  ).ant-select-single.ant-select-show-arrow
+  .ant-select-selection-search,
+:where(
+    .css-dev-only-do-not-override-a6nz8w
+  ).ant-select-single.ant-select-show-arrow
+  .ant-select-selection-placeholder {
+  padding-inline-end: 18px;
+  color: #bfbfbf;
+}

@@ -1,4 +1,8 @@
-import { FileSearchOutlined } from "@ant-design/icons";
+import {
+  FileSearchOutlined,
+  LogoutOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import Link from "next/link";
 import { FaHandsClapping } from "react-icons/fa6";
@@ -9,58 +13,38 @@ import { RiUserSearchLine } from "react-icons/ri";
 import { TbMessages } from "react-icons/tb";
 
 const sidebarItems = () => {
-  // Find an Activities
-  const findAnActivities: MenuProps["items"] = [
+  // Main Content Items
+  const mainContentItems: MenuProps["items"] = [
     {
       label: <Link href="/find-an-activities">Find an Activities</Link>,
       key: `/find-an-activities`,
       icon: <FileSearchOutlined style={{ fontSize: "19px" }} />,
     },
-  ];
-
-  // find-an-activities
-  const yourActivities: MenuProps["items"] = [
     {
       label: <Link href="/your-activities">Your Activities</Link>,
       key: `/your-activities`,
       icon: <PiCalendarStarBold style={{ fontSize: "19px" }} />,
     },
-  ];
-
-  // Create an Activity
-  const createAnActivity: MenuProps["items"] = [
     {
       label: <Link href="/create-an-activity">Create an Activity</Link>,
       key: `/create-an-activity`,
       icon: <LuSquarePlus style={{ fontSize: "19px" }} />,
     },
-  ];
-  // friends
-  const friends: MenuProps["items"] = [
     {
       label: <Link href="/friends">Friends</Link>,
       key: `/friends`,
       icon: <FaHandsClapping style={{ fontSize: "19px" }} />,
     },
-  ];
-  // Find Friends
-  const findFriends: MenuProps["items"] = [
     {
       label: <Link href="/find-friends">Find Friends</Link>,
       key: `/find-friends`,
       icon: <RiUserSearchLine style={{ fontSize: "19px" }} />,
     },
-  ];
-  // Messages
-  const messages: MenuProps["items"] = [
     {
       label: <Link href="/messages">Messages</Link>,
       key: `/messages`,
       icon: <TbMessages style={{ fontSize: "19px" }} />,
     },
-  ];
-  // Notifications
-  const notifications: MenuProps["items"] = [
     {
       label: <Link href="/notifications">Notifications</Link>,
       key: `/notifications`,
@@ -68,17 +52,23 @@ const sidebarItems = () => {
     },
   ];
 
-  const contents = [
-    ...findAnActivities,
-    ...yourActivities,
-    ...createAnActivity,
-    ...friends,
-    ...findFriends,
-    ...messages,
-    ...notifications,
+  // Bottom Items (Settings and Log Out)
+  const bottomItems: MenuProps["items"] = [
+    {
+      label: <Link href="/settings">Settings</Link>,
+      key: "/settings",
+      icon: <SettingOutlined style={{ fontSize: "19px" }} />,
+    },
+    {
+      label: <Link href="/logout">Log Out</Link>,
+      key: "/logout",
+      icon: <LogoutOutlined style={{ fontSize: "19px" }} />,
+    },
   ];
 
-  return contents;
+  const items = [...mainContentItems, ...bottomItems];
+
+  return items;
 };
 
 export default sidebarItems;
