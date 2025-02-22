@@ -4,13 +4,20 @@ import { ColorPalette } from "@/theme/themes";
 import { GoogleOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Divider, Form, Input, Typography } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FaInstagram, FaSnapchatGhost } from "react-icons/fa";
 
 const { Title, Text } = Typography;
 
 const LoginForm = () => {
-  const onFinish = (values: any) => {
+  const router = useRouter();
+
+  const onFinish = (values: { email: string; password: string }) => {
     console.log("Success:", values);
+
+    if (values.email) {
+      router.push("/auth/profile");
+    }
   };
 
   return (

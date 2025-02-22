@@ -56,25 +56,27 @@ const SinglePartyCard = ({ data }: any) => {
           </div>
 
           <div className="flex items-center justify-between gap-2 mt-3">
-            <Avatar.Group
-              max={{
-                count: 2,
-                style: { color: "#f56a00", backgroundColor: "#fde3cf" },
-              }}
-            >
-              <Avatar src="https://randomuser.me/api/portraits/men/21.jpg" />
-              <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
-              <Tooltip title="Ant User" placement="top">
+            <Link href={`/attendees`}>
+              <Avatar.Group
+                max={{
+                  count: 2,
+                  style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+                }}
+              >
+                <Avatar src="https://randomuser.me/api/portraits/men/21.jpg" />
+                <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
+                <Tooltip title="Ant User" placement="top">
+                  <Avatar
+                    style={{ backgroundColor: "#87d068" }}
+                    icon={<UserOutlined />}
+                  />
+                </Tooltip>
                 <Avatar
-                  style={{ backgroundColor: "#87d068" }}
-                  icon={<UserOutlined />}
+                  style={{ backgroundColor: "#1677ff" }}
+                  icon={<AntDesignOutlined />}
                 />
-              </Tooltip>
-              <Avatar
-                style={{ backgroundColor: "#1677ff" }}
-                icon={<AntDesignOutlined />}
-              />
-            </Avatar.Group>
+              </Avatar.Group>
+            </Link>
 
             <Button
               type="primary"

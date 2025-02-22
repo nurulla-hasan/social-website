@@ -232,3 +232,7 @@ input[type="text"] {
   padding-inline-end: 18px;
   color: #bfbfbf;
 }
+
+.payment-form .ant-form-item-control-input-content {
+  background: transparent !important;
+}

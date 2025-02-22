@@ -38,6 +38,7 @@ export const fakeParty = [
     ],
     hostInfo: {
       name: "Emily Carter",
+      id: 1,
       age: 24,
       pronouns: "She/Her",
       likeReceived: ["user101", "user102", "user103"],
@@ -96,6 +97,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 2,
       name: "James Anderson",
       age: 29,
       pronouns: "He/Him",
@@ -155,6 +157,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 3,
       name: "Sophia Lee",
       age: 22,
       pronouns: "She/Her",
@@ -214,6 +217,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 4,
       name: "Michael Brown",
       age: 31,
       pronouns: "He/Him",
@@ -274,6 +278,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 5,
       name: "Olivia Martinez",
       age: 26,
       pronouns: "She/Her",
@@ -333,6 +338,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 6,
       name: "Daniel Wilson",
       age: 27,
       pronouns: "He/Him",
@@ -392,6 +398,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 7,
       name: "Ava Robinson",
       age: 23,
       pronouns: "She/Her",
@@ -451,6 +458,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 8,
       name: "Liam Johnson",
       age: 30,
       pronouns: "He/Him",
@@ -510,6 +518,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 9,
       name: "Charlotte Moore",
       age: 25,
       pronouns: "She/Her",
@@ -569,6 +578,7 @@ export const fakeParty = [
       },
     ],
     hostInfo: {
+      id: 10,
       name: "William Clark",
       age: 28,
       pronouns: "He/Him",

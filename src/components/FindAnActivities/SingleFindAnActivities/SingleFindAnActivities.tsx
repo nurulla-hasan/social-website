@@ -8,6 +8,7 @@ import { EventDataFormat, EventTimeFormat } from "@/utils/DateFormat";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Button, Tooltip } from "antd";
 import Image from "next/image";
+import Link from "next/link";
 import { MdAccessTime, MdOutlineDateRange } from "react-icons/md";
 
 const SingleFindAnActivities = ({ id }: any) => {
@@ -122,25 +123,27 @@ const SingleFindAnActivities = ({ id }: any) => {
               </p>
             </div>
 
-            <Avatar.Group
-              max={{
-                count: 2,
-                style: { color: "#f56a00", backgroundColor: "#fde3cf" },
-              }}
-            >
-              <Avatar src="https://randomuser.me/api/portraits/men/21.jpg" />
-              <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
-              <Tooltip title="Ant User" placement="top">
+            <Link href={`/attendees`}>
+              <Avatar.Group
+                max={{
+                  count: 2,
+                  style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+                }}
+              >
+                <Avatar src="https://randomuser.me/api/portraits/men/21.jpg" />
+                <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
+                <Tooltip title="Ant User" placement="top">
+                  <Avatar
+                    style={{ backgroundColor: "#87d068" }}
+                    icon={<UserOutlined />}
+                  />
+                </Tooltip>
                 <Avatar
-                  style={{ backgroundColor: "#87d068" }}
-                  icon={<UserOutlined />}
+                  style={{ backgroundColor: "#1677ff" }}
+                  icon={<AntDesignOutlined />}
                 />
-              </Tooltip>
-              <Avatar
-                style={{ backgroundColor: "#1677ff" }}
-                icon={<AntDesignOutlined />}
-              />
-            </Avatar.Group>
+              </Avatar.Group>
+            </Link>
           </div>
 
           {/* Map */}

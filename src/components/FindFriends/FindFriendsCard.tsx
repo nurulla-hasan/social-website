@@ -12,14 +12,10 @@ import { RxTextAlignLeft } from "react-icons/rx";
 const items: MenuProps["items"] = [
   {
     key: "1",
-    label: "Remove",
-  },
-  {
-    key: "2",
     label: "Block",
   },
   {
-    key: "3",
+    key: "2",
     label: "Report",
   },
 ];

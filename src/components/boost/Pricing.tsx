@@ -1,9 +1,15 @@
+"use client";
+
 import { ColorPalette } from "@/theme/themes";
-import { Button, Card } from "antd";
+import { Button, Card, Typography } from "antd";
+import { useState } from "react";
 import { BiPowerOff } from "react-icons/bi";
-import { FaRegCalendar } from "react-icons/fa6";
+import { FaArrowLeft, FaRegCalendar } from "react-icons/fa6";
 import { RiBatteryChargeLine } from "react-icons/ri";
+import { SlEnergy } from "react-icons/sl";
 import { TbCoinYuanFilled, TbDatabaseImport } from "react-icons/tb";
+import PaymentModal from "../payment/PaymentModal";
+const { Title } = Typography;
 
 const plans = [
   {
@@ -11,7 +17,7 @@ const plans = [
     price: "$11.00",
     details: "Profile Booster: 6 Hours\nEvent Booster: 12 Hours (+1 Reboost)",
     selected: true,
-    icon: "\u26A1",
+    icon: <SlEnergy />,
   },
 ];
 
@@ -67,6 +73,7 @@ const packages = [
 ];
 
 const PricingPlans = () => {
+  const [openPaymentModal, setOpenPaymentModal] = useState<boolean>(false);
   const cardStyle = {
     body: {
       background: `${ColorPalette?.colorSecondaryBg}`,
@@ -76,92 +83,135 @@ const PricingPlans = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white p-6">
-      <h2 className="text-xl font-bold mb-4">Current Plans</h2>
-      <div className="flex justify-center mb-8">
-        {plans.map((plan, index) => (
-          <Card
-            style={{ overflow: "hidden" }}
-            styles={cardStyle}
-            key={index}
-            className="bg-gray-900 text-white p-4 w-64 rounded-lg border border-gray-700"
-          >
-            <p className="text-green-400 text-xl">{plan.icon}</p>
-            <h3 className="text-lg font-semibold text-purple-400">
-              {plan.title}
-            </h3>
-            <p className="text-2xl font-bold">{plan.price}</p>
-            <p className="text-sm">{plan.details}</p>
-            <Button type="primary" className="w-full mt-4">
-              Select Plan
-            </Button>
-          </Card>
-        ))}
+    <>
+      {/* user block modal */}
+      <PaymentModal
+        isOpen={openPaymentModal}
+        onConfirm={() => {
+          setOpenPaymentModal(false);
+        }}
+        onCancel={() => setOpenPaymentModal(false)}
+      />
+
+      {/* Header Section */}
+      <div className="flex items-center justify-start">
+        <span>
+          <FaArrowLeft className="text-2xl text-white" />
+        </span>
+        <Title
+          level={3}
+          className="text-left ml-3 pt-2"
+          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+        >
+          Boost Plan
+        </Title>
       </div>
 
-      <h2 className="text-xl font-bold mb-4">Profile Boosters</h2>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-        {profileBoosters.map((booster, index) => (
-          <Card style={{ overflow: "hidden" }} styles={cardStyle} key={index}>
-            <h3 className="text-lg font-semibold text-purple-400">
-              {booster.title}
-            </h3>
-            <p className="text-2xl font-bold">{booster.price}</p>
-            <p className="text-sm">{booster.details}</p>
-            <Button type="primary" className="w-full mt-4">
-              Select Plan
-            </Button>
-          </Card>
-        ))}
-      </div>
-
-      <h2 className="text-xl font-bold mt-8 mb-4">Event Boosters</h2>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-        {eventBoosters.map((booster, index) => (
-          <Card
-            style={{ overflow: "hidden" }}
-            styles={cardStyle}
-            key={index}
-            className="bg-gray-900 text-white p-4 rounded-lg border border-gray-700"
-          >
-            <h3 className="text-lg font-semibold text-purple-400">
-              {booster.title}
-            </h3>
-            <p className="text-2xl font-bold">{booster.price}</p>
-            <p className="text-sm">{booster.details}</p>
-            <Button type="primary" className="w-full mt-4">
-              Select Plan
-            </Button>
-          </Card>
-        ))}
-      </div>
-
-      <h2 className="text-xl font-bold mt-8 mb-4">Buy Packages</h2>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-        {packages.map((pkg, index) => (
-          <Card
-            styles={cardStyle}
-            style={{ overflow: "hidden" }}
-            key={index}
-            className="bg-gray-900 text-white p-4 rounded-lg border border-gray-700"
-          >
-            <div className="flex items-center justify-center my-2">
-              <p className="text-green-400 text-xl w-10 h-10 rounded-full bg-pink-600">
-                {pkg.icon}
+      <div className=" bg-black text-white p-6">
+        <h2 className="text-xl font-bold mb-4">Current Plans</h2>
+        <div className="flex justify-start mb-8 ">
+          {plans?.map((plan, index) => (
+            <Card
+              style={{ overflow: "hidden" }}
+              // @ts-ignore
+              styles={cardStyle}
+              key={index}
+              className="bg-gray-900 text-white p-4 w-64 rounded-lg border border-gray-700 "
+            >
+              <p className="bg-green-400 rounded-full flex items-center justify-center text-black w-9 h-9 text-xl mx-auto">
+                {plan.icon}
               </p>
-            </div>
-            <h3 className="text-lg font-semibold text-purple-400">
-              {pkg.title}
-            </h3>
-            <p className="text-2xl font-bold">{pkg.price}</p>
-            <p className="text-sm">{pkg.details}</p>
-            <Button type="primary" className="w-full mt-4">
-              Select Plan
-            </Button>
-          </Card>
-        ))}
+              <h3 className="text-lg font-semibold text-purple-400">
+                {plan.title}
+              </h3>
+              <p className="text-2xl font-bold">{plan.price}</p>
+              <p className="text-sm">{plan.details}</p>
+              <Button type="primary" className="w-full mt-4">
+                Selected
+              </Button>
+            </Card>
+          ))}
+        </div>
+
+        <h2 className="text-xl font-bold mb-4">Profile Boosters</h2>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          {profileBoosters.map((booster, index) => (
+            // @ts-ignore
+            <Card style={{ overflow: "hidden" }} styles={cardStyle} key={index}>
+              <h3 className="text-lg font-semibold text-purple-400">
+                {booster.title}
+              </h3>
+              <p className="text-2xl font-bold">{booster.price}</p>
+              <p className="text-sm">{booster.details}</p>
+              <Button
+                type="primary"
+                className="w-full mt-4"
+                onClick={() => setOpenPaymentModal(true)}
+              >
+                Select Plan
+              </Button>
+            </Card>
+          ))}
+        </div>
+
+        <h2 className="text-xl font-bold mt-8 mb-4">Event Boosters</h2>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          {eventBoosters.map((booster, index) => (
+            <Card
+              style={{ overflow: "hidden" }}
+              // @ts-ignore
+              styles={cardStyle}
+              key={index}
+              className="bg-gray-900 text-white p-4 rounded-lg border border-gray-700"
+            >
+              <h3 className="text-lg font-semibold text-purple-400">
+                {booster.title}
+              </h3>
+              <p className="text-2xl font-bold">{booster.price}</p>
+              <p className="text-sm">{booster.details}</p>
+              <Button
+                type="primary"
+                className="w-full mt-4"
+                onClick={() => setOpenPaymentModal(true)}
+              >
+                Select Plan
+              </Button>
+            </Card>
+          ))}
+        </div>
+
+        <h2 className="text-xl font-bold mt-8 mb-4">Buy Packages</h2>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          {packages.map((pkg, index) => (
+            <Card
+              // @ts-ignore
+              styles={cardStyle}
+              style={{ overflow: "hidden" }}
+              key={index}
+              className="bg-gray-900 text-white p-4 rounded-lg border border-gray-700"
+            >
+              <div className="flex items-center justify-center my-2">
+                <p className=" text-xl0 bg-green-400 rounded-full flex items-center justify-center text-black w-9 h-9 text-xl mx-auto">
+                  {pkg.icon}
+                </p>
+              </div>
+              <h3 className="text-lg font-semibold text-purple-400">
+                {pkg.title}
+              </h3>
+              <p className="text-2xl font-bold">{pkg.price}</p>
+              <p className="text-sm">{pkg.details}</p>
+              <Button
+                type="primary"
+                className="w-full mt-4"
+                onClick={() => setOpenPaymentModal(true)}
+              >
+                Select Plan
+              </Button>
+            </Card>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
