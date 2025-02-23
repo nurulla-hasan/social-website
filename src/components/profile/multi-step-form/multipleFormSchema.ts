@@ -44,19 +44,20 @@ export const validationSchemas = [
 
   // 🟢 Step 9: Relationship Status (Required, Special Case for "Other")
   yup.object().shape({
-    relationShip: yup.array().min(1, "Please select your relationship status"),
-    relationShipOther: yup
-      .string()
-      .when("relationShip", (relationShip, schema) =>
-        relationShip.includes("Other")
-          ? schema.required("Please specify your relationship status")
-          : schema.notRequired()
-      ),
+    relationShip: yup.string().notRequired(),
+  }),
+
+  // 🟢 Step 9: Relationship Status (Required, Special Case for "Other")
+  yup.object().shape({
+    otherRelationShip: yup.string().notRequired(),
   }),
 
   // 🟢 Step 10: Skin Color (Required)
   yup.object().shape({
-    skinColor: yup.string().required("Please select a skin color"),
+    skinColor: yup.string().notRequired(),
+  }),
+  yup.object().shape({
+    otherSkinColor: yup.string().notRequired(),
   }),
 
   // 🟢 Step 11: Interests (Optional)

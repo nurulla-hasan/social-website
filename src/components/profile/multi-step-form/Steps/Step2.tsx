@@ -8,8 +8,8 @@ interface Step2Props {
 }
 
 const Step2 = ({ control }: Step2Props) => (
-  <div>
-    <h1 className="text-center text-2xl lg:text-5xl font-bold ">
+  <div className="mt-17">
+    <h1 className="text-center text-2xl lg:text-5xl font-bold">
       Date of birth
     </h1>
 
@@ -32,11 +32,15 @@ const Step2 = ({ control }: Step2Props) => (
         render={({ field, fieldState: { error } }) => (
           <>
             <DatePicker
-              className="w-full h-[60px] bg-gray-700"
-              // styles={{
-              //   backgroundColor: "#374151",
-              //   color: "#fff", // bg-gray-700 and white text
-              // }}
+              styles={{ border: "none" }}
+              className="custom-datepicker" // Add a custom class for styling
+              style={{
+                width: "100%",
+                height: "50px",
+                border: "none",
+                backgroundColor: "#171717",
+                color: "#fff",
+              }}
               placeholder="Select your birthday"
               value={field.value ? dayjs(field.value) : null}
               onChange={(date) => field.onChange(date?.toISOString())}

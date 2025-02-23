@@ -7,7 +7,7 @@ interface Step1Props {
 }
 
 const Step1 = ({ control }: Step1Props) => (
-  <div>
+  <div className="mt-17">
     <h1 className="text-center text-2xl lg:text-5xl font-bold ">
       Create user name
     </h1>
@@ -22,7 +22,11 @@ const Step1 = ({ control }: Step1Props) => (
         rules={{ required: "User name is required" }}
         render={({ field, fieldState: { error } }) => (
           <>
-            <Input id="userName" placeholder="Enter your name" {...field} />
+            <Input
+              id="userName"
+              // placeholder="Enter your name"
+              {...field}
+            />
             {error && <p style={{ color: "red" }}>{error.message}</p>}
           </>
         )}

@@ -8,10 +8,10 @@ interface Step3Props {
 }
 
 const Step3 = ({ control }: Step3Props) => (
-  <div className="">
+  <div className="mt-17">
     <h1 className="text-center text-2xl lg:text-5xl font-bold ">I am a</h1>
 
-    <div className="w-full mt-12">
+    <div className="w-full mt-12 lg:w-[60%]">
       <Controller
         name="gender"
         control={control}
@@ -37,20 +37,19 @@ const Step3 = ({ control }: Step3Props) => (
                     height: "150px",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-between",
+                    justifyContent: "center", // Center vertically
                     flexDirection: "column",
+                    fontSize: "19px",
+                    background: "#171717",
+                    color: "#fff",
+                    borderRadius: "10px",
                   }}
-                  className={clsx(
-                    "h-[150px] w-[150px] flex items-center justify-center text-white bg-[#181818] rounded-lg border border-transparent text-lg",
-                    {
-                      "border-[#7A32FF]": field.value === gender, // Selected border color
-                      "hover:border-gray-500": field.value !== gender, // Hover effect
-                    }
-                  )}
+                  className={clsx("", {
+                    "border-[#7A32FF]": field.value === gender, // Selected border color
+                    "hover:border-gray-500": field.value !== gender, // Hover effect
+                  })}
                 >
-                  <span className="flex items-start justify-center w-full h-full">
-                    {gender.charAt(0).toUpperCase() + gender.slice(1)}
-                  </span>
+                  {gender.charAt(0).toUpperCase() + gender.slice(1)}
                 </Radio.Button>
               ))}
             </Radio.Group>

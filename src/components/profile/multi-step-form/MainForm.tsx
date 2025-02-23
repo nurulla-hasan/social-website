@@ -1,7 +1,9 @@
 "use client";
+
+import { ArrowLeftOutlined } from "@ant-design/icons";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "antd";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import Step1 from "./Steps/Step1";
 import Step10 from "./Steps/Step10";
@@ -62,6 +64,24 @@ const steps = [
 const MainForm = () => {
   const [step, setStep] = useState<number>(0);
 
+  const [isMobile, setIsMobile] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 992);
+      setIsSmallScreen(width <= 580);
+    };
+
+    checkScreenSize(); // Initial check on mount
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
+
   const methods = useForm<FormValues>({
     resolver: yupResolver(validationSchemas[step]),
     mode: "onChange",
@@ -114,27 +134,109 @@ const MainForm = () => {
     }
   };
 
+  // Define steps where the Skip button should be hidden
+  const hideSkipButtonSteps = [0, 1, 2, 3, 5]; // Step1, Step2, Step3, Step4, Step6 (0-based index)
+
   return (
-    <div className="w-full lg:w-[1170px] mx-auto">
+    <div className="w-full lg:w-[1170px] mx-auto px-4 relative">
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
-          <h2 className="text-xl font-bold mb-4 mt-7">
-            Step {step + 1} of {steps.length}
-          </h2>
+          {/* Stepper */}
+          <div className="w-full mt-7 flex items-center justify-center">
+            {isSmallScreen ? (
+              <h2 className="text-xl font-normal mb-4">
+                Step {step + 1} of {steps.length}
+              </h2>
+            ) : (
+              <div className="w-full mt-7">
+                <div className="flex space-x-2">
+                  {steps.map((_, index) => (
+                    <div
+                      key={index}
+                      className={`w-full h-[8px]  rounded-full ${
+                        index < step
+                          ? "bg-[#7DFF19]" // Previous steps in green
+                          : index === step
+                          ? "bg-[#7DFF19]" // Current step in green
+                          : "bg-[#171717]" // Future steps in dark gray
+                      }`}
+                    ></div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
 
-          <div className="w-full lg:w-[960px] mx-auto mt-24">
+          <div className="w-full lg:w-[760px] mx-auto mt-0 lg:mt-48">
             {React.createElement(steps[step], { control: methods.control })}
 
-            <div className="flex justify-between mt-4">
-              {step > 0 && <Button onClick={prevStep}>Previous</Button>}
+            <div className="w-full mt-7">
+              {/* previous btn */}
+              <div
+                style={{
+                  width: "760px",
+                  fontSize: "17px",
+                  marginTop: "10px",
+                  background: "none",
+                  border: "none",
+                  color: "#fff",
+                  margin: "0 auto",
+                  position: "absolute",
+                  top: "15%",
+                  left: "0",
+                }}
+              >
+                {step > 0 && (
+                  <Button
+                    onClick={prevStep}
+                    type="default"
+                    style={{
+                      height: "50px",
+                      width: "50px",
+                      fontSize: "25px",
+                      background: "none",
+                      border: "none",
+                      color: "#fff",
+                    }}
+                  >
+                    <ArrowLeftOutlined />
+                  </Button>
+                )}
+              </div>
               {step < steps.length - 1 && (
-                <Button onClick={nextStep}>Next</Button>
+                <Button
+                  onClick={nextStep}
+                  type="primary"
+                  style={{ height: "48px", width: "100%", fontSize: "17px" }}
+                >
+                  Next
+                </Button>
               )}
-              {step < steps.length - 1 && (
-                <Button onClick={skipStep}>Skip</Button>
-              )}
+              {/* Conditionally render the Skip button */}
+              {step < steps.length - 1 &&
+                !hideSkipButtonSteps.includes(step) && (
+                  <Button
+                    onClick={skipStep}
+                    type="default"
+                    style={{
+                      height: "48px",
+                      width: "100%",
+                      fontSize: "17px",
+                      marginTop: "10px",
+                      background: "none",
+                      border: "none",
+                      color: "#fff",
+                    }}
+                  >
+                    Skip
+                  </Button>
+                )}
               {step === steps.length - 1 && (
-                <Button type="primary" htmlType="submit">
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  style={{ height: "48px", width: "100%", fontSize: "17px" }}
+                >
                   Submit
                 </Button>
               )}
