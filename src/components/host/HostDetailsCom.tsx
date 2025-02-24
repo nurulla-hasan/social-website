@@ -1,5 +1,6 @@
 "use client";
 import { fakeParty } from "@/app/data/FakeData";
+import useHistoryBack from "@/hooks/HistoryBack";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Typography } from "antd";
 import { BiDotsVerticalRounded } from "react-icons/bi";
@@ -13,21 +14,26 @@ const HostDetailsCom = ({ id }: any) => {
   const host = partyHost?.hostInfo;
   const Party = fakeParty.slice(0, 4);
 
+  // navigation back
+  const { goBack } = useHistoryBack();
+
   return (
     <div>
       {/* back button */}
-      <div className="flex items-center justify-start">
-        <span>
-          <FaArrowLeft className="text-2xl text-white" />{" "}
-        </span>
-        <Title
-          level={3}
-          className="text-left ml-3 pt-2"
-          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-        >
-          Activity Host
-        </Title>
-      </div>
+      <button className="cursor-pointer" onClick={goBack}>
+        <div className="flex items-center justify-start">
+          <span>
+            <FaArrowLeft className="text-2xl text-white" />{" "}
+          </span>
+          <Title
+            level={3}
+            className="text-left ml-3 pt-2"
+            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+          >
+            Activity Host asd
+          </Title>
+        </div>
+      </button>
 
       {/* Host top */}
       <div className="ml-3">

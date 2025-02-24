@@ -1,5 +1,6 @@
 "use client";
 
+import useBackNavigation from "@/hooks/BackUrl";
 import { ColorPalette } from "@/theme/themes";
 import { MenuOutlined } from "@ant-design/icons";
 import { Button, Typography } from "antd";
@@ -32,20 +33,31 @@ const MessageCom = () => {
     setIsSidebarOpen((prev) => !prev); // Toggle sidebar state
   };
 
+  // navigation back
+  const dynamicCurrentPath = "/messages";
+  const dynamicFallbackUrl = "/find-an-activities";
+
+  // Using the hook with dynamic currentPath and fallbackUrl
+  const { handleBack } = useBackNavigation(
+    dynamicCurrentPath,
+    dynamicFallbackUrl
+  );
   return (
     <div>
       {/* Header */}
       <div className="flex items-center justify-between py-2">
-        <div className="flex items-center">
-          <FaArrowLeft className="text-2xl text-white" />
-          <Title
-            level={3}
-            className="text-left ml-3 pt-2"
-            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-          >
-            Messages
-          </Title>
-        </div>
+        <button onClick={handleBack}>
+          <div className="flex items-center">
+            <FaArrowLeft className="text-2xl text-white" />
+            <Title
+              level={3}
+              className="text-left ml-3 pt-2"
+              style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+            >
+              Messages
+            </Title>
+          </div>
+        </button>
 
         {/* Toggle Button (Visible on Mobile, Hidden on Desktop) */}
         <Button

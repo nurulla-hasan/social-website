@@ -1,6 +1,7 @@
 "use client";
 
 import { fakeParty } from "@/app/data/FakeData";
+import useBackNavigation from "@/hooks/BackUrl";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Typography } from "antd";
 import { useState } from "react";
@@ -16,6 +17,17 @@ const CreateAnActivityCom = () => {
   const Party = fakeParty.slice(2, 6);
 
   const { Title } = Typography;
+
+  // navigation back
+  const dynamicCurrentPath = "/create-an-activity";
+  const dynamicFallbackUrl = "/find-an-activities";
+
+  // Using the hook with dynamic currentPath and fallbackUrl
+  const { handleBack } = useBackNavigation(
+    dynamicCurrentPath,
+    dynamicFallbackUrl
+  );
+
   return (
     <>
       {/* user block modal */}
@@ -30,7 +42,10 @@ const CreateAnActivityCom = () => {
 
       <div>
         {/* Header Section */}
-        <button className="flex items-center justify-start">
+        <button
+          className="flex items-center justify-start"
+          onClick={handleBack}
+        >
           <span>
             <FaArrowLeft className="text-2xl text-white" />
           </span>

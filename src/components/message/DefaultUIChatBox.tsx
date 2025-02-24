@@ -19,6 +19,9 @@ const DefaultUIChatBox = () => {
           setNewChat(false);
         }}
         onCancel={() => setNewChat(false)}
+        onClose={function (): void {
+          throw new Error("Function not implemented.");
+        }}
       />
 
       <div

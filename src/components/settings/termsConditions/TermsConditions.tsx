@@ -1,5 +1,6 @@
 "use client";
 
+import useBackNavigation from "@/hooks/BackUrl";
 import { ColorPalette } from "@/theme/themes";
 import { Typography } from "antd";
 import React from "react";
@@ -7,21 +8,33 @@ import { FaArrowLeft } from "react-icons/fa6";
 const { Title } = Typography;
 
 const TermsConditionsCom: React.FC = () => {
+  // navigation back
+  const dynamicCurrentPath = "/settings/terms-and-conditions";
+  const dynamicFallbackUrl = "/settings";
+
+  // Using the hook with dynamic currentPath and fallbackUrl
+  const { handleBack } = useBackNavigation(
+    dynamicCurrentPath,
+    dynamicFallbackUrl
+  );
+
   return (
     <>
       {/* Header Section */}
-      <div className="flex items-center justify-start">
-        <span>
-          <FaArrowLeft className="text-2xl text-white" />
-        </span>
-        <Title
-          level={3}
-          className="text-left ml-3 pt-2"
-          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-        >
-          Terms & Conditions
-        </Title>
-      </div>
+      <button onClick={handleBack} className="cursor-pointer">
+        <div className="flex items-center justify-start">
+          <span>
+            <FaArrowLeft className="text-2xl text-white" />
+          </span>
+          <Title
+            level={3}
+            className="text-left ml-3 pt-2"
+            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+          >
+            Terms & Conditions
+          </Title>
+        </div>
+      </button>
       <div className="bg-black min-h-screen text-white p-6">
         <div className="space-y-8">
           <div>

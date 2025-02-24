@@ -175,15 +175,17 @@ const SingleFindAnActivities = ({ id }: any) => {
                 <p className="text-base">{party?.address || "N/A"}</p>
               </div>
 
-              <Button
-                style={{
-                  background: "none",
-                  padding: "15px 22px",
-                  color: "#fff",
-                }}
-              >
-                View Map
-              </Button>
+              <Link href={`/map`}>
+                <Button
+                  style={{
+                    background: "none",
+                    padding: "15px 22px",
+                    color: "#fff",
+                  }}
+                >
+                  View Map
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

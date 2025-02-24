@@ -44,7 +44,10 @@ const PictureUpdate = () => {
             <>
               <div className="xl:flex gap-7 mt-4">
                 {field.value.map((photo, index) => (
-                  <div key={index} className="relative w-full h-[450px]">
+                  <div
+                    key={index}
+                    className="relative w-full h-[450px] mt-4 xl:mt-0"
+                  >
                     <img
                       src={
                         typeof photo === "string"
@@ -77,7 +80,7 @@ const PictureUpdate = () => {
                     }}
                     showUploadList={false}
                   >
-                    <div className="w-[350px] h-[450px] border border-dashed border-gray-500 flex flex-col items-center justify-center rounded-lg cursor-pointer">
+                    <div className="mt-4 xl:mt-0 w-[350px] h-[450px] border border-dashed border-gray-500 flex flex-col items-center justify-center rounded-lg cursor-pointer">
                       <PlusOutlined className="text-purple-500 text-3xl" />
                     </div>
                   </Upload>

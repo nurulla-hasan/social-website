@@ -83,6 +83,7 @@ const MainForm = () => {
   }, []);
 
   const methods = useForm<FormValues>({
+    // @ts-ignore
     resolver: yupResolver(validationSchemas[step]),
     mode: "onChange",
     defaultValues: {
@@ -168,8 +169,8 @@ const MainForm = () => {
           </div>
 
           <div className="w-full lg:w-[760px] mx-auto mt-0 lg:mt-48">
+            {/* @ts-ignore */}
             {React.createElement(steps[step], { control: methods.control })}
-
             <div className="w-full mt-7">
               {/* previous btn */}
               <div
