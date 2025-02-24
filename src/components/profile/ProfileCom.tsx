@@ -4,9 +4,8 @@ import { fakeParty } from "@/app/data/FakeData";
 import { fakeImage } from "@/constant/constant";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Progress, Typography } from "antd";
-import { BiDotsVerticalRounded } from "react-icons/bi";
+import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa6";
-import { RxTextAlignLeft } from "react-icons/rx";
 import Bio from "./Bio";
 import Participated from "./Participated";
 
@@ -110,29 +109,13 @@ const ProfileCom = () => {
               {host?.userName || "N/A"}
             </button>
 
-            {/* button area */}
-            <div className="flex justify-between items-center w-full lg:w-[25%] mt-5">
-              <Button
-                style={{
-                  background: "none",
-                  color: `${ColorPalette?.colorTextPrimary}`,
-                }}
-              >
-                Add friend
-              </Button>
-              <Button type="primary">Invite to activities</Button>
-              <div
-                className="border w-6 h-6 flex items-center justify-center"
-                style={{ borderRadius: "25px 25px 0px 25px" }}
-              >
-                <span className="p-1 inline-block">
-                  <RxTextAlignLeft className="text-sm" />{" "}
-                </span>
-              </div>
-
-              <button>
-                <BiDotsVerticalRounded className="text-2xl" />
-              </button>
+            {/* Edit button */}
+            <div className="mt-4">
+              <Link href={`/profile/update`}>
+                <Button style={{ background: "none", color: "white" }}>
+                  Edit profile
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

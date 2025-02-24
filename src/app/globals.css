@@ -367,3 +367,21 @@ input[type="text"] {
 .custom-datepicker .ant-picker-cell-selected .ant-picker-cell-inner {
   background-color: #444 !important; /* Set selected cell background color */
 }
+
+/* update add schools */
+.update-add-custom-input input[type="text"] {
+  background-color: #2e2e2e !important;
+  color: white;
+}
+
+.update-add-custom-select-input input[type="text"] {
+  background-color: #2e2e2e !important;
+  color: white;
+}
+
+.custom-select .ant-select-selector {
+  background-color: #1f1f1f !important; /* Dark gray */
+  /* border: 2px solid #7a32ff !important; */
+  color: #fff !important;
+  width: 100%;
+}

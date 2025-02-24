@@ -645,4 +645,5 @@ export const professions = [
   "Obstetrician",
   "Offshore Worker",
   "Oncologist",
+  "Student",
 ];
