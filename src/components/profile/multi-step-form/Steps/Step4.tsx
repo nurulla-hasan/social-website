@@ -13,46 +13,52 @@ const Step4 = ({ control }: Step4Props) => (
       <h1 className="text-center text-2xl lg:text-5xl font-bold ">Add Photo</h1>
     </div>
 
-    <div className="flex gap-4 mt-12 items-center justify-center">
+    <div className="flex gap-4 mt-12 items-center justify-center flex-col">
       <Controller
         name="addPhotos"
         control={control}
         rules={{ required: "Photos are required", max: 4 }}
         render={({ field, fieldState: { error } }) => (
           <>
-            {field.value.map((photo, index) => (
-              <div key={index} className="relative w-[120px] h-[150px]">
-                <img
-                  // @ts-ignore
-                  src={URL.createObjectURL(photo)}
-                  alt="Uploaded"
-                  className="w-full h-full object-cover rounded-lg"
-                />
-                <CloseCircleFilled
-                  className="absolute bottom-[-8px] right-[-8px] bg-gray-400 rounded-full text-gray-800 cursor-pointer text-xl"
-                  onClick={() => {
-                    const newPhotos = field.value.filter((_, i) => i !== index);
-                    field.onChange(newPhotos);
-                  }}
-                />
-              </div>
-            ))}
-
-            {field.value.length < 4 && (
-              <Upload
-                beforeUpload={(file) => {
-                  field.onChange([...field.value, file]);
-                  return false; // Prevent upload
-                }}
-                showUploadList={false}
-              >
-                <div className="w-[120px] h-[150px] border border-dashed border-gray-500 flex flex-col items-center justify-center rounded-lg cursor-pointer">
-                  <PlusOutlined className="text-purple-500 text-3xl" />
+            <div className="flex gap-7">
+              {field.value.map((photo, index) => (
+                <div key={index} className="relative w-[120px] h-[150px]">
+                  <img
+                    // @ts-ignore
+                    src={URL.createObjectURL(photo)}
+                    alt="Uploaded"
+                    className="w-full h-full object-cover rounded-lg"
+                  />
+                  <CloseCircleFilled
+                    className="absolute bottom-[-8px] right-[-8px] bg-gray-400 rounded-full text-gray-800 cursor-pointer text-xl"
+                    onClick={() => {
+                      const newPhotos = field.value.filter(
+                        (_, i) => i !== index
+                      );
+                      field.onChange(newPhotos);
+                    }}
+                  />
                 </div>
-              </Upload>
-            )}
+              ))}
 
-            {error && <p className="text-red-500">{error.message}</p>}
+              {field.value.length < 4 && (
+                <Upload
+                  beforeUpload={(file) => {
+                    field.onChange([...field.value, file]);
+                    return false; // Prevent upload
+                  }}
+                  showUploadList={false}
+                >
+                  <div className="w-[120px] h-[150px] border border-dashed border-gray-500 flex flex-col items-center justify-center rounded-lg cursor-pointer">
+                    <PlusOutlined className="text-purple-500 text-3xl" />
+                  </div>
+                </Upload>
+              )}
+            </div>
+
+            <div>
+              {error && <p className="text-red-500">{error.message}</p>}
+            </div>
           </>
         )}
       />

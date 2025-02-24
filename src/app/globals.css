@@ -178,7 +178,7 @@ input[type="text"] {
 }
 
 .ant-picker-outlined {
-  background: #0a0a0a !important;
+  background: #171717 !important;
   border-width: 1px !important;
   border-style: solid !important;
   border-color: auto !important;
@@ -190,7 +190,7 @@ input[type="text"] {
 }
 .ant-picker-input {
   border: none !important;
-  background: #0a0a0a !important;
+  background: #171717 !important;
 }
 .ant-select-selector {
   border: auto !important;

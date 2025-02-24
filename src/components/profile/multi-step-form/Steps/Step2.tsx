@@ -17,12 +17,12 @@ const Step2 = ({ control }: Step2Props) => (
       Your profile shows your age, not your date of birth.
     </p>
 
-    <div className="flex items-center flex-col justify-start mt-12">
+    <div className=" items-center flex-col justify-start mt-12">
       <label
         htmlFor="userName"
-        className="capitalize my-2 flex items-start justify-start w-full"
+        className="capitalize my-2  items-start justify-start w-full"
       >
-        Enter your username
+        Date of birth
       </label>
 
       <Controller
@@ -32,16 +32,15 @@ const Step2 = ({ control }: Step2Props) => (
         render={({ field, fieldState: { error } }) => (
           <>
             <DatePicker
-              styles={{ border: "none" }}
-              className="custom-datepicker" // Add a custom class for styling
+              className="custom-datepicker"
               style={{
                 width: "100%",
                 height: "50px",
-                border: "none",
-                backgroundColor: "#171717",
+                border: "transparent",
+                backgroundColor: "#ddd",
                 color: "#fff",
               }}
-              placeholder="Select your birthday"
+              placeholder="D D / M M / Y Y Y Y"
               value={field.value ? dayjs(field.value) : null}
               onChange={(date) => field.onChange(date?.toISOString())}
             />
