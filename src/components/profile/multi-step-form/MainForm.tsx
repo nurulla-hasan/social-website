@@ -3,6 +3,7 @@
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "antd";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import Step1 from "./Steps/Step1";
@@ -63,7 +64,7 @@ const steps = [
 
 const MainForm = () => {
   const [step, setStep] = useState<number>(0);
-
+  const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -112,8 +113,18 @@ const MainForm = () => {
     },
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log("Form Data:", data);
+  const onSubmit = async (data: FormValues) => {
+    const isValid = await methods.trigger();
+
+    if (!isValid) {
+      console.log("Form validation failed");
+      return;
+    }
+
+    if (step === 12) {
+      console.log("Form Data:", data);
+      router.push("/find-an-activities");
+    }
   };
 
   // Next step

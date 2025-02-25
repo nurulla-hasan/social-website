@@ -292,14 +292,11 @@ input[type="text"] {
     height 0.2s, box-shadow 0.2s, outline 0.2s;
 }
 
-:where(.css-dev-only-do-not-override-1wixdag).ant-collapse
-  .ant-collapse-content
-  > .ant-collapse-content-box {
+.ant-collapse-content-box {
   padding: 0 !important;
 }
 
-:where(.css-dev-only-do-not-override-1wixdag).ant-collapse
-  .ant-collapse-content {
+.ant-collapse-content {
   color: #434649;
   background-color: none !important;
   border-top: none !important;
