@@ -1,5 +1,6 @@
 "use client";
 
+import useHistoryBack from "@/hooks/HistoryBack";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Card, Typography } from "antd";
 import { useState } from "react";
@@ -82,6 +83,8 @@ const PricingPlans = () => {
     },
   };
 
+  const { goBack } = useHistoryBack();
+
   return (
     <>
       {/* user block modal */}
@@ -94,18 +97,20 @@ const PricingPlans = () => {
       />
 
       {/* Header Section */}
-      <div className="flex items-center justify-start">
-        <span>
-          <FaArrowLeft className="text-2xl text-white" />
-        </span>
-        <Title
-          level={3}
-          className="text-left ml-3 pt-2"
-          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-        >
-          Boost Plan
-        </Title>
-      </div>
+      <button className="cursor-pointer" onClick={goBack}>
+        <div className="flex items-center justify-start">
+          <span>
+            <FaArrowLeft className="text-2xl text-white" />
+          </span>
+          <Title
+            level={3}
+            className="text-left ml-3 pt-2"
+            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+          >
+            Boost Plan
+          </Title>
+        </div>
+      </button>
 
       <div className=" bg-black text-white p-6">
         <h2 className="text-xl font-bold mb-4">Current Plans</h2>

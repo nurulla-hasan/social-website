@@ -42,7 +42,7 @@ const FriendsCom = () => {
       <div className="py-7">
         <FriendsFilter />
       </div>
-      <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-7 ">
+      <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-7 ">
         {user?.map((user, index: number) => (
           <FriendsProfileCard user={user} key={index + 1} />
         ))}

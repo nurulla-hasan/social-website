@@ -28,7 +28,7 @@ const Bio = ({ host }: any) => {
         </p>
 
         {/* Image gallery */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-7 mt-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-7 mt-7">
           {host?.gallery?.map((img: string, i: number) => (
             <Image
               key={i}
@@ -140,7 +140,7 @@ const Bio = ({ host }: any) => {
             Future Attendance
           </Title>
 
-          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-7 ">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-7 ">
             {Party?.map((party: any, index: number) => (
               <SinglePartyCard data={party} key={index + 1} />
             ))}

@@ -19,7 +19,7 @@ const ActivitiesFilter = () => {
         onCancel={() => setActivityFilter(false)}
       />
 
-      <div className="flex items-center justify-between">
+      <div className="sm:flex items-center justify-between">
         <div className="flex items-center justify-between">
           <button
             onClick={() => setActivityFilter(true)}
@@ -76,7 +76,7 @@ const ActivitiesFilter = () => {
           </button>
         </div>
         <button
-          className="py-[14px] px-7 bg-[#171717] mx-2 rounded-md"
+          className=" w-full sm:w-[auto] mt-5 sm:mt-0 py-[14px] px-7 bg-[#171717] mx-2 rounded-md"
           style={{ border: "none", color: `${ColorPalette?.colorTextPrimary}` }}
         >
           Only Private Activities <Switch />{" "}

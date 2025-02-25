@@ -80,7 +80,7 @@ const CreateAnActivityCom = () => {
         </div>
 
         {/* Party */}
-        <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-7 ">
+        <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-7 ">
           {Party?.map((party, index: number) => (
             <CreateAnActivityCard data={party} key={index + 1} />
           ))}
