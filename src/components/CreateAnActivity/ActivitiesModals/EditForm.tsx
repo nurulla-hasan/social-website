@@ -71,13 +71,13 @@ const EditForm = () => {
     <>
       <Form form={form} onFinish={handleSubmit} layout="vertical">
         {/* Image Upload */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 w-full activities-form-upload">
           <Upload
             className="w-full"
             showUploadList={false}
             onChange={(info) => handleUpload(info, setThumbnail)}
           >
-            <div className="border border-dashed border-gray-500 p-6 rounded-lg text-center">
+            <div className="border border-dashed border-gray-500 p-6 rounded-lg text-center w-full">
               {thumbnail ? (
                 <img
                   src={thumbnail}
@@ -100,7 +100,7 @@ const EditForm = () => {
             showUploadList={false}
             onChange={(info) => handleUpload(info, setVenueImage)}
           >
-            <div className="border border-dashed border-gray-500 p-6 rounded-lg text-center">
+            <div className="border border-dashed border-gray-500 p-6 rounded-lg text-center w-full">
               {venueImage ? (
                 <img src={venueImage} alt="Venue" className="w-full rounded" />
               ) : (
@@ -122,16 +122,18 @@ const EditForm = () => {
             rules={[{ required: true, message: "Activity Name is required" }]}
           >
             <Input
+              size="large"
               placeholder="Activity Name"
               className=" text-white border-none"
-              style={{ background: "#0A0A0A !important", border: "" }}
+              style={{ background: "#fff !important", border: "" }}
             />
           </Form.Item>
           <Form.Item name="theme">
             <Input
+              size="large"
               placeholder="Theme (Optional)"
-              style={{ background: "#0A0A0A !important" }}
-              className="bg-gray-800 text-white border-none"
+              style={{ background: "#fff !important" }}
+              className="bg-red-800 text-white border-none"
             />
           </Form.Item>
         </div>
@@ -144,7 +146,7 @@ const EditForm = () => {
           >
             <TimePicker
               size="large"
-              style={{ background: "#0A0A0A" }}
+              style={{ background: "#fff", height: "50px" }}
               className="w-full text-white create-activity-input"
               format="HH:mm"
             />
@@ -155,7 +157,7 @@ const EditForm = () => {
           >
             <TimePicker
               size="large"
-              style={{ background: "#0A0A0A" }}
+              style={{ background: "#fff", height: "50px" }}
               className="w-full text-white create-activity-input"
               format="HH:mm"
             />
@@ -163,7 +165,7 @@ const EditForm = () => {
         </div>
 
         {/* Activity & Date */}
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-2 gap-4 mt-4 activities-form-input">
           <Form.Item
             style={{ background: "transparent" }}
             name="activity"
@@ -171,7 +173,7 @@ const EditForm = () => {
           >
             <Select
               size="large"
-              style={{ background: "#0A0A0A" }}
+              style={{ background: "#171717", height: "50px" }}
               placeholder="Select Activity"
               className="w-full bg-gray-800 text-white create-activity-input"
             >
@@ -184,6 +186,7 @@ const EditForm = () => {
             rules={[{ required: true, message: "Date is required" }]}
           >
             <DatePicker
+              style={{ height: "50px" }}
               size="large"
               className="w-full bg-gray-800 text-white"
             />
@@ -234,7 +237,7 @@ const EditForm = () => {
         {/* Note */}
         <Form.Item name="note" style={{ marginTop: "30px" }}>
           <TextArea
-            style={{ background: "#0A0A0A", color: "#fff" }}
+            style={{ background: "transparent", color: "#fff" }}
             rows={4}
             placeholder="Note"
             className="bg-gray-800 text-white border-none mt-4 custom-textarea"
@@ -270,24 +273,26 @@ const EditForm = () => {
           </Form.Item>
         </div>
 
-        {/* Guests Per Participant */}
-        <Form.Item
-          name="guestsPerParticipant"
-          rules={[
-            {
-              required: true,
-              message: "Please select the number of guests per participant",
-            },
-          ]}
-        >
-          <Select
-            placeholder="Number of guests per participant"
-            className="w-full bg-gray-800 text-white mt-4"
+        <div className="activities-form-input">
+          <Form.Item
+            name="guestsPerParticipant"
+            rules={[
+              {
+                required: true,
+                message: "Please select the number of guests per participant",
+              },
+            ]}
           >
-            <Option value="1">1</Option>
-            <Option value="2">2</Option>
-          </Select>
-        </Form.Item>
+            <Select
+              style={{ background: "#171717", height: "50px", color: "#fff" }}
+              placeholder="Number of guests per participant"
+              className="w-full text-white mt-4 custom-placeholder"
+            >
+              <Option value="1">1</Option>
+              <Option value="2">2</Option>
+            </Select>
+          </Form.Item>
+        </div>
 
         {/* Checkboxes */}
         <div className="flex justify-start items-center mt-4">

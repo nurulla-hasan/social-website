@@ -157,7 +157,7 @@ input[type="text"] {
 }
 
 .create-an-activity input {
-  background-color: #0a0a0a !important;
+  background-color: transparent !important;
   border: 1px solid #fff !important;
 }
 .create-an-activity input::placeholder {
@@ -167,11 +167,26 @@ input[type="text"] {
   outline: 1px solid inherit !important;
 }
 
-.ant-form-item-control-input-content,
-.ant-picker-input,
-.ant-select-selector {
-  border: 1px solid #d3d3d3;
-  background: #0a0a0a !important;
+.activities-form-input .ant-form-item-control-input-content,
+.activities-form-input .ant-picker-input,
+.activities-form-input .ant-select-selector {
+  background: transparent !important;
+  border-radius: 5px !important;
+  border-color: #fff !important;
+}
+
+.activities-form-input .ant-select-selection-placeholder {
+  color: gray !important; /* Change placeholder color */
+}
+
+.activities-form-upload .ant-upload.ant-upload-select {
+  width: 100%;
+}
+
+.activities-form-input .ant-form-item-control-input-content::placeholder,
+.activities-form-input .ant-picker-input::placeholder,
+.activities-form-input .ant-select-selector::placeholder {
+  color: #fff !important;
 }
 .ant-select-selector input::placeholder {
   color: red !important;
@@ -184,17 +199,26 @@ input[type="text"] {
   border-color: auto !important;
 }
 
+.create-activity-input-filter .ant-select-selector {
+  background: transparent !important;
+  color: white !important;
+}
+
+.create-activity-input-filter .ant-select-selection-placeholder {
+  color: #bfbfbf !important;
+}
+
 .ant-form-item-control-input-content {
-  border: none !important;
-  background: #0a0a0a !important;
+  /* border: none !important;
+  background: #0a0a0a !important; */
 }
 .ant-picker-input {
   border: none !important;
   background: #171717 !important;
 }
 .ant-select-selector {
-  border: auto !important;
-  background: #0a0a0a !important;
+  /* border: auto !important;
+  background: #0a0a0a !important; */
 }
 
 ::-webkit-input-placeholder {

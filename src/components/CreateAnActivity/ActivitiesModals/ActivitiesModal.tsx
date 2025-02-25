@@ -39,7 +39,7 @@ const ActivitiesModal = ({ isOpen, onConfirm, onCancel }: Props) => {
         Create an Activity
       </div>
 
-      <div className="max-w-3xl mx-auto bg-black text-white p-6 rounded-lg shadow-lg">
+      <div className="max-w-3xl mx-auto  text-white p-6 rounded-lg shadow-lg">
         <ActivitiesForm />
       </div>
     </Modal>

@@ -27,7 +27,7 @@ const HostInfo = ({ partyHost }: any) => {
 
           <Link href={`/host/details/${partyHost?.host}`}>
             {" "}
-            <button>
+            <button className="text-white">
               <HiOutlineArrowTopRightOnSquare className="text-2xl" />{" "}
             </button>
           </Link>

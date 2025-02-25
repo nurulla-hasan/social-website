@@ -1,33 +1,28 @@
-// hooks/useHistoryBack.ts
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 /**
- * Custom hook to manage the back navigation dynamically.
+ * Custom hook to track history and navigate back.
  */
 const useHistoryBack = () => {
   const router = useRouter();
-  const pathname = usePathname(); // Use pathname to track the current URL
-  const [previousUrl, setPreviousUrl] = useState<string | null>(null);
+  const [canGoBack, setCanGoBack] = useState(false);
 
-  // Track the previous URL
   useEffect(() => {
-    // Save the current path as the previous URL when it changes
-    setPreviousUrl(pathname);
-  }, [pathname]);
+    setCanGoBack(window.history.length > 1);
+  }, []);
 
-  // Function to navigate back to the previous page
   const goBack = () => {
-    if (previousUrl) {
-      router.push(previousUrl); // Go back to the previous page
+    if (canGoBack) {
+      window.history.back(); // Navigate back
     } else {
-      router.push("/"); // Fallback if no previous page is available
+      router.push("/"); // Fallback to home if no history
     }
   };
 
-  return { goBack };
+  return { goBack, canGoBack };
 };
 
 export default useHistoryBack;

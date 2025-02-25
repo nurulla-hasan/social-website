@@ -30,7 +30,7 @@ const HostDetailsCom = ({ id }: any) => {
             className="text-left ml-3 pt-2"
             style={{ color: `${ColorPalette?.colorTextPrimary}` }}
           >
-            Activity Host asd
+            Activity Host
           </Title>
         </div>
       </button>

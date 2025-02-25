@@ -108,11 +108,13 @@ const FilterForm = () => {
             <Select
               size="large"
               placeholder="Select Activity"
-              className="w-full bg-gray-800 text-white create-activity-input"
+              className="w-full text-white create-activity-input-filter"
             >
               <Option value="Hiking">Hiking</Option>
               <Option value="Cycling">Cycling</Option>
             </Select>
+
+            {/* Custom Styles */}
           </Form.Item>
         </div>
 
