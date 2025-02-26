@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SLYD SOCIAL",
-  description: "Slyd social main layout page",
+  title: "LYD SOCIAL",
+  description: "Lyd social main layout page",
 };
 
 export default function RootLayout({

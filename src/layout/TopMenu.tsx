@@ -49,7 +49,7 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
       <div>
         <Link href={`/profile`}>
           <Avatar
-            style={{ margin: "0 10px" }}
+            style={{ margin: "0 10px", border: "1px solid #fff" }}
             size="default"
             icon={<UserOutlined />}
           />

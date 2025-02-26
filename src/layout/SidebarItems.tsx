@@ -2,6 +2,7 @@ import {
   FileSearchOutlined,
   LogoutOutlined,
   SettingOutlined,
+  UsergroupAddOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import Link from "next/link";
@@ -19,6 +20,11 @@ const sidebarItems = () => {
       label: <Link href="/find-an-activities">Find an Activities</Link>,
       key: `/find-an-activities`,
       icon: <FileSearchOutlined style={{ fontSize: "19px" }} />,
+    },
+    {
+      label: <Link href="/friends-activity">Friends Activity</Link>,
+      key: `/friends-activity`,
+      icon: <UsergroupAddOutlined style={{ fontSize: "19px" }} />,
     },
     {
       label: <Link href="/your-activities">Your Activities</Link>,
