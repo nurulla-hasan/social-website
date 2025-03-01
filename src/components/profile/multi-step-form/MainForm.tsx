@@ -150,7 +150,11 @@ const MainForm = () => {
   const hideSkipButtonSteps = [0, 1, 2, 3]; // Step1, Step2, Step3, Step4, Step6 (0-based index)
 
   return (
-    <div className="w-full lg:w-[1170px] mx-auto px-4 relative">
+    <div
+      className={`w-full lg:w-[1170px] mx-auto px-4 ${
+        !isSmallScreen ? "relative" : ""
+      }`}
+    >
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           {/* Stepper */}
@@ -194,7 +198,7 @@ const MainForm = () => {
                   color: "#fff",
                   margin: "0 auto",
                   position: "absolute",
-                  top: "15%",
+                  top: `${!isSmallScreen ? "15%" : "2%"}`,
                   left: "0",
                 }}
               >

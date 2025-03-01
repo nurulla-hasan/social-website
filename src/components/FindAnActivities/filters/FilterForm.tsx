@@ -12,7 +12,7 @@ import {
   TimePicker,
   Typography,
 } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const { Option } = Select;
 const { TextArea } = Input;
@@ -22,6 +22,24 @@ const FilterForm = () => {
   const [form] = Form.useForm();
   const [distance, setDistance] = useState(2);
   const [ageRange, setAgeRange] = useState([15, 17]);
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 992);
+      setIsSmallScreen(width <= 480);
+    };
+
+    checkScreenSize(); // Initial check on mount
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => {
+      window.removeEventListener("resize", checkScreenSize);
+    };
+  }, []);
 
   // Handle Form Submit
   const handleSubmit = (values: any) => {
@@ -36,14 +54,14 @@ const FilterForm = () => {
 
   const siderStyle = {
     track: {
-      backgroundColor: "#7DFF19", // Blue color for the track
+      backgroundColor: "#7DFF19",
     },
     rail: {
-      backgroundColor: "#7DFF19", // Light gray color for the rail
+      backgroundColor: "#1c1c1c",
     },
     handle: {
-      borderColor: "#7DFF19", // Blue color for the handle border
-      backgroundColor: "#7DFF19", // White color for the handle
+      borderColor: "#7DFF19",
+      backgroundColor: "#7DFF19",
     },
   };
 
@@ -51,7 +69,7 @@ const FilterForm = () => {
     <>
       <Form form={form} onFinish={handleSubmit} layout="vertical">
         {/* Time Selection */}
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4">
           <Form.Item
             name="startTime"
             rules={[{ required: true, message: "Start Time is required" }]}
@@ -72,20 +90,24 @@ const FilterForm = () => {
         </div>
 
         {/* Activity & Date */}
-        <div className="grid grid-cols-2 gap-4 mt-4 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 w-full">
           <div
             className="flex items-center justify-between border rounded-lg"
             style={{ height: "42px" }}
           >
-            <span className="px-2 text-[#bfbfbf] text-md">
-              {" "}
+            <span
+              className={`px-2 text-[#bfbfbf] text-md ${
+                isSmallScreen ? "hidden" : "block"
+              }`}
+            >
               Guest Allowance
             </span>
+
             <Form.Item
               name="privateActivity"
               valuePropName="checked"
               label={null}
-              style={{ margin: "0", padding: "0" }}
+              style={{ margin: "0", padding: "5px" }}
             >
               <Checkbox
                 style={{
@@ -106,6 +128,10 @@ const FilterForm = () => {
             rules={[{ required: true, message: "Please select an activity" }]}
           >
             <Select
+              dropdownStyle={{
+                backgroundColor: "#1c1c1c",
+                color: "#fff",
+              }}
               size="large"
               placeholder="Select Activity"
               className="w-full text-white create-activity-input-filter"
@@ -120,7 +146,7 @@ const FilterForm = () => {
 
         {/* Distance & Age Range */}
 
-        <div className="grid grid-cols-2 gap-4 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-6">
           {/* Distance/Miles */}
 
           <div className="border p-4 rounded-lg">
@@ -145,25 +171,29 @@ const FilterForm = () => {
               <span className="inline-block h-[50px] w-[1px] bg-[#7DFF19] ml-[-5px] "></span>
             </div>
           </div>
-
-          {/* Age */}
           <div className="border p-4 rounded-lg">
             <span className="text-white">
+              {" "}
               Age Range {ageRange[0]} to {ageRange[1]}
             </span>
-            {/* Age Range {ageRange[0]} to {ageRange[1]} */}
-            <div className="flex w-full items-center justify-between relative">
+            <div className="flex w-full items-center justify-between relative ">
+              <span className="absolute bottom-0 left-[0px] mt-7 ml-7 text-gray-500 font-semibold">
+                13
+              </span>
               <span className="inline-block h-[50px] w-[1px]  bg-[#7DFF19] mr-[-5px]"></span>
+              {/* Distance Range {distance} Miles */}
               <Slider
                 styles={siderStyle}
                 range
                 min={13}
-                max={17}
+                max={25}
                 value={ageRange}
                 onChange={setAgeRange}
                 style={{ width: "100%" }}
               />
-
+              <span className="absolute bottom-0 mt-7 mr-5 right-0 text-gray-500 font-semibold">
+                25
+              </span>
               <span className="inline-block h-[50px] w-[1px] bg-[#7DFF19] ml-[-5px] "></span>
             </div>
           </div>

@@ -46,7 +46,7 @@ const PictureUpdate = () => {
                 {field.value.map((photo, index) => (
                   <div
                     key={index}
-                    className="relative w-full h-[450px] mt-4 xl:mt-0"
+                    className="px-2 relative w-full h-[450px] mt-4 xl:mt-0"
                   >
                     <img
                       src={

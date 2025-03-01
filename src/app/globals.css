@@ -450,3 +450,12 @@ input[type="text"] {
 .custom-select .ant-select-item-option-selected {
   background-color: #444 !important;
 }
+
+/* -----------------UPDATE HAIR COLOR----------------  */
+.update-hair-color input {
+  border: 1px solid #fff !important;
+}
+
+::placeholder {
+  color: #bfbfbf !important;
+}

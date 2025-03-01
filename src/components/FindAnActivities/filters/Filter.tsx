@@ -76,7 +76,7 @@ const ActivitiesFilter = () => {
           </button>
         </div>
         <button
-          className=" w-full sm:w-[auto] mt-5 sm:mt-0 py-[14px] px-7 bg-[#1c1c1c] mx-2 rounded-md"
+          className=" w-full sm:w-[auto] mt-3 sm:mt-0 py-[14px] px-7 bg-[#1c1c1c] mx-2 rounded-md"
           style={{ border: "none", color: `${ColorPalette?.colorTextPrimary}` }}
         >
           Only Private Activities <Switch />{" "}

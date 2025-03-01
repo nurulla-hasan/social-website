@@ -36,7 +36,6 @@ const LocationAccess = ({
   const modalStyle = {
     content: {
       background: "#1c1c1c",
-      padding: "24px",
       borderRadius: "8px",
       border: "1px solid #7D7D7D",
     },

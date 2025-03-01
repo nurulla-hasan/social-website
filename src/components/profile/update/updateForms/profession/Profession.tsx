@@ -44,13 +44,17 @@ const ProfessionUpdateForm = ({ onUpdateSuccess }: Props) => {
 
       <div className="mt-12 update-add-custom-select-input">
         <label className="capitalize my-2 flex items-start justify-start w-full text-sm text-gray-300">
-          Select your profession (Optional)
+          Select your profession
         </label>
         <Controller
           name="profession"
           control={control}
           render={({ field }) => (
             <Select
+              dropdownStyle={{
+                backgroundColor: "#1c1c1c",
+                color: "#fff",
+              }}
               className="custom-select"
               style={{ width: "100%" }}
               {...field}

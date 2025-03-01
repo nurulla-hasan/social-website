@@ -71,7 +71,7 @@ const EditForm = () => {
     <>
       <Form form={form} onFinish={handleSubmit} layout="vertical">
         {/* Image Upload */}
-        <div className="grid grid-cols-2 gap-4 w-full activities-form-upload">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 w-full activities-form-upload">
           <Upload
             className="w-full"
             showUploadList={false}
@@ -116,7 +116,7 @@ const EditForm = () => {
         </div>
 
         {/* Inputs */}
-        <div className="grid grid-cols-2 gap-4 mt-4 create-an-activity">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 create-an-activity">
           <Form.Item
             name="activityName"
             rules={[{ required: true, message: "Activity Name is required" }]}
@@ -139,7 +139,7 @@ const EditForm = () => {
         </div>
 
         {/* Time Selection */}
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4">
           <Form.Item
             name="startTime"
             rules={[{ required: true, message: "Start Time is required" }]}
@@ -165,7 +165,7 @@ const EditForm = () => {
         </div>
 
         {/* Activity & Date */}
-        <div className="grid grid-cols-2 gap-4 mt-4 activities-form-input">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4 activities-form-input">
           <Form.Item
             style={{ background: "transparent" }}
             name="activity"
@@ -194,7 +194,7 @@ const EditForm = () => {
         </div>
 
         {/* Distance & Age Range */}
-        <div className="grid grid-cols-2 gap-4 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-6">
           <div className="border p-4 rounded-lg">
             <Text
               className="text-gray-400 block mb-4"
@@ -295,7 +295,7 @@ const EditForm = () => {
         </div>
 
         {/* Checkboxes */}
-        <div className="flex justify-start items-center mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 justify-start items-center mt-4">
           <Form.Item
             name="privateActivity"
             valuePropName="checked"
@@ -312,12 +312,7 @@ const EditForm = () => {
               Private Activity
             </Checkbox>
           </Form.Item>
-          <Form.Item
-            name="groupChat"
-            valuePropName="checked"
-            label={null}
-            style={{ marginLeft: "15px" }}
-          >
+          <Form.Item name="groupChat" valuePropName="checked" label={null}>
             <Checkbox
               style={{
                 color: `${ColorPalette.colorPrimaryLight}`,

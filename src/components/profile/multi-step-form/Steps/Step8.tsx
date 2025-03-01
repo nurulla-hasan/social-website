@@ -47,7 +47,7 @@ const Step8 = ({ control }: Step8Props) => {
           name="lookingFor"
           control={control}
           render={({ field: { onChange } }) => (
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
               {options.map(({ label, emoji }) => (
                 <button
                   key={label}

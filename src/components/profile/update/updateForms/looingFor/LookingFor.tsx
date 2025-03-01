@@ -42,7 +42,7 @@ const LookingFor = ({ onUpdateSuccess }: Props) => {
           name="lookingFor"
           control={control}
           render={({ field: { onChange, value } }) => (
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
               {options.map(({ label, emoji }) => (
                 <button
                   key={label}
@@ -55,7 +55,7 @@ const LookingFor = ({ onUpdateSuccess }: Props) => {
                       : [...value!, label]; // Add if not selected
                     onChange(newSelected); // Update form value with the new selection
                   }}
-                  className={`w-36 h-36 flex flex-col items-center justify-center rounded-xl transition-all duration-300 border-2 
+                  className={`w-full h-36 p-2 flex flex-col items-center justify-center rounded-xl transition-all duration-300 border-2 
                   ${
                     value!.includes(label)
                       ? "border-purple-500 text-white scale-105"

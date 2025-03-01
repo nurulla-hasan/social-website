@@ -41,13 +41,13 @@ const AddSchool = ({ onUpdateSuccess }: Props) => {
         <Controller
           name="schoolName"
           control={control}
-          rules={{ required: "School name is required" }}
+          // rules={{ required: "School name is required" }}
           render={({ field, fieldState: { error } }) => (
             <>
               <Input
                 id="schoolName"
                 {...field}
-                // placeholder="Enter your school name"
+                placeholder="Enter your school name"
                 style={{ background: "#2e2e2e" }}
               />
               {error && <p style={{ color: "red" }}>{error.message}</p>}
@@ -62,7 +62,7 @@ const AddSchool = ({ onUpdateSuccess }: Props) => {
           htmlFor="graduationYear"
           className="capitalize my-2 inline-block text-sm mt-7 text-white"
         >
-          Enter your graduation year (Optional)
+          Enter your graduation year
         </label>
         <Controller
           name="graduationYear"
@@ -71,7 +71,7 @@ const AddSchool = ({ onUpdateSuccess }: Props) => {
             <Input
               id="graduationYear"
               {...field}
-              //   placeholder="Enter your graduation year"
+              placeholder="Enter your graduation year"
               style={{ background: "#2e2e2e" }}
             />
           )}

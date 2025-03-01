@@ -13,6 +13,7 @@ import InterestUpdateForm from "./updateForms/Interest/InterestedUpdateForm";
 import PictureUpdate from "./updateForms/PictureUpdate";
 import AddSchool from "./updateForms/addSchool/AddSchool";
 import UpdateGender from "./updateForms/genderUpdate/Gender";
+import HairColorForm from "./updateForms/hairColor/HairColor";
 import LookingFor from "./updateForms/looingFor/LookingFor";
 import ProfessionUpdateForm from "./updateForms/profession/Profession";
 import Relationship from "./updateForms/relationship/Relationship";
@@ -29,6 +30,7 @@ const UpdateCom = () => {
   const [UpdateGenderModal, setUpdateGenderModal] = useState<boolean>(false);
   const [ProfessionModal, setProfessionModal] = useState<boolean>(false);
   const [HeightUpdateModal, setHeightUpdateModal] = useState<boolean>(false);
+  const [HairColorModal, setHairColorModal] = useState<boolean>(false);
   const [RelationshipModal, setRelationshipUpdateModal] =
     useState<boolean>(false);
 
@@ -137,6 +139,16 @@ const UpdateCom = () => {
         <HeightSelectorForm onUpdateSuccess={handleCloseModal} />
       </DynamicModalForUserDataUpdate>
 
+      {/* Hair color */}
+      <DynamicModalForUserDataUpdate
+        isOpen={HairColorModal}
+        onConfirm={() => setHairColorModal(false)}
+        onCancel={() => setHairColorModal(false)}
+        onClose={handleCloseModal}
+      >
+        <HairColorForm onUpdateSuccess={handleCloseModal} />
+      </DynamicModalForUserDataUpdate>
+
       <div>
         {/* Header Section */}
         <button className="cursor-pointer " onClick={handleBack}>
@@ -164,7 +176,7 @@ const UpdateCom = () => {
 
               {/* Bio */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setBioUpdateModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -183,7 +195,7 @@ const UpdateCom = () => {
 
               {/* Interests */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setInterestUpdateModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -197,7 +209,7 @@ const UpdateCom = () => {
 
               {/* What are you looking for? */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setLookingForUpdateModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -213,7 +225,7 @@ const UpdateCom = () => {
 
               {/* Relationship Status */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setRelationshipUpdateModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -227,7 +239,7 @@ const UpdateCom = () => {
 
               {/* Height */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setHeightUpdateModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -241,7 +253,7 @@ const UpdateCom = () => {
 
               {/* Race/Skin Color */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setSkinColorModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -255,13 +267,13 @@ const UpdateCom = () => {
 
               {/* Hair */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
-                onClick={() => setSkinColorModal(true)}
+                className=" py-3 flex justify-between items-center"
+                onClick={() => setHairColorModal(true)}
               >
                 <div className="w-full cursor-pointer">
-                  <p className="text-base text-gray-400">Hair/Skin Color</p>
+                  <p className="text-base text-gray-400">Hair Color</p>
                   <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
-                    <p>White (Caucasian)</p>
+                    <p>Hair color</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
                 </div>
@@ -269,7 +281,7 @@ const UpdateCom = () => {
 
               {/* School */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setAddSchoolModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -283,7 +295,7 @@ const UpdateCom = () => {
 
               {/* Gender */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setUpdateGenderModal(true)}
               >
                 <div className="w-full cursor-pointer">
@@ -297,7 +309,7 @@ const UpdateCom = () => {
 
               {/* Profession */}
               <div
-                className="px-4 py-3 flex justify-between items-center"
+                className=" py-3 flex justify-between items-center"
                 onClick={() => setProfessionModal(true)}
               >
                 <div className="w-full cursor-pointer">

@@ -12,7 +12,6 @@ const FilterModal = ({ isOpen, onConfirm, onCancel }: Props) => {
   const modalStyle = {
     content: {
       background: "#171717",
-      padding: "24px",
       borderRadius: "8px",
       border: "1px solid #7D7D7D",
     },
@@ -36,12 +35,10 @@ const FilterModal = ({ isOpen, onConfirm, onCancel }: Props) => {
       styles={modalStyle}
     >
       <div className="text-white text-lg font-semibold mb-4">
-        Activity Filters
+        Activity Filters sdsadf
       </div>
 
-      <div className="max-w-3xl mx-auto text-white p-6 rounded-lg shadow-lg">
-        <FilterForm />
-      </div>
+      <FilterForm />
     </Modal>
   );
 };

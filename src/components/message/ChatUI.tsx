@@ -111,6 +111,9 @@ const ChatUI = ({ messages }: any) => {
         </div>
 
         {/* Chat Input */}
+
+        {/* <ChatInput /> */}
+
         <div
           className="p-3 border-t border-gray-700 flex items-center"
           style={{ borderTop: `1px solid ${ColorPalette.colorSecondaryBg}` }}

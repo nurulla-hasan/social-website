@@ -5,7 +5,7 @@ import { FiSearch } from "react-icons/fi";
 
 const ActivitySearch = ({ placeholder }: { placeholder?: string }) => {
   return (
-    <div>
+    <>
       <Form.Item
         className="relative"
         name="name"
@@ -23,7 +23,7 @@ const ActivitySearch = ({ placeholder }: { placeholder?: string }) => {
           <FiSearch />
         </span>
       </Form.Item>
-    </div>
+    </>
   );
 };
 
