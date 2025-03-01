@@ -54,7 +54,7 @@ const FriendsFilter = () => {
 
           <button
             onClick={() => setActivityFilter(true)}
-            className="py-[14px] px-7 bg-[#171717] mx-2 rounded-md flex items-center justify-between"
+            className="py-[14px] px-7 bg-[#1c1c1c] mx-2 rounded-md flex items-center justify-between"
             style={{ border: "none" }}
           >
             <span>

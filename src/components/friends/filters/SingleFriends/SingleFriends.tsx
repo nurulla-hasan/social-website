@@ -3,32 +3,52 @@
 import { fakeUser } from "@/app/data/FakeData";
 import Bio from "@/components/profile/Bio";
 import Participated from "@/components/profile/Participated";
+import useHistoryBack from "@/hooks/HistoryBack";
 import { ColorPalette } from "@/theme/themes";
-import { Button, Typography } from "antd";
-import { BiDotsVerticalRounded } from "react-icons/bi";
+import { Button, Dropdown, MenuProps, Typography } from "antd";
 import { FaArrowLeft } from "react-icons/fa6";
+import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import { LuHeartHandshake } from "react-icons/lu";
 
 const { Title } = Typography;
 
+const items: MenuProps["items"] = [
+  {
+    key: "1",
+    label: "Remove",
+  },
+  {
+    key: "2",
+    label: "Block",
+  },
+  {
+    key: "3",
+    label: "Report",
+  },
+];
+
 const SingleFriends = ({ id }: any) => {
   const host = fakeUser?.find((user) => user?.id === Number(id));
+
+  const { goBack } = useHistoryBack();
 
   return (
     <>
       {/* Header Section */}
-      <div className="flex items-center justify-start">
-        <span>
-          <FaArrowLeft className="text-2xl text-white" />
-        </span>
-        <Title
-          level={3}
-          className="text-left ml-3 pt-2"
-          style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-        >
-          Friends
-        </Title>
-      </div>
+      <button className="cursor-pointer" onClick={goBack}>
+        <div className="flex items-center justify-start">
+          <span>
+            <FaArrowLeft className="text-2xl text-white" />
+          </span>
+          <Title
+            level={3}
+            className="text-left ml-3 pt-2"
+            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+          >
+            Friends
+          </Title>
+        </div>
+      </button>
 
       <div className="flex items-center justify-start">
         <div className="ml-3 w-full">
@@ -90,9 +110,22 @@ const SingleFriends = ({ id }: any) => {
                 </Button>
                 <Button type="primary">Invite to activities</Button>
 
-                <button>
-                  <BiDotsVerticalRounded className="text-2xl" />
-                </button>
+                {/* Dropdown - Prevents Navigation on Click */}
+                <Dropdown
+                  menu={{ items }}
+                  placement="bottomRight"
+                  arrow={{ pointAtCenter: true }}
+                >
+                  <span
+                    className="w-8 h-8 p-1 flex items-center justify-center rounded-full cursor-pointer"
+                    onClick={(e) => e.stopPropagation()} // Prevents link navigation
+                  >
+                    <IoEllipsisVerticalSharp
+                      className="text-xl"
+                      style={{ zIndex: "50", color: "#fff" }}
+                    />
+                  </span>
+                </Dropdown>
               </div>
               <span
                 className="w-8 h-8 bg-gray-500 p-1 flex items-center justify-center rounded-full cursor-pointer"

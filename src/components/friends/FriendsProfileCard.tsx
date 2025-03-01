@@ -81,9 +81,9 @@ const FriendsProfileCard = ({ user }: any) => {
 
           {/* Location (Handles Long Text) */}
           <p className="text-white text-sm">
-            {user?.location?.length > 50 ? (
+            {user?.location?.length > 15 ? (
               <>
-                {user?.location.substring(0, 50)}...
+                {user?.location.substring(0, 15)}...
                 <span className="text-green-400 font-bold cursor-pointer">
                   {" "}
                   See More.

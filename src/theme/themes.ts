@@ -5,11 +5,11 @@ export const ColorPalette = {
   colorTextPrimary: "#FFFFFF",
 
   colorSecondary: "#7DFF19",
-  colorSecondaryBg: "#171717",
+  colorSecondaryBg: "#1c1c1c",
   colorTextSecondary: "#7D7D7D",
   colorTextLight: "#BFBFBF",
 
-  sidebarBg: "#171717",
+  sidebarBg: "#1c1c1c",
   commonColor: "#2E2E2F",
 
   colorBorder: "#d3d3d3",

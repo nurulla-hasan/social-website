@@ -108,7 +108,7 @@ input[type="text"] {
   min-height: 50px !important;
   border-radius: 0px !important;
   border: none !important;
-  background: #171717 !important;
+  background: #1c1c1c !important;
   border-radius: 5px;
   border: none;
   color: white;
@@ -193,7 +193,7 @@ input[type="text"] {
 }
 
 .ant-picker-outlined {
-  background: #171717 !important;
+  background: #1c1c1c !important;
   border-width: 1px !important;
   border-style: solid !important;
   border-color: auto !important;
@@ -214,7 +214,7 @@ input[type="text"] {
 }
 .ant-picker-input {
   border: none !important;
-  background: #171717 !important;
+  background: #1c1c1c !important;
 }
 .ant-select-selector {
   /* border: auto !important;
@@ -309,7 +309,7 @@ input[type="text"] {
   box-shadow: none !important; /* Remove box shadow */
   height: 50px !important; /* Set fixed height */
   padding: 10px !important; /* Add padding for better appearance */
-  background-color: #171717 !important; /* Set background color */
+  background-color: #1c1c1c !important; /* Set background color */
   color: #fff !important; /* Set text color to white */
 }
 
@@ -334,7 +334,7 @@ input[type="text"] {
 
 /* Dropdown menu styling */
 .custom-select .ant-select-dropdown {
-  background-color: #171717 !important; /* Set dropdown background color */
+  background-color: #1c1c1c !important; /* Set dropdown background color */
   color: #fff !important; /* Set dropdown text color */
 }
 
@@ -354,7 +354,7 @@ input[type="text"] {
 .custom-datepicker .ant-picker {
   border: none !important; /* Remove border */
   box-shadow: none !important; /* Remove box shadow */
-  background-color: #171717 !important; /* Set background color */
+  background-color: #1c1c1c !important; /* Set background color */
   color: #fff !important; /* Set text color to white */
 }
 
@@ -373,7 +373,7 @@ input[type="text"] {
 
 /* Dropdown calendar styling */
 .custom-datepicker .ant-picker-dropdown {
-  background-color: #171717 !important; /* Set dropdown background color */
+  background-color: #1c1c1c !important; /* Set dropdown background color */
   color: #fff !important; /* Set dropdown text color */
 }
 
@@ -405,4 +405,48 @@ input[type="text"] {
   /* border: 2px solid #7a32ff !important; */
   color: #fff !important;
   width: 100%;
+}
+
+/* ----------------ACTIVE TABS--------------- */
+.ant-tabs-tab-active div span {
+  color: white !important;
+}
+
+.custom-tabs .ant-tabs-nav::before {
+  border-bottom: none !important;
+}
+.custom-tabs .ant-tabs-ink-bar-animated {
+  display: none !important;
+}
+
+/* ----------------Selection option for profile form----------------- */
+/* Change Placeholder Color */
+.custom-select .ant-select-selection-placeholder {
+  color: #a0a0a0 !important; /* Customize placeholder color */
+}
+
+/* Change Input Text Color */
+.custom-select .ant-select-selection-item {
+  color: white !important; /* Ensure selected text is visible */
+}
+
+/* Change Dropdown Background Color */
+.custom-select .ant-select-dropdown {
+  background-color: black !important;
+}
+
+/* Change Option Background and Text Color */
+.custom-select .ant-select-item {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Change Hover Background */
+.custom-select .ant-select-item-option-active {
+  background-color: #333 !important;
+}
+
+/* Change Selected Option Background */
+.custom-select .ant-select-item-option-selected {
+  background-color: #444 !important;
 }

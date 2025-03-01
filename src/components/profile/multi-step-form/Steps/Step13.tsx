@@ -7,47 +7,61 @@ interface Step13Props {
   control: Control<FormValues>;
 }
 
-const Step13 = ({ control }: Step13Props) => (
-  <div>
-    <h1 className="text-center text-2xl lg:text-5xl font-bold ">Profession</h1>
+const Step13 = ({ control }: Step13Props) => {
+  const onChange = (value: string) => {
+    console.log(`selected ${value}`);
+  };
 
-    <div className="mt-12">
-      <label
-        htmlFor="userName"
-        className="capitalize my-2 flex items-start justify-start w-full text-sm"
-      >
-        Select your profession (Optional)
-      </label>
-      <Controller
-        name="profession"
-        control={control}
-        render={({ field }) => (
-          <Select
-            className="custom-select" // Add a custom class for styling
-            style={{
-              width: "100%",
-              height: "50px", // Set fixed height
-              border: "none", // Remove border
-              backgroundColor: "#171717", // Set background color
-              color: "#fff", // Set text color to white for better contrast
-              borderRadius: "5px",
-            }}
-            {...field}
-            placeholder="Select your profession"
-            options={professions.map((profession) => ({
-              label: profession,
-              value: profession,
-            }))}
-            showSearch // Enable search functionality
-            filterOption={(input, option) =>
-              (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
-            }
-            virtual // Enable virtual scrolling for better performance
-          />
-        )}
-      />
+  const onSearch = (value: string) => {
+    console.log("search:", value);
+  };
+
+  return (
+    <div>
+      <h1 className="text-center text-2xl lg:text-5xl font-bold ">
+        Profession
+      </h1>
+
+      <div className="mt-12">
+        <label
+          htmlFor="userName"
+          className="capitalize my-2 flex items-start justify-start w-full text-sm custom-select"
+        >
+          Select your profession (Optional)
+        </label>
+        <Controller
+          name="profession"
+          control={control}
+          render={({ field }) => (
+            <Select
+              dropdownStyle={{
+                backgroundColor: "#1c1c1c",
+                color: "#fff",
+              }}
+              showSearch
+              placeholder="Select your profession"
+              optionFilterProp="label"
+              className="custom-select"
+              onChange={onChange}
+              onSearch={onSearch}
+              style={{
+                width: "100%",
+                height: "50px",
+                border: "none",
+                backgroundColor: "#1c1c1c",
+                color: "#fff",
+                borderRadius: "5px",
+              }}
+              options={professions.map((profession) => ({
+                label: profession,
+                value: profession,
+              }))}
+            />
+          )}
+        />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Step13;

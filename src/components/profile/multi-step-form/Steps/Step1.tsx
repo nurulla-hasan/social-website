@@ -22,11 +22,7 @@ const Step1 = ({ control }: Step1Props) => (
         rules={{ required: "User name is required" }}
         render={({ field, fieldState: { error } }) => (
           <>
-            <Input
-              id="userName"
-              // placeholder="Enter your name"
-              {...field}
-            />
+            <Input id="userName" placeholder="Enter username" {...field} />
             {error && <p style={{ color: "red" }}>{error.message}</p>}
           </>
         )}

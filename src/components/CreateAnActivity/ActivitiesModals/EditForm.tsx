@@ -173,7 +173,7 @@ const EditForm = () => {
           >
             <Select
               size="large"
-              style={{ background: "#171717", height: "50px" }}
+              style={{ background: "#1c1c1c", height: "50px" }}
               placeholder="Select Activity"
               className="w-full bg-gray-800 text-white create-activity-input"
             >
@@ -284,7 +284,7 @@ const EditForm = () => {
             ]}
           >
             <Select
-              style={{ background: "#171717", height: "50px", color: "#fff" }}
+              style={{ background: "#1c1c1c", height: "50px", color: "#fff" }}
               placeholder="Number of guests per participant"
               className="w-full text-white mt-4 custom-placeholder"
             >

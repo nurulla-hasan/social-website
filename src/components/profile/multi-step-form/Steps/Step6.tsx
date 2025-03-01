@@ -28,11 +28,11 @@ const Step6 = ({ control }: Step6Props) => (
       <Controller
         name="schoolName"
         control={control}
-        rules={{ required: "School name is required" }}
+        // rules={{ required: "School name is required" }}
         render={({ field, fieldState: { error } }) => (
           <>
             <Input
-              // placeholder="Enter your school name"
+              placeholder="Enter your school name"
               id="schoolName"
               {...field}
             />
@@ -53,7 +53,7 @@ const Step6 = ({ control }: Step6Props) => (
         control={control}
         render={({ field }) => (
           <Input
-            // placeholder="Enter your graduation year"
+            placeholder="Enter your graduation year"
             id="graduationYear"
             {...field}
           />

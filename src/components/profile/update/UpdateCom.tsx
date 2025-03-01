@@ -169,7 +169,7 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">My Bio</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>
                       Just here for good vibes, great parties, and meeting
                       amazing people. Loves dancing, random late-night talks,
@@ -188,7 +188,7 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">Interests</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>Watching Movies, Gym, Football, Photography, Funny</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
@@ -204,7 +204,7 @@ const UpdateCom = () => {
                   <p className="text-base text-gray-400">
                     What are you looking for?
                   </p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>💞 Long Term Partner</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
@@ -218,7 +218,7 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">Relationship Status</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>Single</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
@@ -232,7 +232,7 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">Height</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>5ft 11in</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
@@ -246,7 +246,21 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">Race/Skin Color</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
+                    <p>White (Caucasian)</p>
+                    <RightOutlined className="text-gray-500 text-xs ml-2" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Hair */}
+              <div
+                className="px-4 py-3 flex justify-between items-center"
+                onClick={() => setSkinColorModal(true)}
+              >
+                <div className="w-full cursor-pointer">
+                  <p className="text-base text-gray-400">Hair/Skin Color</p>
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>White (Caucasian)</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
@@ -260,7 +274,7 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">School</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>Add School</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
@@ -274,7 +288,7 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">Gender</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>Male</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>
@@ -288,7 +302,7 @@ const UpdateCom = () => {
               >
                 <div className="w-full cursor-pointer">
                   <p className="text-base text-gray-400">Profession</p>
-                  <div className="bg-[#171717] p-4 rounded-md flex items-center justify-between">
+                  <div className="bg-[#1c1c1c] p-4 rounded-md flex items-center justify-between">
                     <p>Student</p>
                     <RightOutlined className="text-gray-500 text-xs ml-2" />
                   </div>

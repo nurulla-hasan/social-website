@@ -147,7 +147,7 @@ const MainForm = () => {
   };
 
   // Define steps where the Skip button should be hidden
-  const hideSkipButtonSteps = [0, 1, 2, 3, 5]; // Step1, Step2, Step3, Step4, Step6 (0-based index)
+  const hideSkipButtonSteps = [0, 1, 2, 3]; // Step1, Step2, Step3, Step4, Step6 (0-based index)
 
   return (
     <div className="w-full lg:w-[1170px] mx-auto px-4 relative">
@@ -170,7 +170,7 @@ const MainForm = () => {
                           ? "bg-[#7DFF19]" // Previous steps in green
                           : index === step
                           ? "bg-[#7DFF19]" // Current step in green
-                          : "bg-[#171717]" // Future steps in dark gray
+                          : "bg-[#1c1c1c]" // Future steps in dark gray
                       }`}
                     ></div>
                   ))}

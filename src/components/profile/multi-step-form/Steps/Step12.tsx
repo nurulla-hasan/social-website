@@ -62,7 +62,7 @@ const Step12 = ({ control }: Step9Props) => {
                   <Button
                     key={option}
                     style={{
-                      background: "#171717",
+                      background: "#1c1c1c",
                       border:
                         selectedOption === option
                           ? "2px solid #6C19FF"

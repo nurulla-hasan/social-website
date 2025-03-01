@@ -56,7 +56,8 @@ const ChatBox = ({ isSidebarOpen, handleSidebarToggle }: any) => {
           <Tabs
             activeKey={selectedTab}
             onChange={setSelectedTab}
-            className="text-white"
+            className="text-white custom-tabs"
+            style={{ color: "#fff" }}
           >
             <Tabs.TabPane
               tab={<span className="font-semibold">General</span>}

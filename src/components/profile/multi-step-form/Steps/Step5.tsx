@@ -12,7 +12,7 @@ const siderStyle = {
     backgroundColor: "#7DFF19",
   },
   rail: {
-    backgroundColor: "#171717",
+    backgroundColor: "#1c1c1c",
   },
   handle: {
     borderColor: "#7DFF19",

@@ -58,7 +58,7 @@ const Step8 = ({ control }: Step8Props) => {
                       ? "border-purple-500 text-white scale-105"
                       : "border-transparent text-gray-400"
                   }
-                  bg-black hover:scale-105 focus:outline-none`}
+                  bg-[#1c1c1c] hover:scale-105 focus:outline-none`}
                 >
                   <span className="text-3xl">{emoji}</span>
                   <span className="text-sm text-center">{label}</span>

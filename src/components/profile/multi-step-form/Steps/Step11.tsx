@@ -40,7 +40,7 @@ const Step11 = ({ control }: Step11Props) => (
             style={{
               border: "none",
               marginTop: "15px",
-              background: "#171717",
+              background: "#1c1c1c",
             }}
             header={
               <div className="flex justify-between items-center w-full">
@@ -70,7 +70,7 @@ const Step11 = ({ control }: Step11Props) => (
                         key={option}
                         type="button"
                         className={clsx(
-                          "px-4 py-2 border-2 rounded-full transition-all text-white bg-[#171717]",
+                          "px-4 py-2 border-2 rounded-full transition-all text-white bg-[#1c1c1c]",
                           selectedValues.includes(option)
                             ? "border-[#6C19FF]" // Active button border color
                             : "border-black"

@@ -28,7 +28,7 @@ export const validationSchemas = [
 
   // 🟢 Step 6: School Name (Required) & Graduation Year (Optional)
   yup.object().shape({
-    schoolName: yup.string().required("School name is required"),
+    schoolName: yup.string().notRequired(),
     graduationYear: yup.string().notRequired(),
   }),
 

@@ -609,6 +609,7 @@ export const fakeParty = [
 export const fakeUser = [
   {
     name: "Emily Carter",
+    distance: "5 Miles Away",
     age: 24,
     pronouns: "She/Her",
     id: 1,
@@ -632,6 +633,7 @@ export const fakeUser = [
   },
   {
     name: "James Anderson",
+    distance: "3 Miles Away",
     age: 29,
     pronouns: "He/Him",
     id: 2,
@@ -655,6 +657,7 @@ export const fakeUser = [
   },
   {
     name: "Sophia Lee",
+    distance: "1 Miles Away",
     age: 22,
     pronouns: "She/Her",
     id: 3,
@@ -678,6 +681,7 @@ export const fakeUser = [
   },
   {
     name: "Michael Brown",
+    distance: "15 Miles Away",
     age: 31,
     pronouns: "He/Him",
     id: 4,
@@ -701,6 +705,7 @@ export const fakeUser = [
   },
   {
     name: "Olivia Martinez",
+    distance: "50 Miles Away",
     age: 26,
     pronouns: "She/Her",
     id: 5,
@@ -724,6 +729,7 @@ export const fakeUser = [
   },
   {
     name: "Daniel Wilson",
+    distance: "5 Miles Away",
     age: 27,
     pronouns: "He/Him",
     id: 6,
@@ -747,6 +753,7 @@ export const fakeUser = [
   },
   {
     name: "Ava Robinson",
+    distance: "7 Miles Away",
     age: 23,
     pronouns: "She/Her",
     id: 7,
@@ -770,6 +777,7 @@ export const fakeUser = [
   },
   {
     name: "Liam Johnson",
+    distance: "9 Miles Away",
     age: 30,
     pronouns: "He/Him",
     id: 8,
@@ -793,6 +801,7 @@ export const fakeUser = [
   },
   {
     name: "Charlotte Moore",
+    distance: "4 Miles Away",
     age: 25,
     pronouns: "She/Her",
     id: 9,
@@ -816,6 +825,7 @@ export const fakeUser = [
   },
   {
     name: "William Clark",
+    distance: "3 Miles Away",
     age: 28,
     pronouns: "He/Him",
     id: 10,

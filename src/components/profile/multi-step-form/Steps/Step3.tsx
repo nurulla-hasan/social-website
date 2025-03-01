@@ -35,7 +35,7 @@ const Step3 = ({ control }: Step3Props) => (
                   <button
                     className={clsx(
                       "flex flex-col items-center justify-center text-lg font-medium rounded-lg transition",
-                      "bg-[#171717] text-white border-2",
+                      "bg-[#1c1c1c] text-white border-2",
                       " w-[100px] sm:w-[140px] md:w-[180px] lg:w-[200px] max-w-xs h-[100px] sm:h-[120px] md:h-[150px]", // Responsive sizes
                       field.value === gender
                         ? "border-[#7A32FF] shadow-lg"

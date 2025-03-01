@@ -38,7 +38,7 @@ const InterestUpdate = ({ control, onUpdateSuccess }: Props) => (
           style={{
             border: "none",
             marginTop: "15px",
-            background: "#171717",
+            background: "#1c1c1c",
           }}
           header={
             <div className="flex justify-between items-center w-full">
@@ -61,7 +61,7 @@ const InterestUpdate = ({ control, onUpdateSuccess }: Props) => (
                 : [];
 
               return (
-                <div className="flex flex-wrap gap-2 bg-[#171717] mt-6">
+                <div className="flex flex-wrap gap-2 bg-[#1c1c1c] mt-6">
                   {options.map((option) => (
                     <button
                       style={{ margin: "7px" }}
@@ -71,7 +71,7 @@ const InterestUpdate = ({ control, onUpdateSuccess }: Props) => (
                         "px-4 py-2 border-2 rounded-full transition-all text-white bg-[#2E2E2F]",
                         selectedValues.includes(option)
                           ? "border-[#6C19FF]" // Active button border color
-                          : "border-[#171717]"
+                          : "border-[#1c1c1c]"
                       )}
                       onClick={() => {
                         const newValue = selectedValues.includes(option)
