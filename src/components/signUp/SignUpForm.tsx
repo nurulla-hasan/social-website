@@ -36,6 +36,7 @@ const SignUpForm = () => {
             rules={[{ required: true, message: "Please enter your full name" }]}
           >
             <Input
+              placeholder="Full Name"
               style={{ outline: "none", border: "transparent" }}
               size="large"
               className="bg-gray-900 text-white"
@@ -49,6 +50,7 @@ const SignUpForm = () => {
             rules={[{ required: true, message: "Please enter your number" }]}
           >
             <Input
+              placeholder="Mobile number"
               style={{ outline: "none", border: "transparent" }}
               size="large"
               className="bg-gray-900 text-white"
@@ -65,6 +67,7 @@ const SignUpForm = () => {
             ]}
           >
             <Input
+              placeholder="Email Address"
               style={{ outline: "none", border: "transparent" }}
               size="large"
               className="bg-gray-900 text-white"
@@ -78,6 +81,7 @@ const SignUpForm = () => {
             rules={[{ required: true, message: "Please enter your password" }]}
           >
             <Input.Password
+              placeholder="Password"
               className="bg-gray-900 text-white "
               size="large"
               style={{
@@ -108,6 +112,7 @@ const SignUpForm = () => {
             ]}
           >
             <Input.Password
+              placeholder="Confirm Password"
               className="bg-gray-900 text-white "
               size="large"
               style={{

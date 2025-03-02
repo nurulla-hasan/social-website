@@ -18,7 +18,7 @@ export const ColorPalette = {
   colorWarning: "#ffc107",
   colorError: "#dc3545",
   colorInfo: "#17a2b8",
-  colorText: "#434649",
+  colorText: "#BFBFBF",
   colorHighlight: "#0077b5",
   colorAccent: "#f3f4f6",
   colorOverlay: "rgba(0, 0, 0, 0.2)",

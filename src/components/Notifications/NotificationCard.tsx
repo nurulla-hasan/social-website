@@ -31,7 +31,7 @@ const NotificationCard = ({ notify }: { notify: any }) => {
       {/* Right Side - Event Image & Button */}
       <div className="flex items-center gap-4 w-full lg:w-[50%] mt-5 lg:mt-0">
         <div className="flex justify-start items-center w-full">
-          <div className="mr-5 ">
+          {/* <div className="mr-5 ">
             <Image
               src={notify.event.image}
               alt={notify.event.title}
@@ -40,7 +40,7 @@ const NotificationCard = ({ notify }: { notify: any }) => {
               className="rounded-sm object-cover"
               style={{ width: "100px", height: "50px", objectFit: "cover" }}
             />
-          </div>
+          </div> */}
 
           <div className="mr-3">
             <h5 className="mb-1">{notify.event.title}</h5>

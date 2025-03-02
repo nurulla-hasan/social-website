@@ -1,11 +1,9 @@
 "use client";
 
 import { fakeParty } from "@/app/data/FakeData";
-import useBackNavigation from "@/hooks/BackUrl";
 import { ColorPalette } from "@/theme/themes";
-import { Button, Typography } from "antd";
+import { Button } from "antd";
 import { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa6";
 import { TbPlus } from "react-icons/tb";
 import ActivitiesModal from "./ActivitiesModals/ActivitiesModal";
 import CreateAnActivityCard from "./CreateAnActivityCard";
@@ -15,18 +13,6 @@ const CreateAnActivityCom = () => {
     useState<boolean>(false);
 
   const Party = fakeParty.slice(2, 6);
-
-  const { Title } = Typography;
-
-  // navigation back
-  const dynamicCurrentPath = "/create-an-activity";
-  const dynamicFallbackUrl = "/find-an-activities";
-
-  // Using the hook with dynamic currentPath and fallbackUrl
-  const { handleBack } = useBackNavigation(
-    dynamicCurrentPath,
-    dynamicFallbackUrl
-  );
 
   return (
     <>
@@ -41,24 +27,7 @@ const CreateAnActivityCom = () => {
       />
 
       <div>
-        {/* Header Section */}
-        <button
-          className="flex items-center justify-start"
-          onClick={handleBack}
-        >
-          <span>
-            <FaArrowLeft className="text-2xl text-white" />
-          </span>
-          <Title
-            level={3}
-            className="text-left ml-3 pt-2"
-            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-          >
-            Create an Activity
-          </Title>
-        </button>
-
-        <div className="my-7">
+        <div className="">
           <Button
             onClick={() => setCreateAnActivityOpen(true)}
             type="primary"
@@ -80,7 +49,7 @@ const CreateAnActivityCom = () => {
         </div>
 
         {/* Party */}
-        <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-7 ">
+        <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-7 mt-3">
           {Party?.map((party, index: number) => (
             <CreateAnActivityCard data={party} key={index + 1} />
           ))}

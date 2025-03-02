@@ -22,7 +22,7 @@ const sidebarItems = () => {
       icon: <FileSearchOutlined style={{ fontSize: "19px" }} />,
     },
     {
-      label: <Link href="/friends-activity">Friends Activity</Link>,
+      label: <Link href="/friends-activity">Friends Activities</Link>,
       key: `/friends-activity`,
       icon: <UsergroupAddOutlined style={{ fontSize: "19px" }} />,
     },
@@ -32,7 +32,7 @@ const sidebarItems = () => {
       icon: <PiCalendarStarBold style={{ fontSize: "19px" }} />,
     },
     {
-      label: <Link href="/create-an-activity">Create an Activity</Link>,
+      label: <Link href="/create-an-activity">Create an Activities</Link>,
       key: `/create-an-activity`,
       icon: <LuSquarePlus style={{ fontSize: "19px" }} />,
     },

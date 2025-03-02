@@ -6,7 +6,6 @@ import useBackNavigation from "@/hooks/BackUrl";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Progress, Typography } from "antd";
 import Link from "next/link";
-import { FaArrowLeft } from "react-icons/fa6";
 import Bio from "./Bio";
 import Participated from "./Participated";
 
@@ -27,22 +26,6 @@ const ProfileCom = () => {
 
   return (
     <>
-      {/* Header Section */}
-      <button className="cursor-pointer" onClick={handleBack}>
-        <div className="flex items-center justify-start">
-          <span>
-            <FaArrowLeft className="text-2xl text-white" />
-          </span>
-          <Title
-            level={3}
-            className="text-left ml-3 pt-2"
-            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-          >
-            Profile
-          </Title>
-        </div>
-      </button>
-
       <div className="flex items-center justify-start">
         {/* Profile Image with Circular Progress Bar */}
         <div className="relative flex items-center justify-center mt-6">

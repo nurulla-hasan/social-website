@@ -1,11 +1,10 @@
 "use client";
 
-import useHistoryBack from "@/hooks/HistoryBack";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Card, Typography } from "antd";
 import { useState } from "react";
 import { BiPowerOff } from "react-icons/bi";
-import { FaArrowLeft, FaRegCalendar } from "react-icons/fa6";
+import { FaRegCalendar } from "react-icons/fa6";
 import { RiBatteryChargeLine } from "react-icons/ri";
 import { SlEnergy } from "react-icons/sl";
 import { TbCoinYuanFilled, TbDatabaseImport } from "react-icons/tb";
@@ -83,8 +82,6 @@ const PricingPlans = () => {
     },
   };
 
-  const { goBack } = useHistoryBack();
-
   return (
     <>
       {/* user block modal */}
@@ -95,22 +92,6 @@ const PricingPlans = () => {
         }}
         onCancel={() => setOpenPaymentModal(false)}
       />
-
-      {/* Header Section */}
-      <button className="cursor-pointer" onClick={goBack}>
-        <div className="flex items-center justify-start">
-          <span>
-            <FaArrowLeft className="text-2xl text-white" />
-          </span>
-          <Title
-            level={3}
-            className="text-left ml-3 pt-2"
-            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-          >
-            Boost Plan
-          </Title>
-        </div>
-      </button>
 
       <div className=" bg-black text-white p-6">
         <h2 className="text-xl font-bold mb-4">Current Plans</h2>

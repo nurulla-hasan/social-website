@@ -1,7 +1,6 @@
 "use client";
 
 import { fakeParty } from "@/app/data/FakeData";
-import { ColorPalette } from "@/theme/themes";
 import { Typography } from "antd";
 import ActivitiesFilter from "./filters/Filter";
 import ActivitySearch from "./filters/Search";
@@ -13,16 +12,9 @@ const FindAnActivitiesCom = () => {
   const { Title, Text } = Typography;
   return (
     <div>
-      <Title
-        level={3}
-        className="text-left"
-        style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-      >
-        Find an Activity
-      </Title>
       {/* Filter area */}
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 gap-2 w-full">
-        <ActivitySearch />
+        <ActivitySearch placeholder="Search here..." />
 
         <div className="mb-2 xl:mb-0">
           <ActivitiesFilter />

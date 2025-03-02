@@ -1,11 +1,8 @@
 "use client";
 
-import useBackNavigation from "@/hooks/BackUrl";
-import { ColorPalette } from "@/theme/themes";
 import { RightOutlined } from "@ant-design/icons";
 import { Typography } from "antd";
 import { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa6";
 import BioInfo from "./updateForms/BioInfo";
 import DynamicModalForUserDataUpdate from "./updateForms/DynamicModalForUserDataUpdate";
 import HeightSelectorForm from "./updateForms/Height/UpdateHeight";
@@ -37,16 +34,6 @@ const UpdateCom = () => {
   const handleCloseModal = () => {
     setBioUpdateModal(false);
   };
-
-  // navigation back
-  const dynamicCurrentPath = "/profile/update";
-  const dynamicFallbackUrl = "/profile";
-
-  // Using the hook with dynamic currentPath and fallbackUrl
-  const { handleBack } = useBackNavigation(
-    dynamicCurrentPath,
-    dynamicFallbackUrl
-  );
 
   return (
     <>
@@ -150,22 +137,6 @@ const UpdateCom = () => {
       </DynamicModalForUserDataUpdate>
 
       <div>
-        {/* Header Section */}
-        <button className="cursor-pointer " onClick={handleBack}>
-          <div className="flex items-center justify-start">
-            <span>
-              <FaArrowLeft className="text-2xl text-white" />
-            </span>
-            <Title
-              level={3}
-              className="text-left ml-3 pt-2"
-              style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-            >
-              Edit information
-            </Title>
-          </div>
-        </button>
-
         {/* Update information */}
         <div>
           <PictureUpdate />
