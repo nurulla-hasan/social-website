@@ -2,9 +2,9 @@
 
 import { ColorPalette } from "@/theme/themes";
 import { MoreOutlined } from "@ant-design/icons";
-import { Avatar, Button, Input } from "antd";
+import { Avatar } from "antd";
 import { useState } from "react";
-import { LuSend } from "react-icons/lu";
+import ChatInputDesign from "./ChatInput";
 import GroupCreateModal from "./MegModals/GroupCreateModal";
 
 interface Message {
@@ -34,12 +34,17 @@ const ChatUI = ({ messages }: any) => {
         }}
       />
       <div
-        className="flex flex-col h-screen w-full bg-[#121212] text-white"
-        style={{ zIndex: "1" }}
+        className="flex flex-col h-screen  bg-[#121212] text-white w-full lg:w-[80%] sticky "
+        style={{
+          overflowY: "scroll",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          zIndex: "1",
+        }}
       >
         {/* Header */}
         <div
-          className="flex justify-between items-center px-4 py-3"
+          className="flex justify-between items-center px-4 py-3 w-full max-w-full"
           style={{
             borderBottom: `1px solid ${ColorPalette?.colorSecondaryBg}`,
           }}
@@ -64,7 +69,7 @@ const ChatUI = ({ messages }: any) => {
         </div>
 
         {/* Chat Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4 w-full max-w-full">
           {message?.map((msg: Message) => (
             <div
               key={msg.id}
@@ -110,12 +115,12 @@ const ChatUI = ({ messages }: any) => {
           ))}
         </div>
 
-        {/* Chat Input */}
-
         {/* <ChatInput /> */}
 
-        <div
-          className="p-3 border-t border-gray-700 flex items-center"
+        <ChatInputDesign />
+
+        {/* <div
+          className="p-3 border-t border-gray-700 flex items-center w-full max-w-full"
           style={{ borderTop: `1px solid ${ColorPalette.colorSecondaryBg}` }}
         >
           <Input
@@ -133,7 +138,7 @@ const ChatUI = ({ messages }: any) => {
             icon={<LuSend />}
             //   onClick={handleSend}
           />
-        </div>
+        </div> */}
       </div>
     </>
   );

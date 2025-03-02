@@ -1372,6 +1372,7 @@ export const messages = [
       { id: 1, text: "Let’s meet at 5 PM.", time: "5:00 AM", sender: "user" },
       { id: 2, text: "See you then!", time: "5:05 AM", sender: "other" },
     ],
+    request: true,
   },
   {
     id: 20,

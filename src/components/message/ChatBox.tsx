@@ -58,6 +58,7 @@ const ChatBox = ({ isSidebarOpen, handleSidebarToggle }: any) => {
             onChange={setSelectedTab}
             className="text-white custom-tabs"
             style={{ color: "#fff" }}
+            inputMode="decimal"
           >
             <Tabs.TabPane
               tab={<span className="font-semibold">General</span>}
@@ -76,9 +77,13 @@ const ChatBox = ({ isSidebarOpen, handleSidebarToggle }: any) => {
               {/* group list */}
               <Groups group={group} handleOwnDetails={handleOwnDetails} />
             </Tabs.TabPane>
+
             <Tabs.TabPane
               tab={
-                <span className="font-semibold">{`Request (${request?.length})`}</span>
+                <span
+                  className="font-semibold"
+                  style={{ color: "#6c19ff" }}
+                >{`Request (${request?.length})`}</span>
               }
               key="requests"
             >
