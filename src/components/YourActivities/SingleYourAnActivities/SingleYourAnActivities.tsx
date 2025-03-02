@@ -43,14 +43,14 @@ const SingleYourActivities = ({ id }: any) => {
             {party?.partyName || "N/A"}
           </h1>
           <h3
-            style={{ color: `${ColorPalette?.colorTextSecondary}` }}
+            style={{ color: `${ColorPalette?.colorText}` }}
             className="text-xl mt-2"
           >
             {party?.distance || "N/A"} Away
           </h3>
           <p
             className="mt-2 text-base flex items-center justify-start"
-            style={{ color: `${ColorPalette?.colorTextSecondary}` }}
+            style={{ color: `${ColorPalette?.colorText}` }}
           >
             <MdOutlineDateRange />{" "}
             <span className="ml-2">
@@ -59,7 +59,7 @@ const SingleYourActivities = ({ id }: any) => {
           </p>
           <p
             className="mt-2 text-base flex items-center justify-start"
-            style={{ color: `${ColorPalette?.colorTextSecondary}` }}
+            style={{ color: `${ColorPalette?.colorText}` }}
           >
             <MdAccessTime />{" "}
             <span className="ml-2">
@@ -70,10 +70,13 @@ const SingleYourActivities = ({ id }: any) => {
 
           {/* button */}
           <div className="flex items-center justify-start mt-5">
-            <Button type="primary">Leave</Button>
+            <Button size="large" type="primary">
+              Leave
+            </Button>
 
             <Link href={`/messages`}>
               <Button
+                size="large"
                 style={{
                   marginLeft: "10px",
                   background: "none",
@@ -132,15 +135,19 @@ const SingleYourActivities = ({ id }: any) => {
             <Link href={`/attendees`}>
               <Avatar.Group
                 max={{
-                  count: 2,
-                  style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+                  count: 3,
+                  style: { color: "#000", backgroundColor: "#7DFF19" },
                 }}
               >
+                <Avatar src="https://randomuser.me/api/portraits/men/20.jpg" />
                 <Avatar src="https://randomuser.me/api/portraits/men/21.jpg" />
-                <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
+                <Avatar
+                  style={{ backgroundColor: "#f56a00" }}
+                  src="https://randomuser.me/api/portraits/men/26.jpg"
+                ></Avatar>
                 <Tooltip title="Ant User" placement="top">
                   <Avatar
-                    style={{ backgroundColor: "#87d068" }}
+                    style={{ backgroundColor: "red" }}
                     icon={<UserOutlined />}
                   />
                 </Tooltip>
@@ -183,6 +190,7 @@ const SingleYourActivities = ({ id }: any) => {
 
               <Link href={`/map`}>
                 <Button
+                  size="large"
                   style={{
                     background: "none",
                     padding: "15px 22px",

@@ -96,13 +96,15 @@ const YourActivitiesCard = ({ data }: any) => {
             </Avatar.Group>
           </Link>
 
-          <Button
-            size="large"
-            type="primary"
-            className="mt-3 bg-purple-600 hover:bg-purple-700"
-          >
-            Attend
-          </Button>
+          <Link href={`/your-activities/details/${data?.id}`}>
+            <Button
+              size="large"
+              type="primary"
+              className="mt-3 bg-purple-600 hover:bg-purple-700"
+            >
+              Preview
+            </Button>
+          </Link>
         </div>
       </Card>
     </>
