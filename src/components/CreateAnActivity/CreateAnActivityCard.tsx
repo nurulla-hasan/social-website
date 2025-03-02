@@ -32,25 +32,40 @@ const CreateAnActivityCard = ({ data }: any) => {
         >
           <div>
             <div className="text-lg font-semibold flex justify-between items-center">
-              <h3 style={{ color: `${ColorPalette?.colorTextPrimary}` }}>
+              <h3
+                style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+                className="text-xl lg:text-2xl"
+              >
                 {data?.partyName}
               </h3>
-              <span style={{ color: `${ColorPalette?.colorTextPrimary}` }}>
+              <span
+                style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+                className="text-xl font-normal text-[#BFBFBF]"
+              >
                 {data?.requireAge}
               </span>
             </div>
-            <h3 style={{ color: `${ColorPalette?.colorTextSecondary}` }}>
-              {data?.address?.length > 40
-                ? data?.address?.substring(0, 40) + "..."
+            <h3
+              style={{ color: `${ColorPalette?.colorTextLight}` }}
+              className="mt-1 text-md lg:text-lg"
+            >
+              {data?.address?.length > 30
+                ? data?.address?.substring(0, 30) + "..."
                 : data?.address}
             </h3>
           </div>
 
-          <div className="mt-3 flex justify-between items-center">
-            <h4 style={{ color: `${ColorPalette?.colorTextPrimary}` }}>
+          <div className="mt-1 flex justify-between items-center ">
+            <h4
+              style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+              className="text-md lg:text-lg"
+            >
               {EventDataFormat(data?.date)}
             </h4>{" "}
-            <span style={{ color: `${ColorPalette?.colorTextPrimary}` }}>
+            <span
+              style={{ color: `${ColorPalette?.colorTextPrimary}` }}
+              className="text-md lg:text-lg"
+            >
               {data?.distance}
             </span>
           </div>
@@ -59,15 +74,19 @@ const CreateAnActivityCard = ({ data }: any) => {
             <Link href={`/attendees`}>
               <Avatar.Group
                 max={{
-                  count: 2,
-                  style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+                  count: 3,
+                  style: { color: "#000", backgroundColor: "#7DFF19" },
                 }}
               >
+                <Avatar src="https://randomuser.me/api/portraits/men/20.jpg" />
                 <Avatar src="https://randomuser.me/api/portraits/men/21.jpg" />
-                <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
+                <Avatar
+                  style={{ backgroundColor: "#f56a00" }}
+                  src="https://randomuser.me/api/portraits/men/26.jpg"
+                ></Avatar>
                 <Tooltip title="Ant User" placement="top">
                   <Avatar
-                    style={{ backgroundColor: "#87d068" }}
+                    style={{ backgroundColor: "red" }}
                     icon={<UserOutlined />}
                   />
                 </Tooltip>
@@ -78,14 +97,13 @@ const CreateAnActivityCard = ({ data }: any) => {
               </Avatar.Group>
             </Link>
 
-            <Link href={`/pricing-plan`}>
-              <Button
-                type="primary"
-                className="mt-3 bg-purple-600 hover:bg-purple-700"
-              >
-                Boost
-              </Button>
-            </Link>
+            <Button
+              size="large"
+              type="primary"
+              className="mt-3 bg-purple-600 hover:bg-purple-700"
+            >
+              Attend
+            </Button>
           </div>
         </Card>
       </Link>

@@ -41,6 +41,7 @@ const FriendsFilter = () => {
             >
               <Input
                 style={{ border: "none" }} // Remove only the border
+                placeholder="Search here..."
                 size="large"
                 className="bg-gray-900 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" // Example focus styling with Tailwind CSS
               />

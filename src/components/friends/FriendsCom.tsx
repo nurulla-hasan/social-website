@@ -1,7 +1,7 @@
 "use client";
 
 import { fakeUser } from "@/app/data/FakeData";
-import { Typography } from "antd";
+import { Col, Row, Typography } from "antd";
 import FriendsProfileCard from "./FriendsProfileCard";
 import FriendsFilter from "./filters/Filters";
 
@@ -15,11 +15,13 @@ const FriendsCom = () => {
       <div className="py-7">
         <FriendsFilter />
       </div>
-      <div className="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-4 gap-7 ">
+      <Row gutter={16}>
         {user?.map((user, index: number) => (
-          <FriendsProfileCard user={user} key={index + 1} />
+          <Col key={index + 1} xs={24} sm={12} md={8} lg={12} xl={8} xxl={6}>
+            <FriendsProfileCard user={user} />
+          </Col>
         ))}
-      </div>
+      </Row>
     </div>
   );
 };

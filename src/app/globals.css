@@ -464,3 +464,10 @@ input[type="text"] {
   width: 25px;
   margin-top: 7px;
 }
+
+/* Force the slider handle color */
+.ant-slider-handle {
+  background-color: #7dff19 !important;
+  border-color: #7dff19 !important;
+  box-shadow: 0 0 8px #7dff19 !important; /* Optional glow effect */
+}

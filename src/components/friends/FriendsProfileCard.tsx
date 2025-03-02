@@ -43,11 +43,11 @@ const FriendsProfileCard = ({ user }: any) => {
       <div className="absolute top-[5%] left-0 flex items-center justify-between w-full px-4 z-10">
         {/* Heart Icon - Prevents Navigation on Click */}
         <span
-          className="w-8 h-8 bg-gray-500 p-1 flex items-center justify-center rounded-full cursor-pointer"
+          className="w-10 h-10 bg-gray-500 p-1 flex items-center justify-center rounded-full cursor-pointer"
           style={{ zIndex: "50", color: "red" }}
           onClick={(e) => e.stopPropagation()} // Prevents link navigation
         >
-          <LuHeartHandshake className="text-xl text-white" />
+          <LuHeartHandshake className="text-[18px] text-white" />
         </span>
 
         {/* Dropdown - Prevents Navigation on Click */}
@@ -57,11 +57,11 @@ const FriendsProfileCard = ({ user }: any) => {
           arrow={{ pointAtCenter: true }}
         >
           <span
-            className="w-8 h-8 p-1 flex items-center justify-center rounded-full cursor-pointer"
+            className="w-10 h-10 p-1 flex items-center justify-center rounded-full cursor-pointer"
             onClick={(e) => e.stopPropagation()} // Prevents link navigation
           >
             <IoEllipsisVerticalSharp
-              className="text-xl"
+              className="text-2xl"
               style={{ zIndex: "50", color: "#fff" }}
             />
           </span>
@@ -72,15 +72,17 @@ const FriendsProfileCard = ({ user }: any) => {
         {/* Content Section */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-4 flex flex-col justify-end">
           {/* Distance */}
-          <p className="text-white text-sm mb-1">{user?.distance || "N/A"}</p>
-
-          {/* Name & Age */}
-          <p className="text-white text-lg font-bold">
-            {user?.name || "N/A"} - {user?.age || "N/A"}
+          <p className="text-white text-sm lg:text-[18px] mb-1">
+            {user?.distance || "N/A"}
           </p>
 
+          {/* Name & Age */}
+          <h1 className="text-white text-xl lg:text-[28px] font-bold">
+            {user?.name || "N/A"} - {user?.age || "N/A"}
+          </h1>
+
           {/* Location (Handles Long Text) */}
-          <p className="text-white text-sm">
+          <p className="text-white text-sm lg:text-[18px] mt-2">
             {user?.location?.length > 15 ? (
               <>
                 {user?.location.substring(0, 15)}...
@@ -98,6 +100,7 @@ const FriendsProfileCard = ({ user }: any) => {
           <div className="lg:flex flex-row gap-2 mt-3">
             <Link href={`/messages`} onClick={(e) => e.stopPropagation()}>
               <Button
+                size="large"
                 className="bg-black text-white border border-white px-4 py-2 rounded-lg w-full"
                 style={{
                   background: "none",
@@ -110,6 +113,7 @@ const FriendsProfileCard = ({ user }: any) => {
 
             <Link href={`/messages`} onClick={(e) => e.stopPropagation()}>
               <Button
+                size="large"
                 type="primary"
                 className="bg-purple-600 text-white px-4 py-2 rounded-lg w-full mt-2 lg:mt-0"
               >

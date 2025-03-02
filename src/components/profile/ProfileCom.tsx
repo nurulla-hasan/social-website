@@ -2,7 +2,6 @@
 
 import { fakeParty } from "@/app/data/FakeData";
 import { fakeImage } from "@/constant/constant";
-import useBackNavigation from "@/hooks/BackUrl";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Progress, Typography } from "antd";
 import Link from "next/link";
@@ -14,38 +13,29 @@ const { Title } = Typography;
 const ProfileCom = () => {
   const host = fakeParty[0]?.hostInfo;
 
-  // navigation back
-  const dynamicCurrentPath = "/profile";
-  const dynamicFallbackUrl = "/find-an-activities";
-
-  // Using the hook with dynamic currentPath and fallbackUrl
-  const { handleBack } = useBackNavigation(
-    dynamicCurrentPath,
-    dynamicFallbackUrl
-  );
-
   return (
     <>
-      <div className="flex items-center justify-start">
+      <div className="flex items-center justify-start flex-col sm:flex-row text-center sm:text-left">
         {/* Profile Image with Circular Progress Bar */}
         <div className="relative flex items-center justify-center mt-6">
           {/* Circular Progress Bar */}
           <Progress
             type="circle"
+            style={{ transform: "rotate(180deg)" }}
             percent={80}
             format={() => ""}
             strokeColor={{
               "0%": "#00FF00",
               "100%": "#00AA00",
             }}
-            strokeWidth={5}
+            strokeWidth={3}
             strokeLinecap="round" // Ensures smooth rounded ends
-            width={150}
+            width={200}
             trailColor="rgba(255, 255, 255, 0.2)"
           />
 
           {/* Profile Image Inside Progress Bar */}
-          <div className="absolute w-[140px] h-[140px] rounded-full overflow-hidden">
+          <div className="absolute w-[187px] h-[187px] rounded-full overflow-hidden">
             <img
               src={host?.profileImage || fakeImage}
               alt="Profile"
@@ -59,47 +49,42 @@ const ProfileCom = () => {
           </div>
         </div>
 
-        <div className="ml-3 w-full">
-          <Title
-            level={2}
-            className="text-left pt-2"
+        <div className="ml-3 w-full flex flex-col items-center sm:items-start">
+          <h1
+            className="pt-2 text-2xl lg:text-3xl mt-3"
             style={{ color: `${ColorPalette?.colorTextPrimary}` }}
           >
             {host?.name || "N/A"}{" "}
-            <sup
-              style={{
-                fontSize: "17px",
-                fontWeight: "300",
-                marginTop: "-15px",
-              }}
-            >{`(${host?.pronouns || "N/A"})`}</sup>
-          </Title>
+            <sup className="text-sm lg:text-base mt-[-15px] font-normal">{`(${
+              host?.pronouns || "N/A"
+            })`}</sup>
+          </h1>
 
           {/* Likes */}
           <div style={{ color: `${ColorPalette?.colorTextPrimary}` }}>
-            <span
-              className="text-base"
-              style={{
-                margin: "5px",
-                color: `${ColorPalette?.colorTextPrimary}`,
-              }}
-            >
-              {host?.likeReceived?.length || 0} likes Received
-            </span>
-            <span
-              className="text-base"
-              style={{
-                margin: "5px",
-                color: `${ColorPalette?.colorTextPrimary}`,
-              }}
-            >
-              {host?.likeProfile?.length || 0} liked Profiles
-            </span>
-
-            <br />
+            <div>
+              <span
+                className="text-base block sm:inline"
+                style={{
+                  margin: "5px",
+                  color: `${ColorPalette?.colorTextPrimary}`,
+                }}
+              >
+                {host?.likeReceived?.length || 0} likes Received
+              </span>
+              <span
+                className="text-base block sm:inline"
+                style={{
+                  margin: "5px",
+                  color: `${ColorPalette?.colorTextPrimary}`,
+                }}
+              >
+                {host?.likeProfile?.length || 0} liked Profiles
+              </span>
+            </div>
 
             <button
-              className="py-1 px-4  rounded-full mt-3 text-base"
+              className="py-1 px-4 rounded-full mt-3 text-base"
               style={{ background: `${ColorPalette?.colorSecondaryBg}` }}
             >
               {host?.userName || "N/A"}

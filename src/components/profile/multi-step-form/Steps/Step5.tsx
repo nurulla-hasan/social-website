@@ -1,5 +1,5 @@
 import { Slider } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Control, Controller } from "react-hook-form";
 import { FormValues } from "../FormSchema";
 
@@ -7,26 +7,30 @@ interface Step5Props {
   control: Control<FormValues>;
 }
 
-const siderStyle = {
-  track: {
-    backgroundColor: "#7DFF19",
-  },
-  rail: {
-    backgroundColor: "#1c1c1c",
-  },
-  handle: {
-    borderColor: "#7DFF19",
-    backgroundColor: "#7DFF19",
-  },
-};
-
 const Step5 = ({ control }: Step5Props) => {
   const [distance, setDistance] = useState(2);
+
+  // ✅ Inject CSS to force the handle color
+  useEffect(() => {
+    const style = document.createElement("style");
+    style.innerHTML = `
+      .ant-slider-handle {
+        background-color: #7DFF19 !important;
+        border-color: #7DFF19 !important;
+        box-shadow: 0 0 8px #7DFF19 !important;
+      }
+    `;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style); // Cleanup when component unmounts
+    };
+  }, []);
 
   return (
     <div>
       <div>
-        <h1 className="text-center text-2xl lg:text-5xl font-bold ">
+        <h1 className="text-center text-2xl lg:text-5xl font-bold">
           Distance Preference for Activities?
         </h1>
       </div>
@@ -41,6 +45,8 @@ const Step5 = ({ control }: Step5Props) => {
                 <span>0 Miles</span>
                 <span>100 Miles</span>
               </div>
+
+              {/* Slider with fixed styles */}
               <Slider
                 style={{ width: "100%" }}
                 min={0}
@@ -50,12 +56,17 @@ const Step5 = ({ control }: Step5Props) => {
                   setDistance(value);
                   field.onChange(value.toString());
                 }}
-                styles={siderStyle} // FIXED: Changed from "styles" to "style"
+                trackStyle={{ backgroundColor: "#7DFF19" }} // ✅ Green track
+                railStyle={{ backgroundColor: "#1c1c1c" }} // ✅ Dark rail
+                handleStyle={{
+                  borderColor: "#7DFF19", // ✅ Green border
+                  backgroundColor: "#7DFF19", // ✅ Ensure color
+                }}
               />
 
               <div className="flex items-center justify-between relative">
-                <span className="absolute bottom-[] mt-[-35px] left-[5px] h-10 w-[1px] bg-[#7DFF19]"></span>
-                <span className="absolute bottom-[] mt-[-35px] right-[-5px] h-10 w-[1px] bg-[#7DFF19]"></span>
+                <span className="absolute mt-[-35px] left-[5px] h-10 w-[1px] bg-[#7DFF19]"></span>
+                <span className="absolute mt-[-35px] right-[-5px] h-10 w-[1px] bg-[#7DFF19]"></span>
               </div>
             </div>
           )}

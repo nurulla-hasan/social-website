@@ -84,14 +84,14 @@ const SingleCreateAnActivity = ({ id }: any) => {
               {party?.partyName || "N/A"}
             </h1>
             <h3
-              style={{ color: `${ColorPalette?.colorTextSecondary}` }}
+              style={{ color: `${ColorPalette?.colorText}` }}
               className="text-xl mt-2"
             >
               {party?.distance || "N/A"} Away
             </h3>
             <p
               className="mt-2 text-base flex items-center justify-start"
-              style={{ color: `${ColorPalette?.colorTextSecondary}` }}
+              style={{ color: `${ColorPalette?.colorText}` }}
             >
               <MdOutlineDateRange />{" "}
               <span className="ml-2">
@@ -100,7 +100,7 @@ const SingleCreateAnActivity = ({ id }: any) => {
             </p>
             <p
               className="mt-2 text-base flex items-center justify-start"
-              style={{ color: `${ColorPalette?.colorTextSecondary}` }}
+              style={{ color: `${ColorPalette?.colorText}` }}
             >
               <MdAccessTime />{" "}
               <span className="ml-2">
@@ -112,10 +112,13 @@ const SingleCreateAnActivity = ({ id }: any) => {
             {/* button */}
             <div className="flex items-center justify-start mt-5">
               <Link href={`/pricing-plan`}>
-                <Button type="primary">Boost</Button>
+                <Button size="large" type="primary">
+                  Boost
+                </Button>
               </Link>
               <Link href={`/messages`}>
                 <Button
+                  size="large"
                   style={{
                     marginLeft: "10px",
                     background: "none",
@@ -132,12 +135,14 @@ const SingleCreateAnActivity = ({ id }: any) => {
                 arrow={{ pointAtCenter: true }}
               >
                 <Button
+                  size="large"
                   style={{
                     marginLeft: "10px",
                     background: "none",
                     color: "#fff",
                     border: "none",
                     fontSize: "22px",
+                    boxShadow: "none",
                   }}
                 >
                   <IoEllipsisVerticalSharp />
@@ -193,15 +198,19 @@ const SingleCreateAnActivity = ({ id }: any) => {
               <Link href={`/attendees`}>
                 <Avatar.Group
                   max={{
-                    count: 2,
-                    style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+                    count: 3,
+                    style: { color: "#000", backgroundColor: "#7DFF19" },
                   }}
                 >
+                  <Avatar src="https://randomuser.me/api/portraits/men/20.jpg" />
                   <Avatar src="https://randomuser.me/api/portraits/men/21.jpg" />
-                  <Avatar style={{ backgroundColor: "#f56a00" }}>K</Avatar>
+                  <Avatar
+                    style={{ backgroundColor: "#f56a00" }}
+                    src="https://randomuser.me/api/portraits/men/26.jpg"
+                  ></Avatar>
                   <Tooltip title="Ant User" placement="top">
                     <Avatar
-                      style={{ backgroundColor: "#87d068" }}
+                      style={{ backgroundColor: "red" }}
                       icon={<UserOutlined />}
                     />
                   </Tooltip>
@@ -270,6 +279,7 @@ const SingleCreateAnActivity = ({ id }: any) => {
 
             <Link href={`/map`}>
               <Button
+                size="large"
                 style={{
                   background: "none",
                   padding: "15px 22px",
