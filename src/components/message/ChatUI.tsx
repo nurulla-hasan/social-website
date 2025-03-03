@@ -5,6 +5,7 @@ import { MoreOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 import { useState } from "react";
 import ChatInputDesign from "./ChatInput";
+import ChatBoxDesign from "./Demo2";
 import GroupCreateModal from "./MegModals/GroupCreateModal";
 
 interface Message {
@@ -116,6 +117,8 @@ const ChatUI = ({ messages }: any) => {
         </div>
 
         {/* <ChatInput /> */}
+
+        <ChatBoxDesign />
 
         <ChatInputDesign />
 

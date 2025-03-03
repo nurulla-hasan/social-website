@@ -2,7 +2,7 @@ import { FaImage, FaMicrophone, FaPaperPlane } from "react-icons/fa";
 
 const ChatInputDesign = () => {
   return (
-    <div className="flex items-center bg-[#1c1c1c] p-2 rounded-full w-full mx-2">
+    <div className="flex items-center bg-[#1c1c1c] p-2 rounded-full w-[95%] mx-auto mb-2">
       {/* Voice Recorder Icon */}
       <button className="p-2 text-purple-500">
         <FaMicrophone size={20} />
