@@ -128,7 +128,6 @@ const DefaultUIChatBox = () => {
         </span>
         <p className="text-2xl mt-4 text-white">Your Messages</p>
         <p className="text-gray-500 text-sm">Send a message to start a chat.</p>
-
         <Button
           type="primary"
           className="bg-purple-500 mt-7"

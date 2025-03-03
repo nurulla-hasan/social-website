@@ -46,7 +46,7 @@ const NewChatModal = ({ isOpen, onConfirm, onCancel }: Props) => {
           throw new Error("Function not implemented.");
         }}
       />
-      ;
+
       <Modal
         closeIcon={<IoClose className="text-white text-2xl" />}
         width={{

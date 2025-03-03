@@ -65,7 +65,8 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
         justifyContent: "end",
         position: "sticky",
         top: "0",
-        zIndex: 1000,
+
+        zIndex: 96,
         transition: "background 0.3s ease",
         boxShadow: isScrolled ? "0 2px 8px rgba(0, 0, 0, 0.1)" : "none",
         borderBottom: `1px solid ${ColorPalette?.colorSecondaryBg}`,

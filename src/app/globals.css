@@ -80,7 +80,7 @@ body {
   transform: scaleX(1);
   transition: 1s;
   visibility: visible;
-  z-index: 999;
+  z-index: 98;
 }
 .overly-out {
   position: fixed;
@@ -94,7 +94,7 @@ body {
   transform: scaleX(0);
   transition: 1s;
   visibility: hidden;
-  z-index: 999;
+  z-index: 98;
 }
 
 .ant-spin-dot-item {

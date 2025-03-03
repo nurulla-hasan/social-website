@@ -39,6 +39,7 @@ const ChatBox = ({ isSidebarOpen, handleSidebarToggle }: any) => {
         <div
           style={{
             background: `${ColorPalette.colorSecondaryBg}`,
+            zIndex: "99",
           }}
           className={`fixed inset-y-0 left-0 w-80 p-4 transition-transform duration-300 md:relative md:translate-x-0  ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"

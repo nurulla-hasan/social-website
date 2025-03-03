@@ -75,7 +75,7 @@ export const TriggerSiderStyle: CSSProperties = {
   // position: "sticky",
   left: 0,
   top: 0,
-  zIndex: 1001,
+  zIndex: 99,
   transition: "1s",
   opacity: "1",
   minHeight: "100vh",

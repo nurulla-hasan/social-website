@@ -65,7 +65,9 @@ const Sidebar = ({
         width={280}
         trigger={null}
         style={{
-          transform: collapsed ? "translateX(-200%)" : "translateX(0)",
+          transform: collapsed ? "translateX(-300%)" : "translateX(0)",
+          visibility: collapsed ? "hidden" : "visible",
+          opacity: collapsed ? "0" : "1",
           ...TriggerSiderStyle,
           height: "100vh",
           position: isMobile ? "fixed" : "sticky",
