@@ -36,6 +36,7 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
       "/settings/version-details": "Version Details",
       "/settings/contact-and-faq": "Contact & FAQ",
       "/pricing-plan": "Boost Plan",
+      "/attendees": "Attendees",
     };
     return pathMap[pathName] || "Back";
   };

@@ -49,7 +49,7 @@ const AttendeesCard = ({ user }: any) => {
       <div className="absolute top-[5%] left-0 flex items-center justify-between w-full px-4 z-10">
         {/* Heart Icon - Prevents Navigation on Click */}
         <span
-          className="w-8 h-8 bg-gray-500 p-1 flex items-center justify-center rounded-full cursor-pointer"
+          className="w-10 h-10 bg-gray-500 p-1 flex items-center justify-center rounded-full cursor-pointer"
           style={{ zIndex: "50", color: "red" }}
           onClick={(e) => e.stopPropagation()} // Prevents link navigation
         >
@@ -63,11 +63,11 @@ const AttendeesCard = ({ user }: any) => {
           arrow={{ pointAtCenter: true }}
         >
           <span
-            className="w-8 h-8 p-1 flex items-center justify-center rounded-full cursor-pointer"
+            className="w-10 h-10 p-1 flex items-center justify-center rounded-full cursor-pointer"
             onClick={(e) => e.stopPropagation()} // Prevents link navigation
           >
             <IoEllipsisVerticalSharp
-              className="text-xl"
+              className="text-2xl"
               style={{ zIndex: "50", color: "#fff" }}
             />
           </span>
@@ -77,18 +77,20 @@ const AttendeesCard = ({ user }: any) => {
       {/* Content Section */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent p-4 flex flex-col justify-end">
         {/* Distance */}
-        <p className="text-white text-sm mb-1">{user?.distance || "N/A"}</p>
-
-        {/* Name & Age */}
-        <p className="text-white text-lg font-bold">
-          {user?.name || "N/A"} - {user?.age || "N/A"}
+        <p className="text-white text-sm lg:text-[18px] mb-1">
+          {user?.distance || "N/A"}
         </p>
 
+        {/* Name & Age */}
+        <h1 className="text-white text-xl lg:text-[28px] font-bold">
+          {user?.name || "N/A"} - {user?.age || "N/A"}
+        </h1>
+
         {/* Location (Handles Long Text) */}
-        <p className="text-white text-sm">
-          {user?.location?.length > 50 ? (
+        <p className="text-white text-sm lg:text-[18px] mt-2">
+          {user?.location?.length > 20 ? (
             <>
-              {user?.location.substring(0, 50)}...
+              {user?.location.substring(0, 20)}...
               <span className="text-green-400 font-bold cursor-pointer">
                 {" "}
                 See More.
@@ -102,6 +104,7 @@ const AttendeesCard = ({ user }: any) => {
         {/* button area */}
         <div className="flex justify-start items-center w-full  mt-5">
           <Button
+            size="large"
             style={{
               background: "none",
               color: `${ColorPalette?.colorTextPrimary}`,
@@ -110,7 +113,7 @@ const AttendeesCard = ({ user }: any) => {
             Remove
           </Button>
           <Link href={`/profile/details/${user?.id}`}>
-            <Button className="ml-3" type="primary">
+            <Button className="ml-3" type="primary" size="large">
               {" "}
               View profile
             </Button>
@@ -118,7 +121,7 @@ const AttendeesCard = ({ user }: any) => {
           <Link href={`/messages`}>
             <div
               className="border w-6 h-6 flex items-center justify-center ml-3 text-white"
-              style={{ borderRadius: "25px 25px 0px 25px" }}
+              style={{ borderRadius: "25px 25px 5px 25px" }}
             >
               <span className="p-1 inline-block">
                 <RxTextAlignLeft className="text-sm" />{" "}
