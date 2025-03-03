@@ -72,7 +72,7 @@ const sidebarItems = () => {
     },
   ];
 
-  const items = [...mainContentItems, ...bottomItems];
+  const items = [...mainContentItems];
 
   return items;
 };
