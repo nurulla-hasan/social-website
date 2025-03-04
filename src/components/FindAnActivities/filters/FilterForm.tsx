@@ -45,7 +45,7 @@ const FilterForm = () => {
   const handleSubmit = (values: any) => {
     console.log("Form Data:", {
       ...values,
-      startTime: values.startTime?.format("HH:mm"),
+      startTime: values.startTime?.format("h:mm A"),
       date: values.date?.format("YYYY-MM-DD"),
       distance,
       ageRange,
@@ -150,9 +150,40 @@ const FilterForm = () => {
           </Form.Item>
         </div>
 
-        {/* Distance & Age Range */}
+        {/* age  */}
+        <div>
+          <Form.Item
+            style={{ background: "transparent" }}
+            name="age"
+            rules={[{ required: true, message: "Please select an activity" }]}
+          >
+            <Select
+              dropdownStyle={{
+                backgroundColor: "#1c1c1c",
+                color: "#fff",
+              }}
+              size="large"
+              placeholder="Select your age range"
+              className="w-full text-white create-activity-input-filter"
+            >
+              <Option value="0-3">0-3 years</Option>
+              <Option value="3-6">3-6 years</Option>
+              <Option value="6-9">6-9 years</Option>
+              <Option value="9-12">9-12 years</Option>
+              <Option value="12-15">12-15 years</Option>
+              <Option value="15-18">15-18 years</Option>
+              <Option value="18-21">18-21 years</Option>
+              <Option value="21-24">21-24 years</Option>
+              <Option value="24-27">24-27 years</Option>
+              <Option value="27-30">27-30 years</Option>
+              <Option value="30-33">30-33 years</Option>
+              <Option value="33-35">33-35 years</Option>
+            </Select>
+          </Form.Item>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-6">
+        {/* Distance & Age Range */}
+        <div className="w-full mt-6">
           {/* Distance/Miles */}
 
           <div className="border p-4 rounded-lg">
@@ -177,7 +208,8 @@ const FilterForm = () => {
               <span className="inline-block h-[50px] w-[1px] bg-[#7DFF19] ml-[-5px] "></span>
             </div>
           </div>
-          <div className="border p-4 rounded-lg">
+
+          {/* <div className="border p-4 rounded-lg">
             <span className="text-white">
               {" "}
               Age Range {ageRange[0]} to {ageRange[1]}
@@ -187,7 +219,7 @@ const FilterForm = () => {
                 13
               </span>
               <span className="inline-block h-[50px] w-[1px]  bg-[#7DFF19] mr-[-5px]"></span>
-              {/* Distance Range {distance} Miles */}
+          
               <Slider
                 styles={siderStyle}
                 range
@@ -216,7 +248,7 @@ const FilterForm = () => {
               </span>
               <span className="inline-block h-[50px] w-[1px] bg-[#7DFF19] ml-[-5px] "></span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Submit Button */}

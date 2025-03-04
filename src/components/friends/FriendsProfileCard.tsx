@@ -25,7 +25,7 @@ const items: MenuProps["items"] = [
 
 const FriendsProfileCard = ({ user }: any) => {
   return (
-    <div className="relative w-full bg-black rounded-2xl overflow-hidden shadow-lg">
+    <div className="relative w-full bg-black rounded-2xl overflow-hidden shadow-lg mt-5">
       {/* Profile Image */}
       <Link href={`/friends/details/${user?.id}`}>
         <div className="relative">

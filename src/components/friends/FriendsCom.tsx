@@ -12,7 +12,7 @@ const user = fakeUser;
 const FriendsCom = () => {
   return (
     <div>
-      <div className="py-7">
+      <div className="mt-7">
         <FriendsFilter />
       </div>
       <Row gutter={16}>
