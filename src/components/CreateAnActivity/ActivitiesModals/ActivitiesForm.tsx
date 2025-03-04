@@ -146,9 +146,10 @@ const ActivitiesForm = () => {
           >
             <TimePicker
               size="large"
+              placeholder="Start Time"
               style={{ background: "#fff", height: "50px" }}
               className="w-full text-white create-activity-input"
-              format="HH:mm"
+              format="h:mm A"
             />
           </Form.Item>
           <Form.Item
@@ -157,9 +158,10 @@ const ActivitiesForm = () => {
           >
             <TimePicker
               size="large"
+              placeholder="End Time"
               style={{ background: "#fff", height: "50px" }}
               className="w-full text-white create-activity-input"
-              format="HH:mm"
+              format="h:mm A"
             />
           </Form.Item>
         </div>
@@ -174,11 +176,19 @@ const ActivitiesForm = () => {
             <Select
               size="large"
               style={{ background: "#1c1c1c", height: "50px" }}
-              placeholder="Select Activity"
+              placeholder="Activity Type"
               className="w-full bg-gray-800 text-white create-activity-input"
             >
               <Option value="Hiking">Hiking</Option>
               <Option value="Cycling">Cycling</Option>
+              <Option value="Running">Running</Option>
+              <Option value="Swimming">Swimming</Option>
+              <Option value="Yoga">Yoga</Option>
+              <Option value="Camping">Camping</Option>
+              <Option value="Fishing">Fishing</Option>
+              <Option value="Kayaking">Kayaking</Option>
+              <Option value="Rock Climbing">Rock Climbing</Option>
+              <Option value="Skiing">Skiing</Option>
             </Select>
           </Form.Item>
           <Form.Item
@@ -227,9 +237,16 @@ const ActivitiesForm = () => {
               styles={siderStyle}
               range
               min={13}
-              max={17}
+              max={50}
               value={ageRange}
-              onChange={setAgeRange}
+              onChange={(newRange) => {
+                const [minAge, maxAge] = newRange;
+                if (maxAge - minAge > 3) {
+                  setAgeRange([minAge, minAge + 3]);
+                } else {
+                  setAgeRange(newRange);
+                }
+              }}
             />
           </div>
         </div>
@@ -290,6 +307,12 @@ const ActivitiesForm = () => {
             >
               <Option value="1">1</Option>
               <Option value="2">2</Option>
+              <Option value="3">3</Option>
+              <Option value="4">4</Option>
+              <Option value="5">5</Option>
+              <Option value="6">6</Option>
+              <Option value="7">7</Option>
+              <Option value="8">8</Option>
             </Select>
           </Form.Item>
         </div>

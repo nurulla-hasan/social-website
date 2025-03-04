@@ -57,33 +57,25 @@ const Bio = ({ host }: any) => {
           </Title>
 
           <div
-            style={{ color: `${ColorPalette?.colorPrimaryLight}` }}
-            className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 gap-2 mt-7"
+            style={{ color: ColorPalette?.colorPrimaryLight }}
+            className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 gap-2"
           >
-            <button
-              className="py-2 px-4  rounded-full text-base capitalize "
-              style={{ background: `${ColorPalette?.colorSecondaryBg}` }}
-            >
-              Single
-            </button>
-            <button
-              className="py-2 px-4  rounded-full text-base capitalize "
-              style={{ background: `${ColorPalette?.colorSecondaryBg}` }}
-            >
-              White skin
-            </button>
-            <button
-              className="py-2 px-4  rounded-full text-base capitalize "
-              style={{ background: `${ColorPalette?.colorSecondaryBg}` }}
-            >
-              6' 3"
-            </button>
-            <button
-              className="py-2 px-4  rounded-full text-base capitalize "
-              style={{ background: `${ColorPalette?.colorSecondaryBg}` }}
-            >
-              Shawnvile High School
-            </button>
+            {[
+              "Single",
+              "White skin",
+              "6' 3\"",
+              "Shawnvile High School",
+              "A very long button text example",
+            ].map((interest: string, i: number) => (
+              <button
+                key={i}
+                className="py-2 px-4 rounded-full text-base capitalize w-full text-ellipsis overflow-hidden whitespace-nowrap"
+                style={{ background: ColorPalette?.colorSecondaryBg }}
+                title={interest} // Shows full text on hover
+              >
+                {interest}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -98,14 +90,15 @@ const Bio = ({ host }: any) => {
           </Title>
 
           <div
-            style={{ color: `${ColorPalette?.colorPrimaryLight}` }}
+            style={{ color: ColorPalette?.colorPrimaryLight }}
             className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-8 gap-2"
           >
             {host?.interests?.map((interest: string, i: number) => (
               <button
                 key={i}
-                className="py-2 px-4  rounded-full text-base capitalize "
-                style={{ background: `${ColorPalette?.colorSecondaryBg}` }}
+                className="py-2 px-4 rounded-full text-base capitalize w-full text-ellipsis overflow-hidden whitespace-nowrap"
+                style={{ background: ColorPalette?.colorSecondaryBg }}
+                title={interest} // Shows full text on hover
               >
                 {interest}
               </button>

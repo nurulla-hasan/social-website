@@ -20,7 +20,7 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   background: #0a0a0a;
-  transition: 1s;
+  transition: 0.1s;
   color: #fff;
 }
 

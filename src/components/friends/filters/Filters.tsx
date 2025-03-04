@@ -1,11 +1,11 @@
 "use client";
 
-import FilterModal from "@/components/FindAnActivities/filters/FilterModal";
 import { ColorPalette } from "@/theme/themes";
 import { Form, Input } from "antd";
 import { useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { IoColorPalette } from "react-icons/io5";
+import FriendsFilterModal from "./FriendsFilterModal";
 
 const FriendsFilter = () => {
   const [ActivityFilter, setActivityFilter] = useState<boolean>(false);
@@ -13,7 +13,7 @@ const FriendsFilter = () => {
   return (
     <>
       {/* user block modal */}
-      <FilterModal
+      <FriendsFilterModal
         isOpen={ActivityFilter}
         onConfirm={() => {
           setActivityFilter(false);

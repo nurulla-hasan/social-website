@@ -152,7 +152,7 @@ const FilterForm = () => {
 
         {/* Distance & Age Range */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-4">
           {/* Distance/Miles */}
 
           <div className="border p-4 rounded-lg">
@@ -197,11 +197,10 @@ const FilterForm = () => {
                 onChange={(newRange) => {
                   let [minAge, maxAge] = newRange;
 
-                  // Ensure max age is always within 3 years of min age
+                  // Ensure the age range does not exceed a 3-year difference
                   if (maxAge - minAge > 3) {
                     maxAge = minAge + 3;
                   }
-
                   if (minAge > maxAge - 3) {
                     minAge = maxAge - 3;
                   }
@@ -210,13 +209,29 @@ const FilterForm = () => {
                 }}
                 style={{ width: "100%" }}
               />
-
               <span className="absolute bottom-0 mt-7 mr-5 right-0 text-gray-500 font-semibold">
                 50
               </span>
               <span className="inline-block h-[50px] w-[1px] bg-[#7DFF19] ml-[-5px] "></span>
             </div>
           </div>
+        </div>
+
+        {/* Hair Color Field */}
+        <div className="mt-7">
+          <Form.Item
+            name="hairColor"
+            rules={[{ required: true, message: "Please select a hair color" }]}
+          >
+            <Select placeholder="Hair Color" size="large">
+              <Option value="Black">Black</Option>
+              <Option value="Brown">Brown</Option>
+              <Option value="Blonde">Blonde</Option>
+              <Option value="Red">Red</Option>
+              <Option value="Gray">Gray</Option>
+              <Option value="Other">Other</Option>
+            </Select>
+          </Form.Item>
         </div>
 
         {/* Submit Button */}

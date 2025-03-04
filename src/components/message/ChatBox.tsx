@@ -72,7 +72,11 @@ const ChatBox = ({ isSidebarOpen, handleSidebarToggle }: any) => {
               />
             </Tabs.TabPane>
             <Tabs.TabPane
-              tab={<span className="font-semibold">Group</span>}
+              tab={
+                <span className="font-semibold" style={{ marginLeft: "-18px" }}>
+                  Group
+                </span>
+              }
               key="group"
             >
               {/* group list */}
@@ -83,7 +87,7 @@ const ChatBox = ({ isSidebarOpen, handleSidebarToggle }: any) => {
               tab={
                 <span
                   className="font-semibold"
-                  style={{ color: "#6c19ff" }}
+                  style={{ color: "#6c19ff", marginLeft: "50px" }}
                 >{`Request (${request?.length})`}</span>
               }
               key="requests"

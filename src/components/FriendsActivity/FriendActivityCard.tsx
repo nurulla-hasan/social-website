@@ -11,7 +11,7 @@ const FriendActivityCard = ({ data }: any) => {
     <>
       <Link href={`/friends-activity/details/${data?.id}`}>
         <Card
-          className=" text-white rounded-[50px] p-3 shadow-lg w-full"
+          className=" text-white rounded-[50px] p-3 shadow-lg w-full h-full"
           style={{
             background: `${ColorPalette?.colorSecondaryBg}`,
             border: "none",

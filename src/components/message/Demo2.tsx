@@ -41,7 +41,9 @@ const ChatBoxDesign = () => {
     const reader = new FileReader();
     reader.onload = () => {
       if (typeof reader.result === "string") {
+        // @ts-ignore
         setImages((prevImages) => [...prevImages, reader.result]);
+        // @ts-ignore
         setMessages((prevMessages) => [
           ...prevMessages,
           { type: "image", content: reader.result },

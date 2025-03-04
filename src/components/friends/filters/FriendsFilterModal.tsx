@@ -1,6 +1,6 @@
 import { Modal } from "antd";
 import { IoClose } from "react-icons/io5";
-import FilterForm from "./FilterForm";
+import FriendFilterForm from "./FriendFilterForm";
 
 interface Props {
   isOpen: boolean;
@@ -8,7 +8,7 @@ interface Props {
   onCancel: () => void;
 }
 
-const FilterModal = ({ isOpen, onConfirm, onCancel }: Props) => {
+const FriendsFilterModal = ({ isOpen, onConfirm, onCancel }: Props) => {
   const modalStyle = {
     content: {
       background: "#171717",
@@ -35,12 +35,12 @@ const FilterModal = ({ isOpen, onConfirm, onCancel }: Props) => {
       styles={modalStyle}
     >
       <div className="text-white text-lg font-semibold mb-4">
-        Activity Filters
+        Filters friends
       </div>
 
-      <FilterForm />
+      <FriendFilterForm />
     </Modal>
   );
 };
 
-export default FilterModal;
+export default FriendsFilterModal;
