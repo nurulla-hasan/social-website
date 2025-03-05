@@ -471,3 +471,14 @@ input[type="text"] {
   border-color: #7dff19 !important;
   box-shadow: 0 0 8px #7dff19 !important; /* Optional glow effect */
 }
+
+.ant-tabs-tab {
+  min-width: 150px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.ant-tabs-tab-active {
+  background: #1c1c1c !important;
+}

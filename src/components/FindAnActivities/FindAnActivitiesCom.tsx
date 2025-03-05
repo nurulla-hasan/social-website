@@ -1,7 +1,6 @@
 "use client";
 
 import { fakeParty } from "@/app/data/FakeData";
-import { Typography } from "antd";
 import ActivitiesFilter from "./filters/Filter";
 import ActivitySearch from "./filters/Search";
 import SinglePartyCard from "./SinglePartyCard";
@@ -9,7 +8,6 @@ import SinglePartyCard from "./SinglePartyCard";
 const FindAnActivitiesCom = () => {
   const Party = fakeParty;
 
-  const { Title, Text } = Typography;
   return (
     <div>
       {/* Filter area */}

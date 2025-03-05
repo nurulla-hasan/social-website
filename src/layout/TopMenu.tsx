@@ -19,11 +19,11 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
   // Function to get the page title based on the pathname
   const getPageTitle = () => {
     const pathMap: Record<string, string> = {
-      "/": "Home",
-      "/create-an-activity": "Create an activities",
-      "/find-an-activities": "Find an activities",
-      "/friends-activity": "Friends activities",
-      "/your-activities": "Your activities",
+      "/home": "Home",
+      "/create-an-activity": "Create an activity",
+      "/find-an-activities": "Find an activity",
+      "/friends-activity": "Friends activity",
+      "/your-activities": "Your activity",
       "/friends": "Friends",
       "/find-friends": "Find friends",
       "/messages": "Messages",
@@ -37,6 +37,7 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
       "/settings/contact-and-faq": "Contact & FAQ",
       "/pricing-plan": "Boost Plan",
       "/attendees": "Attendees",
+      "/likes": "Likes",
     };
     return pathMap[pathName] || "Back";
   };
@@ -81,7 +82,7 @@ const TopMenu = ({ collapsed, setCollapsed, isMobile, onToggle }: any) => {
             </span>
             <Title
               level={3}
-              className="text-left ml-3 pt-2"
+              className="text-left ml-3 pt-2 capitalize"
               style={{ color: `${ColorPalette?.colorTextPrimary}` }}
             >
               {getPageTitle()}

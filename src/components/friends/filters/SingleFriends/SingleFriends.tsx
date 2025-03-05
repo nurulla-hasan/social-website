@@ -3,10 +3,8 @@
 import { fakeUser } from "@/app/data/FakeData";
 import Bio from "@/components/profile/Bio";
 import Participated from "@/components/profile/Participated";
-import useHistoryBack from "@/hooks/HistoryBack";
 import { ColorPalette } from "@/theme/themes";
 import { Button, Dropdown, MenuProps, Typography } from "antd";
-import { FaArrowLeft } from "react-icons/fa6";
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import { LuHeartHandshake } from "react-icons/lu";
 
@@ -30,26 +28,8 @@ const items: MenuProps["items"] = [
 const SingleFriends = ({ id }: any) => {
   const host = fakeUser?.find((user) => user?.id === Number(id));
 
-  const { goBack } = useHistoryBack();
-
   return (
     <>
-      {/* Header Section */}
-      <button className="cursor-pointer" onClick={goBack}>
-        <div className="flex items-center justify-start">
-          <span>
-            <FaArrowLeft className="text-2xl text-white" />
-          </span>
-          <Title
-            level={3}
-            className="text-left ml-3 pt-2"
-            style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-          >
-            Friends
-          </Title>
-        </div>
-      </button>
-
       <div className="flex items-center justify-start">
         <div className="ml-3 w-full">
           <Title

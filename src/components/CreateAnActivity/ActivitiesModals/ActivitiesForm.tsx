@@ -22,11 +22,12 @@ const { TextArea } = Input;
 const { Text } = Typography;
 
 const ActivitiesForm = () => {
+  const userAge = 17; // Example user's age
   const [form] = Form.useForm();
   const [thumbnail, setThumbnail] = useState<string | null>(null);
   const [venueImage, setVenueImage] = useState<string | null>(null);
   const [distance, setDistance] = useState(2);
-  const [ageRange, setAgeRange] = useState([15, 17]);
+  const [ageRange, setAgeRange] = useState([userAge, userAge + 3]);
 
   // Handle Image Upload
   const handleUpload = (
@@ -56,16 +57,32 @@ const ActivitiesForm = () => {
 
   const siderStyle = {
     track: {
-      backgroundColor: "#7DFF19", // Blue color for the track
+      backgroundColor: "#7DFF19",
     },
     rail: {
-      backgroundColor: "#7DFF19", // Light gray color for the rail
+      backgroundColor: "#7DFF19",
     },
     handle: {
-      borderColor: "#7DFF19", // Blue color for the handle border
-      backgroundColor: "#7DFF19", // White color for the handle
+      borderColor: "#7DFF19",
+      backgroundColor: "#7DFF19",
     },
   };
+
+  // Get valid age ranges based on user's age
+  const getValidRanges = (age: number) => {
+    const validRanges = [];
+    for (let i = 1; i <= 50; i += 3) {
+      const startAge = i;
+      const endAge = i + 3;
+      // Add ranges that include the user's age
+      if (age >= startAge && age <= endAge) {
+        validRanges.push([startAge, endAge]);
+      }
+    }
+    return validRanges;
+  };
+
+  const validRanges = getValidRanges(userAge); // Get valid ranges based on user's age
 
   return (
     <>
@@ -203,41 +220,13 @@ const ActivitiesForm = () => {
           </Form.Item>
         </div>
 
-        {/* age  */}
+        {/* Age Range Slider */}
         <div>
           <Form.Item
             style={{ background: "transparent" }}
             name="age"
             rules={[{ required: true, message: "Please select an activity" }]}
           >
-            <Select
-              dropdownStyle={{
-                backgroundColor: "#1c1c1c",
-                color: "#fff",
-              }}
-              size="large"
-              placeholder="Select your age range"
-              className="w-full text-white create-activity-input-filter"
-            >
-              <Option value="0-3">0-3 years</Option>
-              <Option value="3-6">3-6 years</Option>
-              <Option value="6-9">6-9 years</Option>
-              <Option value="9-12">9-12 years</Option>
-              <Option value="12-15">12-15 years</Option>
-              <Option value="15-18">15-18 years</Option>
-              <Option value="18-21">18-21 years</Option>
-              <Option value="21-24">21-24 years</Option>
-              <Option value="24-27">24-27 years</Option>
-              <Option value="27-30">27-30 years</Option>
-              <Option value="30-33">30-33 years</Option>
-              <Option value="33-35">33-35 years</Option>
-            </Select>
-          </Form.Item>
-        </div>
-
-        {/* Distance & Age Range */}
-        <div className="w-full mt-6">
-          <div className="border p-4 rounded-lg">
             <Text
               className="text-gray-400 block mb-4"
               style={{
@@ -245,42 +234,37 @@ const ActivitiesForm = () => {
                 fontWeight: "500",
               }}
             >
-              Distance Range {distance} Miles
+              Age Range: {ageRange[0]} to {ageRange[1]}
             </Text>
             <Slider
-              min={0}
-              max={100}
-              value={distance}
-              onChange={setDistance}
-              styles={siderStyle}
-            />
-          </div>
-          {/* <div className="border p-4 rounded-lg">
-            <Text
-              className="text-gray-400"
-              style={{
-                color: `${ColorPalette.colorPrimaryLight}`,
-                fontWeight: "500",
-              }}
-            >
-              Age Range {ageRange[0]} to {ageRange[1]}
-            </Text>
-            <Slider
-              styles={siderStyle}
               range
               min={13}
               max={50}
+              step={1}
               value={ageRange}
               onChange={(newRange) => {
                 const [minAge, maxAge] = newRange;
                 if (maxAge - minAge > 3) {
+                  // Enforce the 3-year gap rule
                   setAgeRange([minAge, minAge + 3]);
                 } else {
-                  setAgeRange(newRange);
+                  // Ensure that the new range lies within the valid ranges
+                  if (
+                    validRanges.some(
+                      (range) => range[0] <= minAge && range[1] >= maxAge
+                    )
+                  ) {
+                    setAgeRange(newRange);
+                  }
                 }
               }}
+              marks={{
+                13: "13",
+                50: "50",
+              }}
+              styles={siderStyle}
             />
-          </div> */}
+          </Form.Item>
         </div>
 
         {/* Note */}

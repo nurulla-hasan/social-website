@@ -1,3 +1,5 @@
+"use client";
+
 import { fakeImage } from "@/constant/constant";
 import { ColorPalette } from "@/theme/themes";
 import { EventDataFormat } from "@/utils/DateFormat";
@@ -6,11 +8,11 @@ import { Avatar, Button, Card, Tooltip } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 
-const YourActivitiesCard = ({ data }: any) => {
+const Card1 = ({ data }: any) => {
   return (
-    <>
+    <div className="mt-2">
       <Card
-        className=" text-white rounded-[50px] p-3 shadow-lg w-full"
+        className=" text-white rounded-[50px] p-3 shadow-lg min-w-2xl"
         style={{
           background: `${ColorPalette?.colorSecondaryBg}`,
           border: "none",
@@ -33,20 +35,20 @@ const YourActivitiesCard = ({ data }: any) => {
           <div className="text-lg font-semibold flex justify-between items-center">
             <h3
               style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-              className="text-xl lg:text-2xl  text-ellipsis overflow-hidden whitespace-nowrap"
+              className="text-xl lg:text-2xl text-ellipsis overflow-hidden whitespace-nowrap"
             >
               {data?.partyName}
             </h3>
             <span
               style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-              className="text-xl font-normal text-[#BFBFBF]"
+              className="text-xl font-normal text-[#BFBFBF] "
             >
               {data?.requireAge}
             </span>
           </div>
           <h3
             style={{ color: `${ColorPalette?.colorTextLight}` }}
-            className="mt-1 text-md lg:text-lg  text-ellipsis overflow-hidden whitespace-nowrap"
+            className="mt-1 text-md lg:text-lg text-ellipsis overflow-hidden whitespace-nowrap"
           >
             {data?.address?.length > 30
               ? data?.address?.substring(0, 30) + "..."
@@ -96,19 +98,17 @@ const YourActivitiesCard = ({ data }: any) => {
             </Avatar.Group>
           </Link>
 
-          <Link href={`/your-activities/details/${data?.id}`}>
-            <Button
-              size="large"
-              type="primary"
-              className=" bg-purple-600 hover:bg-purple-700"
-            >
-              Preview
-            </Button>
-          </Link>
+          <Button
+            size="large"
+            type="primary"
+            className=" bg-purple-600 hover:bg-purple-700"
+          >
+            Attend
+          </Button>
         </div>
       </Card>
-    </>
+    </div>
   );
 };
 
-export default YourActivitiesCard;
+export default Card1;

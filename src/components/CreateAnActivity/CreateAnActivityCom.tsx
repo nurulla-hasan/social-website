@@ -27,7 +27,7 @@ const CreateAnActivityCom = () => {
       />
 
       <div>
-        <div className="">
+        <div className="capitalize">
           <Button
             onClick={() => setCreateAnActivityOpen(true)}
             type="primary"
@@ -36,6 +36,7 @@ const CreateAnActivityCom = () => {
               fontWeight: "500",
               fontSize: "17px",
               borderRadius: "10px !important",
+              textTransform: "capitalize",
             }}
           >
             <span>
@@ -44,7 +45,7 @@ const CreateAnActivityCom = () => {
                 style={{ color: `${ColorPalette?.colorPrimaryLight}` }}
               />
             </span>{" "}
-            Create an Activities
+            Create an Activity
           </Button>
         </div>
 

@@ -1,7 +1,17 @@
-import { redirect } from "next/navigation";
+import HomeCom from "@/components/home/HomeCom";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "HOME | LYD SOCIAL",
+  description: "Lyd social home page",
+};
 
 const HomePage = () => {
-  return redirect("/find-an-activities");
+  return (
+    <div>
+      <HomeCom />
+    </div>
+  );
 };
 
 export default HomePage;

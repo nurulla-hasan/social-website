@@ -8,7 +8,7 @@ import type { MenuProps } from "antd";
 import Link from "next/link";
 import { FaHandsClapping } from "react-icons/fa6";
 import { IoNotificationsOutline } from "react-icons/io5";
-import { LuSquarePlus } from "react-icons/lu";
+import { LuHeartHandshake, LuSquarePlus } from "react-icons/lu";
 import { PiCalendarStarBold } from "react-icons/pi";
 import { RiUserSearchLine } from "react-icons/ri";
 import { TbMessages } from "react-icons/tb";
@@ -45,6 +45,12 @@ const sidebarItems = () => {
       label: <Link href="/find-friends">Find Friends</Link>,
       key: `/find-friends`,
       icon: <RiUserSearchLine style={{ fontSize: "19px" }} />,
+    },
+
+    {
+      label: <Link href="/likes">Likes</Link>,
+      key: `/likes`,
+      icon: <LuHeartHandshake style={{ fontSize: "19px" }} />,
     },
     {
       label: <Link href="/messages">Messages</Link>,

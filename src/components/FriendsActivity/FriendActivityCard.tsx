@@ -31,10 +31,10 @@ const FriendActivityCard = ({ data }: any) => {
           }
         >
           <div>
-            <div className="text-lg font-semibold flex justify-between items-center">
+            <div className="text-lg font-semibold flex justify-between items-center ">
               <h3
                 style={{ color: `${ColorPalette?.colorTextPrimary}` }}
-                className="text-xl lg:text-2xl"
+                className="text-xl lg:text-2xl text-ellipsis overflow-hidden whitespace-nowrap"
               >
                 {data?.partyName}
               </h3>
@@ -47,7 +47,7 @@ const FriendActivityCard = ({ data }: any) => {
             </div>
             <h3
               style={{ color: `${ColorPalette?.colorTextLight}` }}
-              className="mt-1 text-md lg:text-lg"
+              className="mt-1 text-md lg:text-lg  text-ellipsis overflow-hidden whitespace-nowrap"
             >
               {data?.address?.length > 30
                 ? data?.address?.substring(0, 30) + "..."
@@ -70,7 +70,7 @@ const FriendActivityCard = ({ data }: any) => {
             </span>
           </div>
 
-          <div className="flex items-center justify-between gap-2 mt-3">
+          <div className="flex items-center justify-between gap-2 mt-7">
             <Link href={`/attendees`}>
               <Avatar.Group
                 max={{
@@ -100,7 +100,7 @@ const FriendActivityCard = ({ data }: any) => {
             <Button
               size="large"
               type="primary"
-              className="mt-3 bg-purple-600 hover:bg-purple-700"
+              className=" bg-purple-600 hover:bg-purple-700"
             >
               Attend
             </Button>
