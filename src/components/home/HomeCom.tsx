@@ -1,3 +1,5 @@
+"use client";
+
 import CardParent from "./homeTopData/CardParent";
 import NewAribal from "./newAribal/NewAribal";
 import PopularEvent from "./PopularData/CardParent";

@@ -21,7 +21,7 @@ const { Text } = Typography;
 const FilterForm = () => {
   const [form] = Form.useForm();
   const [distance, setDistance] = useState(2);
-  const [ageRange, setAgeRange] = useState([15, 17]);
+  const [ageRange, setAgeRange] = useState(17);
 
   const [isMobile, setIsMobile] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -150,49 +150,17 @@ const FilterForm = () => {
           </Form.Item>
         </div>
 
-        {/* age  */}
-        <div>
-          <Form.Item
-            style={{ background: "transparent" }}
-            name="age"
-            rules={[{ required: true, message: "Please select an activity" }]}
-          >
-            <Select
-              dropdownStyle={{
-                backgroundColor: "#1c1c1c",
-                color: "#fff",
-              }}
-              size="large"
-              placeholder="Select your age range"
-              className="w-full text-white create-activity-input-filter"
-            >
-              <Option value="0-3">0-3 years</Option>
-              <Option value="3-6">3-6 years</Option>
-              <Option value="6-9">6-9 years</Option>
-              <Option value="9-12">9-12 years</Option>
-              <Option value="12-15">12-15 years</Option>
-              <Option value="15-18">15-18 years</Option>
-              <Option value="18-21">18-21 years</Option>
-              <Option value="21-24">21-24 years</Option>
-              <Option value="24-27">24-27 years</Option>
-              <Option value="27-30">27-30 years</Option>
-              <Option value="30-33">30-33 years</Option>
-              <Option value="33-35">33-35 years</Option>
-            </Select>
-          </Form.Item>
-        </div>
-
         {/* Distance & Age Range */}
-        <div className="w-full mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 mt-6">
           {/* Distance/Miles */}
 
-          <div className="border p-4 rounded-lg">
+          <div className="border p-5 rounded-lg">
             <span className="text-white">Distance Range {distance} Miles</span>
             <div className="flex w-full items-center justify-between relative ">
-              <span className="absolute bottom-0 left-[0px] mt-7 ml-7 text-gray-500 font-semibold">
+              <span className="absolute bottom-[-15px] left-[-31px] mt-7 ml-7 text-gray-500 font-semibold">
                 0
               </span>
-              <span className="inline-block h-[50px] w-[1px]  bg-[#7DFF19] mr-[-5px]"></span>
+              <span className="inline-block h-[25px] w-[1px]  bg-[#7DFF19] mr-[-5px]"></span>
               {/* Distance Range {distance} Miles */}
               <Slider
                 min={0}
@@ -202,10 +170,33 @@ const FilterForm = () => {
                 styles={siderStyle}
                 style={{ width: "100%" }}
               />
-              <span className="absolute bottom-0 mt-7 mr-5 right-0 text-gray-500 font-semibold">
+              <span className="absolute bottom-[-15px] mt-7 mr-5 right-[-31px] text-gray-500 font-semibold">
                 100
               </span>
-              <span className="inline-block h-[50px] w-[1px] bg-[#7DFF19] ml-[-5px] "></span>
+              <span className="inline-block h-[25px] w-[1px]  bg-[#7DFF19] mr-[-5px]"></span>
+            </div>
+          </div>
+
+          <div className="border p-5 rounded-lg">
+            <span className="text-white">Age range {ageRange}</span>
+            <div className="flex w-full items-center justify-between relative ">
+              <span className="absolute bottom-[-15px] left-[-31px] mt-7 ml-7 text-gray-500 font-semibold">
+                13
+              </span>
+              <span className="inline-block h-[25px] w-[1px]  bg-[#7DFF19] mr-[-5px]"></span>
+              {/* Distance Range {distance} Miles */}
+              <Slider
+                min={13}
+                max={17}
+                value={ageRange}
+                onChange={(value) => setAgeRange(value)}
+                styles={siderStyle}
+                style={{ width: "100%" }}
+              />
+              <span className="absolute bottom-[-15px] mt-7 mr-5 right-[-31px] text-gray-500 font-semibold">
+                17
+              </span>
+              <span className="inline-block h-[25px] w-[1px] bg-[#7DFF19] ml-[-5px] "></span>
             </div>
           </div>
 
@@ -219,27 +210,14 @@ const FilterForm = () => {
                 13
               </span>
               <span className="inline-block h-[50px] w-[1px]  bg-[#7DFF19] mr-[-5px]"></span>
-          
+
               <Slider
                 styles={siderStyle}
                 range
                 min={13}
                 max={50}
                 value={ageRange}
-                onChange={(newRange) => {
-                  let [minAge, maxAge] = newRange;
-
-                  // Ensure max age is always within 3 years of min age
-                  if (maxAge - minAge > 3) {
-                    maxAge = minAge + 3;
-                  }
-
-                  if (minAge > maxAge - 3) {
-                    minAge = maxAge - 3;
-                  }
-
-                  setAgeRange([minAge, maxAge]);
-                }}
+                onChange={(value) => setAgeRange(value)}
                 style={{ width: "100%" }}
               />
 
