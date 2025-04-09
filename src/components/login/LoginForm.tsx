@@ -1,22 +1,30 @@
 "use client";
 
 import { ColorPalette } from "@/theme/themes";
+import { fetcher } from "@/utils/fetcher";
 import { Button, Checkbox, Divider, Form, Input, Typography } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaInstagram } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import Cookies from "js-cookie";
 
 const { Title, Text } = Typography;
 
 const LoginForm = () => {
   const router = useRouter();
 
-  const onFinish = (values: { email: string; password: string }) => {
-    console.log("Success:", values);
+  const onFinish = async (values: { email: string; password: string }) => {
+    try {
+      const response = await fetcher("/auth/login", {
+        method: "POST",
+        body: values,
+      });
 
-    if (values.email) {
+      Cookies.set("token", response?.data?.accessToken);
       router.push("/auth/profile");
+    } catch (error) {
+      console.error("Login error:", error);
     }
   };
 

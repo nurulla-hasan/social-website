@@ -5,22 +5,23 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const token = request.cookies.get("token")?.value;
 
-  // Allow all /auth/* routes (public)
-  if (pathname.startsWith("/auth")) {
-    return NextResponse.next();
+  const isAuthPage =
+    pathname.startsWith("/auth/login") || pathname.startsWith("/auth/sign-up");
+
+  if (isAuthPage && token) {
+    // Authenticated users shouldn't access login/signup
+    return NextResponse.redirect(new URL("/home", request.url));
   }
 
-  // If not authenticated, redirect to login
-  if (!token) {
+  if (!token && !isAuthPage) {
+    // Unauthenticated users trying to access protected routes
     return NextResponse.redirect(new URL("/auth/login", request.url));
   }
 
-  // If token exists, allow access
+  // Otherwise, allow the request
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next/static|assets|_next/image|favicon.ico|auth).*)",
-  ],
+  matcher: ["/((?!_next/static|assets|_next/image|favicon.ico).*)"],
 };

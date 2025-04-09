@@ -10,6 +10,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import "./Menu.css";
 import sidebarItems from "./SidebarItems";
+import Cookies from "js-cookie";
+import { useRouter } from "next/navigation";
 
 const { Sider } = Layout;
 
@@ -22,6 +24,7 @@ const Sidebar = ({
   const [isMobile, setIsMobile] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [LogOutOpen, setLogOutOpen] = useState<boolean>(false);
+  const router = useRouter();
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -38,13 +41,16 @@ const Sidebar = ({
     };
   }, []);
 
+  const handleLogout = () => {
+    setLogOutOpen(false);
+    Cookies.remove("token");
+    router.push("/auth/login");
+  };
   return (
     <>
       <LogOutModal
         isOpen={LogOutOpen}
-        onConfirm={() => {
-          setLogOutOpen(false);
-        }}
+        onConfirm={handleLogout}
         onCancel={() => setLogOutOpen(false)}
       />
 
