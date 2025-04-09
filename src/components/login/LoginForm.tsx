@@ -2,7 +2,15 @@
 
 import { ColorPalette } from "@/theme/themes";
 import { fetcher } from "@/utils/fetcher";
-import { Button, Checkbox, Divider, Form, Input, Typography } from "antd";
+import {
+  Button,
+  Checkbox,
+  Divider,
+  Form,
+  Input,
+  message,
+  Typography,
+} from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaInstagram } from "react-icons/fa";
@@ -13,6 +21,7 @@ const { Title, Text } = Typography;
 
 const LoginForm = () => {
   const router = useRouter();
+  const [messageApi, contextHolder] = message.useMessage();
 
   const onFinish = async (values: { email: string; password: string }) => {
     try {
@@ -22,14 +31,21 @@ const LoginForm = () => {
       });
 
       Cookies.set("token", response?.data?.accessToken);
-      router.push("/auth/profile");
+      messageApi.success("Login successful!").then(() => {
+        router.push("/auth/profile");
+      });
     } catch (error) {
       console.error("Login error:", error);
+      messageApi.error(
+        (error as any)?.message ||
+          "Login failed. Please check your credentials."
+      );
     }
   };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
+      {contextHolder}
       <div className="w-full lg:w-[500px] p-6 rounded-lg">
         <Title
           level={2}

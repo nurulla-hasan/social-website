@@ -1,23 +1,41 @@
 "use client";
 
 import { ColorPalette } from "@/theme/themes";
-import { Button, Form, Input, Typography } from "antd";
+import { fetcher } from "@/utils/fetcher";
+import { Button, Form, Input, message, Typography } from "antd";
 import { useRouter } from "next/navigation";
 
 const { Title, Text } = Typography;
 
 const ForgotPasswordForm = () => {
   const router = useRouter();
-  const onFinish = (values: { email: string }) => {
-    console.log("Success:", values);
 
-    if (values.email) {
-      router.push("/auth/login/otp-verify/");
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const onFinish = async (values: { email: string }) => {
+    try {
+      await fetcher("/auth/recovery", {
+        method: "POST",
+        body: values,
+      });
+
+      router.push(`/auth/login/otp-verify?email=${values.email}`);
+      messageApi.open({
+        type: "success",
+        content: "Verification code sent to your email.",
+      });
+    } catch (error) {
+      console.log("Forgot Password Error:", error);
+      messageApi.open({
+        type: "error",
+        content:
+          (error as any)?.message || "An error occurred. Please try again.",
+      });
     }
   };
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
+      {contextHolder}
       <div className="w-full lg:w-[500px] p-6 rounded-lg">
         <Title
           level={2}

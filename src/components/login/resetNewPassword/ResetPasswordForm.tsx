@@ -1,8 +1,9 @@
 "use client";
 
 import { ColorPalette } from "@/theme/themes";
+import { fetcher } from "@/utils/fetcher";
 import { Button, Form, Input, message, Typography } from "antd";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const { Title, Text } = Typography;
 
@@ -13,17 +14,29 @@ type IProps = {
 
 const ResetPasswordForm = () => {
   const router = useRouter();
-  const onFinish = (values: IProps) => {
-    console.log("Success:", values);
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email");
 
-    if (values.password && values.confirmPassword) {
-      message.success("Your password reset successfully done.");
-      router.push("/auth/login/");
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const onFinish = async (values: IProps) => {
+    try {
+      await fetcher("/auth/reset-password", {
+        method: "POST",
+        body: { ...values, email },
+      });
+      messageApi.success("Your password reset successfully done.").then(() => {
+        router.push("/auth/login/");
+      });
+    } catch (error) {
+      console.log(error);
+      messageApi.error("An error occurred while resetting your password.");
     }
   };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-black text-white">
+      {contextHolder}
       <div className="w-full lg:w-[500px] p-6 rounded-lg">
         <Title
           level={2}

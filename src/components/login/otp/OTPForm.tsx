@@ -1,33 +1,64 @@
 "use client";
 
 import { ColorPalette } from "@/theme/themes";
-import { Button, Form, Input, Typography } from "antd";
-import { OTPProps } from "antd/es/input/OTP";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { fetcher } from "@/utils/fetcher";
+import { Button, Form, Input, message, Typography } from "antd";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const { Title, Text } = Typography;
 
 const OTPForm = () => {
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email");
+  const [messageApi, contextHolder] = message.useMessage();
   const router = useRouter();
-  const onFinish = (values: { otp: string }) => {
-    console.log("OTP Submitted:", values);
-
-    if (values.otp) {
-      router.push("/auth/login/reset-new-password/");
+  const onFinish = async (values: { otp: string }) => {
+    try {
+      await fetcher("/auth/recovery-verification", {
+        method: "POST",
+        body: { ...values, email },
+      });
+      messageApi
+        .open({
+          type: "success",
+          content: "OTP verified successfully.",
+        })
+        .then(() => {
+          router.push(`/auth/login/reset-new-password?email=${email}`);
+        });
+    } catch (error) {
+      console.log("OTP Verification Error:", error);
+      messageApi.open({
+        type: "error",
+        content:
+          (error as any)?.message || "An error occurred. Please try again.",
+      });
     }
   };
 
-  const onChange: OTPProps["onChange"] = (text) => {
-    console.log("onChange:", text);
+  const handleResendOTP = async () => {
+    try {
+      await fetcher("/auth/resend-otp", {
+        method: "POST",
+        body: { email, status: "recovery" },
+      });
+      messageApi.open({
+        type: "success",
+        content: "Verification code resent to your email.",
+      });
+    } catch (error) {
+      console.log("Resend OTP Error:", error);
+      messageApi.open({
+        type: "error",
+        content:
+          (error as any)?.message || "An error occurred. Please try again.",
+      });
+    }
   };
-
-  const sharedProps: OTPProps = {
-    onChange,
-  };
-
   return (
     <div className="flex min-h-screen items-center justify-center">
+      {contextHolder}
+      {/* OTP Form Container */}
       <div className="w-full max-w-md  p-8 rounded-lg shadow-lg flex items-center justify-center flex-col">
         {/* Title */}
 
@@ -52,7 +83,7 @@ const OTPForm = () => {
           className="block text-center text-gray-800 font-semibold mb-6"
           style={{ color: `${ColorPalette?.colorTextPrimary}` }}
         >
-          robert56@gmail.com
+          {email}
         </Text>
 
         {/* OTP Input Form */}
@@ -68,7 +99,6 @@ const OTPForm = () => {
             <Input.OTP
               length={6} // Set the length of the OTP (6 digits)
               formatter={(str) => str.toUpperCase()} // Optional: Format the input
-              {...sharedProps}
               className="w-full justify-center"
               style={{ outline: "none", border: "transparent" }}
             />
@@ -94,13 +124,13 @@ const OTPForm = () => {
             style={{ color: `${ColorPalette?.colorTextPrimary}` }}
           >
             Didn't receive the OTP?{" "}
-            <Link
-              href="#"
+            <button
+              onClick={handleResendOTP}
               className="text-purple-500 hover:underline"
               style={{ color: `${ColorPalette?.colorPrimary}` }}
             >
               Resend OTP
-            </Link>
+            </button>
           </Text>
         </div>
       </div>
