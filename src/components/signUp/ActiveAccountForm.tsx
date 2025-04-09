@@ -1,27 +1,64 @@
 "use client";
 
 import { ColorPalette } from "@/theme/themes";
-import { Button, Form, Input, Typography } from "antd";
+import { fetcher } from "@/utils/fetcher";
+import { Button, Form, Input, message, Typography } from "antd";
 import { OTPProps } from "antd/es/input/OTP";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const { Title, Text } = Typography;
 
 const ActiveAccountForm = () => {
-  const onFinish = (values: string) => {
-    console.log("OTP Submitted:", values);
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email");
+  const router = useRouter();
+  const [messageApi, contextHolder] = message.useMessage();
+
+  useEffect(() => {
+    if (!email) {
+      router.push("/auth/sign-up");
+    }
+  }, [email]);
+
+  const onFinish = async (values: { otp: string }) => {
+    try {
+      await fetcher("/auth/activate", {
+        method: "POST",
+        body: {
+          email: email,
+          otp: values.otp,
+        },
+      });
+
+      messageApi.success("Account activated successfully!");
+      router.push("/auth/login");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const onChange: OTPProps["onChange"] = (text) => {
-    console.log("onChange:", text);
-  };
+  const handleResendOTP = async () => {
+    try {
+      await fetcher("/auth/resend-otp", {
+        method: "POST",
+        body: { email: email, status: "activate" },
+      });
 
-  const sharedProps: OTPProps = {
-    onChange,
+      messageApi.success(
+        "A new OTP has been sent to your email. Please check your inbox."
+      );
+    } catch (error) {
+      console.log(error);
+      messageApi.error(
+        error instanceof Error ? error.message : "Failed to resend OTP"
+      );
+    }
   };
-
   return (
     <div className="flex min-h-screen items-center justify-center">
+      {contextHolder}
       <div className="w-full max-w-md  p-8 rounded-lg shadow-lg flex items-center justify-center flex-col">
         {/* Title */}
 
@@ -46,7 +83,7 @@ const ActiveAccountForm = () => {
           className="block text-center text-gray-800 font-semibold mb-6"
           style={{ color: `${ColorPalette?.colorTextPrimary}` }}
         >
-          robert56@gmail.com
+          {email}
         </Text>
 
         {/* OTP Input Form */}
@@ -62,7 +99,6 @@ const ActiveAccountForm = () => {
             <Input.OTP
               length={6} // Set the length of the OTP (6 digits)
               formatter={(str) => str.toUpperCase()} // Optional: Format the input
-              {...sharedProps}
               className="w-full justify-center"
               style={{ outline: "none", border: "transparent" }}
             />
@@ -88,13 +124,13 @@ const ActiveAccountForm = () => {
             style={{ color: `${ColorPalette?.colorTextPrimary}` }}
           >
             Didn't receive the OTP?{" "}
-            <Link
-              href="#"
+            <button
+              onClick={handleResendOTP}
               className="text-purple-500 hover:underline"
               style={{ color: `${ColorPalette?.colorPrimary}` }}
             >
               Resend OTP
-            </Link>
+            </button>
           </Text>
         </div>
       </div>

@@ -1,14 +1,28 @@
 "use client";
 
 import { ColorPalette } from "@/theme/themes";
+import { fetcher } from "@/utils/fetcher";
 import { Button, Checkbox, Form, Input, Typography } from "antd";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const { Title, Text } = Typography;
 
 const SignUpForm = () => {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  const router = useRouter();
+
+  const onFinish = async (values: any) => {
+    try {
+      const response = await fetcher("/auth/register", {
+        method: "POST",
+        body: values,
+      });
+      if (response) {
+        router.push(`/auth/sign-up/verify-account?email=${values.email}`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -46,7 +60,7 @@ const SignUpForm = () => {
           {/* Mobile number Field */}
           <Form.Item
             label={<span className="text-white">Mobile number</span>}
-            name="mobile"
+            name="mobileNumber"
             rules={[{ required: true, message: "Please enter your number" }]}
           >
             <Input
